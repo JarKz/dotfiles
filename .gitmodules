@@ -1,0 +1,15 @@
+[submodule "share/java_extensions/eclipse.jdt.ls"]
+	path = share/java_extensions/eclipse.jdt.ls
+	url = git@github.com:eclipse/eclipse.jdt.ls.git
+[submodule "share/java_extensions/java-debug"]
+	path = share/java_extensions/java-debug
+	url = git@github.com:microsoft/java-debug.git
+[submodule "share/java_extensions/vscode-java-test"]
+	path = share/java_extensions/vscode-java-test
+	url = git@github.com:microsoft/vscode-java-test.git
+[submodule "config/oh-my-zsh"]
+	path = config/oh-my-zsh
+	url = git@github.com:ohmyzsh/ohmyzsh.git
+[submodule "config/tmux/plugins/tpm"]
+	path = config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm

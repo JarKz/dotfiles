@@ -1,0 +1,17 @@
+nmap <S-l> <Action>(EditorIndentLineOrSelection)
+vmap <S-l> <Action>(EditorIndentLineOrSelection)
+
+nmap <S-h> <Action>(EditorUnindentSelection)
+vmap <S-h> <Action>(EditorUnindentSelection)
+
+nmap <S-j> <Action>(MoveStatementDown)
+vmap <S-j> <Action>(MoveStatementDown)
+nmap <S-k> <Action>(MoveStatementUp)
+vmap <S-k> <Action>(MoveStatementUp)
+
+nmap <C-j> <Action>(EditorDuplicate)
+vmap <C-j> <Action>(EditorDuplicate)
+nmap <C-k> <Action>(EditorDuplicate)<Action>(MoveStatementUp)
+vmap <C-k> <Action>(EditorDuplicate)<Action>(MoveStatementUp)
+
+nmap <C-d> <Action>(QuickJavaDoc)

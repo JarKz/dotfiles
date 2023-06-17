@@ -1,0 +1,17 @@
+config/wakatime
+
+/share/nvim
+/share/tmux
+/share/vsc_extensions
+
+/cache/
+
+/npm-packages
+/yarn-global
+
+/state
+
+zhistory
+
+*.log
+*log.*

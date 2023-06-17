@@ -1,0 +1,6 @@
+require("ls.fidget-config")
+require("ls.mason-lsp-config")
+require("ls.null-ls-config")
+require("ls.dap.init-dap")
+require("ls.config")
+require("ls.lsp-highlight-config")
