@@ -460,3 +460,5 @@ set -g @continuum-restore 'on'
 set -g default-terminal "xterm-256color"
 bind -n S-Enter send-keys Escape "[13;2u"
 set mouse
+set -g bell-action none
+set -g visual-bell off

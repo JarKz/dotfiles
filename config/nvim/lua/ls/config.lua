@@ -16,7 +16,8 @@ local servers = {
 	"tsserver",
 	"cssls",
 	"html",
-	"bashls"
+	"bashls",
+	"rust_analyzer"
 }
 for _, server in ipairs(servers) do
 	lspconfig[server].setup({})

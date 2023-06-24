@@ -43,7 +43,7 @@ local on_attach = function(client, bufnr)
 
 	require("lspkind").init()
 
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	-- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	local mapping_options = {
 		mode = "n",
@@ -166,7 +166,7 @@ capabilities.textDocument.foldingRange = {
 
 -- local workspace_folder = home .. "/.workspace" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_folder = home .. "/Documents/Coding/java_projects/AllProjects/" .. project_name
+local workspace_folder = home .. "/Documents/Coding/javaProjects/AllProjects/" .. project_name
 local config = {
 	flags = {
 		allow_incremental_sync = true,
