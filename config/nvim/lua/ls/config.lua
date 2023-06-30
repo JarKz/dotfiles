@@ -115,6 +115,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				d = { vim.lsp.buf.definition, "Definition" },
 			},
 			["<C-k>"] = { vim.lsp.buf.signature_help, "Signature help" },
+			["<leader>"] = {
+				name = "Leader functions",
+				R = { vim.lsp.buf.references , "References" },
+				I = { vim.lsp.buf.implementation, "Implementations" }
+			}
 		}
 		wk.register(lsp_mapping, lsp_mapping_options)
 	end,

@@ -59,6 +59,9 @@ require("lazy").setup({
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("window-plugins.trouble")
+		end
 	},
 
 	-- DAP
@@ -275,6 +278,20 @@ require("lazy").setup({
 		config = function()
 			require("additional-functionality.spider")
 		end,
+	},
+
+	-- GIT
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require('gitsigns').setup()
+		end
+	},
+	{
+		"wintermute-cell/gitignore.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+		},
 	},
 
 	-- Pretty folding
