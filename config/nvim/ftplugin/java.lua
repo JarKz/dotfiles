@@ -150,7 +150,9 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_create_autocmd({ "CursorMoved" }, {
 		group = lsp_document_highlight_group,
 		buffer = 0,
-		callback = vim.lsp.buf.clear_references,
+		callback = function()
+			vim.lsp.buf.clear_references(0)
+		end,
 	})
 end
 
