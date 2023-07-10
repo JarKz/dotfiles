@@ -17,7 +17,8 @@ local servers = {
 	"cssls",
 	"html",
 	"bashls",
-	"rust_analyzer"
+	"rust_analyzer",
+	"kotlin_language_server"
 }
 for _, server in ipairs(servers) do
 	lspconfig[server].setup({})

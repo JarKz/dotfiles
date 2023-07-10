@@ -5,7 +5,7 @@ autosave.setup({
 	execution_message = {
 		message = function()
 			local msg = "* Saved at " .. vim.fn.strftime("%H:%M:%S")
-			vim.notify(msg, vim.log.levels.INFO, { timeout = 200 })
+			vim.notify(msg, vim.log.levels.INFO, { timeout = 50 })
 			return ""
 		end,
 		dim = 0.18, -- dim the color of `message`

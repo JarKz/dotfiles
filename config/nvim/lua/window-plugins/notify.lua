@@ -8,6 +8,7 @@ notify.setup({
 		end
 		return "NotifyBackground"
 	end,
+	timeout = 50,
 })
 
 vim.notify = notify

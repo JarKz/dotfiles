@@ -40,6 +40,7 @@ require("fidget").setup({
 local on_attach = function(client, bufnr)
 	require("jdtls.setup").add_commands()
 	jdtls.setup_dap({ hotcodereplace = "auto" })
+	jdtls.jol_path = ""
 
 	require("lspkind").init()
 
