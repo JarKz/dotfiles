@@ -120,6 +120,9 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="$XDG_CONFIG_HOME/yarn/bin:$XDG_CONFIG_HOME/yarn/global/node_modules/.bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$DOTFILES/npm-packages/bin:$PATH"
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+
+export GPG_TTY=$(tty)
 
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"

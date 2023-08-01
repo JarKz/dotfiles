@@ -45,12 +45,6 @@ require("lazy").setup({
 			require("ls.highlights")
 		end,
 	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("ls.null-ls")
-		end,
-	},
 
 	-- Extensions for lsp
 	{ "mfussenegger/nvim-jdtls" },
@@ -119,19 +113,6 @@ require("lazy").setup({
 	},
 
 	-- WINDOW PLUGINS
-	-- Telescope for finding something
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-project.nvim",
-			"nvim-telescope/telescope-fzy-native.nvim",
-		},
-		config = function()
-			require("window-plugins.telescope")
-		end,
-	},
-
 	-- FZF
 	{
 		"ibhagwan/fzf-lua",
@@ -268,13 +249,26 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"wintermute-cell/gitignore.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-		},
+		"JarKz/gitignore.nvim",
+		config = function()
+			require("window-plugins.gitignore")
+		end,
 	},
 	{
-		"chrisgrieser/nvim-spider",
+		-- "chrisgrieser/nvim-spider",
+		"JarKz/nvim-spider-utf8",
+		branch = "utf8supportdev",
+		dependencies = {
+			{
+				"theHamsta/nvim_rocks",
+				event = "VeryLazy",
+				build = "pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua",
+				config = function()
+					local rocks = require("nvim_rocks")
+					rocks.ensure_installed("luautf8")
+				end,
+			},
+		},
 		config = function()
 			require("additional-functionality.spider")
 		end,
@@ -284,14 +278,8 @@ require("lazy").setup({
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
-			require('gitsigns').setup()
-		end
-	},
-	{
-		"wintermute-cell/gitignore.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-		},
+			require("gitsigns").setup()
+		end,
 	},
 
 	-- Pretty folding

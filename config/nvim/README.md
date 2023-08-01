@@ -8,7 +8,7 @@ Here's below list of plugins that I use and description of why I use it. You als
 
 ## First start
 
-You will do nothing in first start because Lazy.nvim do all things for you. After first run, close editor and run again for loading external functions.
+You will do nothing in first start because Lazy.nvim do all things for you. After first run close editor and run again for loading additional functions.
 
 ## List of plugins
 
@@ -66,15 +66,6 @@ You will do nothing in first start because Lazy.nvim do all things for you. Afte
   - autotag in html
 * `windwp/nvim-autopairs`,
   - autopairs the parentheses, braces and brackets
-* `nvim-telescope/telescope.nvim`
-  - useful plugin for find some files, helps or commands and etc.
-  - it's not main plugin for find something, because I use native fzf that described below
-  - I keep it for beautiful UI for some plugins and for one plugin below
-* `nvim-telescope/telescope-project.nvim`
-  - useful for autosaving projects
-  - I use it for displaying in dashboard
-* `nvim-telescope/telescope-fzy-native.nvim`
-  - speed up displaying variants of choose
 * `ibhagwan/fzf-lua`
   - useful plugin for find some files, helps or commands and etc. that based on fzf command
   - it's my main plugin because it faster
@@ -112,9 +103,14 @@ You will do nothing in first start because Lazy.nvim do all things for you. Afte
   - useful for non-native english users
 * `wintermute-cell/gitignore.nvim`
   - makes gitignore file by some patterns
+  - this plugin use only telescope and I don't like it, therefore I've maked fork:
+    - `JarKz/gitignore.nvim`
+      - supports contract with templates and friendly with any pickers like telescope, fzf...
 * `chrisgrieser/nvim-spider`
   - remaps default nvim keys: w, b, e...
   - **important** [by issue](https://github.com/chrisgrieser/nvim-spider/issues/14) plugin works only with ACSII symbols and it may be annoying if you also works with non-ASCII text
+    - `JarKz/nvim-spider-utf8`
+      - my forked plugin with support UTF-8, which well works
 * `lewis6991/gitsigns.nvim`
   - show git signs left of code
   - useful when you works with git and understand what is changes
@@ -124,7 +120,7 @@ You will do nothing in first start because Lazy.nvim do all things for you. Afte
 * `roobert/search-replace.nvim`
   - replacing something by pattern
   - useful when, even if you using DRY code, your code have some weird or worst naming then you can replace it by pattern
-  - but maintainer not upgrading this plugin by addin similar changes and I will fork it:
+  - but maintainer not upgrading this plugin by addin similar changes and I made fork it:
     - `JarKz/search-replace-additional-configuration.nvim`
       - contains two patterns: "range" ([read more here](https://neovim.io/doc/user/usr_10.html#10.3)) and part of regex pattern like global, insensitive...
 * `nvim-treesitter/nvim-treesitter`
@@ -142,5 +138,6 @@ Make an issue with detailed explains what neovim does and I will response if fou
 
 If you found something that clean code or improve configuration then make PR :)
 
-# License
+## License
+
   [MIT](https://github.com/JarKz/dotfiles/blob/main/LICENSE)

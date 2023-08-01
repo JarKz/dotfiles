@@ -1,14 +1,3 @@
-local function get_max_length(tbl)
-	local max = -1
-	for _, value in ipairs(tbl) do
-		local current_lenth = string.len(value.ordinal)
-		if max < current_lenth then
-			max = current_lenth
-		end
-	end
-	return max
-end
-
 require("dressing").setup({
 	input = {
 		-- Set to false to disable the vim.ui.input implementation
@@ -21,8 +10,6 @@ require("dressing").setup({
 		insert_only = false,
 		-- When true, input will start in insert mode.
 		start_in_insert = true,
-		-- These are passed to nvim_open_win
-		anchor = "SW",
 		border = require("window-plugins.window-config").border,
 		-- 'editor' and 'win' will default to being centered, and 'cursor'
 		relative = "editor",
@@ -54,6 +41,7 @@ require("dressing").setup({
 			},
 		},
 		override = function(conf)
+			conf.anchor = "SW"
 			-- This is the config that will be passed to nvim_open_win.
 			-- Change values here to customize the layout
 			return conf
@@ -65,24 +53,15 @@ require("dressing").setup({
 		-- Set to false to disable the vim.ui.select implementation
 		enabled = true,
 		-- Priority list of preferred vim.select implementations
-		backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
+		backend = { "fzf_lua", "fzf", "builtin", "nui" },
 		-- Trim trailing `:` from prompt
 		trim_prompt = true,
-		telescope = require("telescope.themes").get_dropdown({
-			layout_config = {
-				-- second param as max_columns, third – max_lines
-				width = function(_self, _, _)
-					local max = get_max_length(_self.finder.results)
-					if max > 120 then
-						return 180
-					end
-					if max > 70 then
-						return 120
-					end
-					return 70
-				end,
-			},
-		}),
+		fzf_lua = {
+			winopts = {
+				width = 0.4,
+				height = 0.3,
+			}
+		},
 		-- Used to override format_item. See :help dressing-format
 		format_item_override = {},
 		-- see :help dressing_get_config

@@ -1,5 +1,6 @@
 local lspconfig = require("lspconfig")
 local lsp_defaults = lspconfig.util.default_config
+local fzf = require("fzf-lua")
 
 lsp_defaults.capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
@@ -24,6 +25,8 @@ for _, server in ipairs(servers) do
 	lspconfig[server].setup({})
 end
 
+require("ls.efm").setup()
+
 local mapping_options = {
 	mode = "n",
 	prefix = "",
@@ -45,7 +48,7 @@ local mapping = {
 		d = { vim.diagnostic.goto_next, "Next diagnostic" },
 	},
 	["["] = {
-		d = { vim.diagnostic.goto_Prev, "Previous diagnostic" },
+		d = { vim.diagnostic.goto_prev, "Previous diagnostic" },
 	},
 }
 
@@ -118,9 +121,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			["<C-k>"] = { vim.lsp.buf.signature_help, "Signature help" },
 			["<leader>"] = {
 				name = "Leader functions",
-				R = { vim.lsp.buf.references , "References" },
-				I = { vim.lsp.buf.implementation, "Implementations" }
-			}
+				R = { fzf.lsp_references, "References" },
+				I = { fzf.lsp_implementations, "Implementations" },
+			},
 		}
 		wk.register(lsp_mapping, lsp_mapping_options)
 	end,
