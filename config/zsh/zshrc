@@ -23,14 +23,14 @@ export SAVEHIST=10000
 
 # Path to your oh-my-zsh installation.
 export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
+export ZSHRC_PATH="$XDG_CONFIG_HOME/zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# ZSH_THEME="uysal"
-ZSH_THEME="passion"
+# ZSH_THEME="passion"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -95,11 +95,7 @@ ZSH_THEME="passion"
 plugins=(git gh gradle brew)
 
 source "$ZSH/oh-my-zsh.sh"
-
-# For k8s
-alias k="kubectl"
-source <(kubectl completion zsh)
-source <(kubectl completion zsh | sed s/kubectl/k/g)
+source "$ZSHRC_PATH/themes/passion.zsh-theme"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -112,6 +108,19 @@ export LANG=en_US.UTF-8
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+
+# For k8s
+alias k="kubectl"
+source <(kubectl completion zsh)
+source <(kubectl completion zsh | sed s/kubectl/k/g)
+
+# For java development
+alias google-java-format="/Users/jarkz/dotfiles/share/nvim/mason/bin/google-java-format"
+
+for script in "$XDG_DATA_HOME/bash-scripts"/*
+do
+  alias ${script:t:r}="sh ${script}"
+done
 
 set -o vi
 

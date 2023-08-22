@@ -4,7 +4,7 @@ version: 2
 # linter,formatter setting
 tools:
   google-java-format: &google-java-format
-    format-command: "google-java-format ${INPUT}"
+    format-command: "google-java-format -"
     format-stdin: true
 
   cppcheck-lint: &cppcheck-lint

@@ -27,7 +27,11 @@ require("lazy").setup({
 	-- LSP
 	{
 		"williamboman/mason.nvim",
-		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+		-- build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+    build = function(lazy_plugin)
+      vim.cmd("MasonUpdate")
+      vim.cmd("MasonInstall gopls eslint_d vale bash-language-server css-lsp efm fixjson google-java-format gradle-language-server groovy-language-server html-lsp htmlbeautifier java-debug-adapter java-language-server jq jsonlint kotlin-language-server lua-language-server markdownlint prettier rust-analyzer shellcheck shfmt stylelint-lsp typescript-language-server yamllint")
+    end,
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 			config = function()
@@ -156,13 +160,6 @@ require("lazy").setup({
 		end,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
-	-- {
-	-- 	"glepnir/dbsession.nvim",
-	-- 	cmd = { "SessionSave", "SessionDelete", "SessionLoad" },
-	-- 	config = function()
-	-- 		require("dbsession").setup({})
-	-- 	end,
-	-- },
 
 	-- Change default vim.notify
 	{
@@ -250,6 +247,7 @@ require("lazy").setup({
 	},
 	{
 		"JarKz/gitignore.nvim",
+    branch = "dev",
 		config = function()
 			require("window-plugins.gitignore")
 		end,
@@ -262,7 +260,7 @@ require("lazy").setup({
 			{
 				"theHamsta/nvim_rocks",
 				event = "VeryLazy",
-				build = "pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua",
+				build = "pip3 install --user hererocks && python3 -m hererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua",
 				config = function()
 					local rocks = require("nvim_rocks")
 					rocks.ensure_installed("luautf8")

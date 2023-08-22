@@ -19,7 +19,7 @@ local servers = {
 	"html",
 	"bashls",
 	"rust_analyzer",
-	"kotlin_language_server"
+	"kotlin_language_server",
 }
 for _, server in ipairs(servers) do
 	lspconfig[server].setup({})

@@ -11,13 +11,13 @@ db.setup({
 			{
 				desc = " Update",
 				group = "@property",
-				action = "PackerUpdate",
+				action = "Lazy update",
 				key = "u",
 			},
 			{
-				desc = " Compile",
+				desc = " Sync",
 				group = "@property",
-				action = "PackerCompile",
+				action = "Lazy sync",
 				key = "c",
 			},
 			{
@@ -25,14 +25,8 @@ db.setup({
 				icon_hl = "@variable",
 				desc = "Files",
 				group = "Label",
-				action = 'lua require("fzf-lua").files()',
+				action = require("fzf-lua").files,
 				key = "f",
-			},
-			{
-				desc = " Projects",
-				group = "ProjectTitle",
-				action = "Telescope project",
-				key = "p",
 			},
 		},
 		project = {
