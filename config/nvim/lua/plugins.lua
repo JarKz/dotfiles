@@ -21,7 +21,6 @@ require("lazy").setup({
   },
   -- using macos keymap instead qwerty
   { "shvechikov/vim-keymap-russian-jcukenmac" },
-  { "wakatime/vim-wakatime" },
   { "nvim-lua/plenary.nvim" },
 
   -- LSP
@@ -31,7 +30,7 @@ require("lazy").setup({
     build = function(lazy_plugin)
       vim.cmd("MasonUpdate")
       vim.cmd(
-      "MasonInstall gopls eslint_d vale bash-language-server css-lsp efm fixjson google-java-format gradle-language-server groovy-language-server html-lsp htmlbeautifier java-debug-adapter java-language-server jq jsonlint kotlin-language-server lua-language-server markdownlint prettier rust-analyzer shellcheck shfmt stylelint-lsp typescript-language-server yamllint")
+      "MasonInstall gopls eslint_d vale bash-language-server css-lsp efm fixjson google-java-format gradle-language-server groovy-language-server html-lsp htmlbeautifier java-debug-adapter jq jsonlint kotlin-language-server lua-language-server markdownlint prettier rust-analyzer shellcheck shfmt stylelint-lsp typescript-language-server yamllint")
     end,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",

@@ -1,5 +1,4 @@
 local home = os.getenv("HOME")
-local xdg_config = os.getenv("XDG_CONFIG_HOME")
 local java_ext = os.getenv("JAVA_EXTENSIONS")
 
 local jdtls = require("jdtls")
@@ -227,21 +226,21 @@ config.settings = {
     configuration = {
       runtimes = {
         {
-          name = "JavaSE-20",
-          path = "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home",
+          name = "JavaSE-17",
+          path = os.getenv("JAVA_HOME"),
           default = true,
         },
         {
-          name = "JavaSE-19",
-          path = home .. "/Library/Java/JavaVirtualMachines/openjdk-19.0.2/Contents/Home",
-        },
-        {
-          name = "JavaSE-17",
-          path = "/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home",
+          name = "JavaSE-20",
+          path = os.getenv("JAVA_LASTEST_HOME"),
         },
         {
           name = "JavaSE-11",
-          path = "/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home",
+          path = os.getenv("JAVA_11_HOME"),
+        },
+        {
+          name = "JavaSE-1.8",
+          path = os.getenv("JAVA_8_HOME"),
         },
       },
     },
@@ -249,7 +248,7 @@ config.settings = {
 }
 
 config.cmd = {
-  "/opt/homebrew/opt/openjdk/bin/java",
+  os.getenv("JAVA_HOME") .. "/bin/java",
   "-Declipse.application=org.eclipse.jdt.ls.core.id1",
   "-Dosgi.bundles.defaultStartLevel=4",
   "-Declipse.product=org.eclipse.jdt.ls.core.product",
