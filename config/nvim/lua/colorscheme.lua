@@ -1,10 +1,10 @@
 local styles = {
-	"default",
-	"atlantis",
-	"andromeda",
-	"shusia",
-	"maia",
-	"espresso"
+  "default",
+  "atlantis",
+  "andromeda",
+  "shusia",
+  "maia",
+  "espresso"
 }
 
 math.randomseed(os.time())

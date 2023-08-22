@@ -1,43 +1,43 @@
 local db = require("dashboard")
 --
 db.setup({
-	theme = "hyper",
-	change_to_vcs_root = true,
-	config = {
-		week_header = {
-			enable = true,
-		},
-		shortcut = {
-			{
-				desc = " Update",
-				group = "@property",
-				action = "Lazy update",
-				key = "u",
-			},
-			{
-				desc = " Sync",
-				group = "@property",
-				action = "Lazy sync",
-				key = "c",
-			},
-			{
-				icon = " ",
-				icon_hl = "@variable",
-				desc = "Files",
-				group = "Label",
-				action = require("fzf-lua").files,
-				key = "f",
-			},
-		},
-		project = {
-			enable = true,
-			action = function(path)
-				vim.cmd.cd(path)
-				require("fzf-lua").files()
-			end,
-		},
-		mru = {},
-	},
+  theme = "hyper",
+  change_to_vcs_root = true,
+  config = {
+    week_header = {
+      enable = true,
+    },
+    shortcut = {
+      {
+        desc = " Update",
+        group = "@property",
+        action = "Lazy update",
+        key = "u",
+      },
+      {
+        desc = " Sync",
+        group = "@property",
+        action = "Lazy sync",
+        key = "c",
+      },
+      {
+        icon = " ",
+        icon_hl = "@variable",
+        desc = "Files",
+        group = "Label",
+        action = require("fzf-lua").files,
+        key = "f",
+      },
+    },
+    project = {
+      enable = true,
+      action = function(path)
+        vim.cmd.cd(path)
+        require("fzf-lua").files()
+      end,
+    },
+    mru = {},
+  },
 })
 
 -- vim.cmd[[ let g:dashboard_custom_header = [
