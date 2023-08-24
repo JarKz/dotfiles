@@ -7,7 +7,6 @@ function verify_installation {
   fi
 }
 
-
 # Check SHELL
 
 cur_shell=$(echo "$SHELL" | grep "zsh")
@@ -23,6 +22,9 @@ then
   exit 1
 fi
 
+# Checking existance of the compiler gcc/g++
+verify_installation "g++" "The compiler gcc/g++ is not installed!"
+
 # Checking python3 and pip
 verify_installation "python3" "Python3 is not installed!"
 verify_installation "pip3" "Python module, pip3 is not installed!"
@@ -34,9 +36,6 @@ verify_installation "gem" "gem (rubygem) is not installed!"
 
 # Checking golang
 verify_installation "go" "Golang is not installed!"
-
-# Checking terminal ENV
-verify_installation "omz" "oh-my-zsh is not installed! Clone the github project https://github.com/ohmyzsh/ohmyzsh and put it to dotfiles/config/oh-my-zsh."
 
 # For Neovim plugins
 verify_installation "fzf" "FZF is not installed!"

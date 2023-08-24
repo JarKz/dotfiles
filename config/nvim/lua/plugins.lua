@@ -301,7 +301,10 @@ require("lazy").setup({
   -- SYNTAX HIGHLIHGT
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    build = function(_)
+      vim.cmd("TSUpdate")
+      vim.cmd("TSInstall all")
+    end,
     config = function()
       require("syntax.treesitter")
     end,
