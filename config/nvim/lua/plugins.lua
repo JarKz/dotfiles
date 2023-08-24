@@ -27,10 +27,10 @@ require("lazy").setup({
   {
     "williamboman/mason.nvim",
     -- build = ":MasonUpdate", -- :MasonUpdate updates registry contents
-    build = function(lazy_plugin)
+    build = function(_)
       vim.cmd("MasonUpdate")
       vim.cmd(
-      "MasonInstall gopls eslint_d vale bash-language-server css-lsp efm fixjson google-java-format gradle-language-server groovy-language-server html-lsp htmlbeautifier java-debug-adapter jq jsonlint kotlin-language-server lua-language-server markdownlint prettier rust-analyzer shellcheck shfmt stylelint-lsp typescript-language-server yamllint")
+        "MasonInstall pyright autopep8 gopls eslint_d vale bash-language-server css-lsp efm fixjson google-java-format gradle-language-server groovy-language-server html-lsp htmlbeautifier java-debug-adapter jq jsonlint kotlin-language-server lua-language-server markdownlint prettier rust-analyzer shellcheck shfmt stylelint-lsp typescript-language-server yamllint")
     end,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
@@ -87,14 +87,14 @@ require("lazy").setup({
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-cmdline",              -- command line
+      "hrsh7th/cmp-cmdline",                 -- command line
       "hrsh7th/cmp-omni",
-      "hrsh7th/cmp-buffer",               -- buffer completions
-      "hrsh7th/cmp-nvim-lua",             -- nvim config completions
-      "hrsh7th/cmp-nvim-lsp",             -- lsp completions
-      "hrsh7th/cmp-path",                 -- file path completions
+      "hrsh7th/cmp-buffer",                  -- buffer completions
+      "hrsh7th/cmp-nvim-lua",                -- nvim config completions
+      "hrsh7th/cmp-nvim-lsp",                -- lsp completions
+      "hrsh7th/cmp-path",                    -- file path completions
       "hrsh7th/cmp-nvim-lsp-signature-help", -- function/class sugnature helping
-      "saadparwaiz1/cmp_luasnip",         -- snippets completions
+      "saadparwaiz1/cmp_luasnip",            -- snippets completions
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
       "onsails/lspkind-nvim",

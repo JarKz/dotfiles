@@ -26,6 +26,7 @@ function M.setup()
       "sugarss",
       "html",
       "xml",
+      "python"
     },
   })
 end

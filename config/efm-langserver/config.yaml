@@ -105,6 +105,10 @@ tools:
       - "%f:%l:%c: %m [%trror]"
       - "%f:%l:%c: %m [%tarning]"
 
+  autopep8: &autopep8
+    format-command: "autopep8 -"
+    format-stdin: true
+
 # languages setting
 languages:
   java:
@@ -181,3 +185,6 @@ languages:
 
   xml:
     - <<: *tidy-xml
+
+  python:
+    - <<: *autopep8
