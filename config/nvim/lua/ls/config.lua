@@ -55,6 +55,11 @@ local mapping = {
 local wk = require("which-key")
 wk.register(mapping, mapping_options)
 
+local ignore_lsp_servers = { jdtls = true }
+local function table_contains(tbl, element)
+  return not tbl[element]
+end
+
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -99,7 +104,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         },
         f = {
           function()
-            vim.lsp.buf.format({ async = true })
+            vim.lsp.buf.format({
+              async = true,
+              filter = function(client)
+                return table_contains(ignore_lsp_servers, client.name)
+              end
+            })
           end,
           "Format",
         },
