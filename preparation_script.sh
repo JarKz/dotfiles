@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 function verify_installation {
   application=$(which "$1")
   if [[ $application == "" ]];
@@ -33,6 +35,7 @@ verify_installation "pip3" "Python module, pip3 is not installed!"
 verify_installation "unzip" "unzip is not installed!"
 verify_installation "node" "nodejs is not installed!"
 verify_installation "gem" "gem (rubygem) is not installed!"
+verify_installation "bat" "bat is not installed!"
 
 # Checking golang
 verify_installation "go" "Golang is not installed!"
