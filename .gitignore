@@ -16,6 +16,8 @@ zhistory
 *.log
 *log.*
 
+lazy-lock.json
+
 #--------------------------------------------------#
 # The following was generated with gitignore.nvim: #
 #--------------------------------------------------#
