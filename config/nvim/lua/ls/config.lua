@@ -20,6 +20,7 @@ local servers = {
   "bashls",
   "rust_analyzer",
   "kotlin_language_server",
+  "clangd",
 }
 for _, server in ipairs(servers) do
   lspconfig[server].setup({})
