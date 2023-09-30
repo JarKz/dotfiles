@@ -28,7 +28,8 @@ vim.wo.number = true
 vim.opt.relativenumber = true
 
 -- setup of visibility of tabs, spaces, indents and trail spaces
-vim.opt.listchars = "eol:\\u23CE,tab:>·,trail:~,extends:>,precedes:<,space:⚬"
+-- vim.opt.listchars = "eol:\\u23CE,tab:>·,trail:~,extends:>,precedes:<,space:⚬"
+vim.opt.listchars = "eol:\\u23CE"
 vim.opt.list = true
 
 -- Switch language

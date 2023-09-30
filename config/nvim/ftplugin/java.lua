@@ -231,7 +231,7 @@ config.settings = {
           default = true,
         },
         {
-          name = "JavaSE-20",
+          name = "JavaSE-21",
           path = os.getenv("JAVA_LASTEST_HOME"),
         },
         {

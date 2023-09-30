@@ -27,11 +27,11 @@ require("lazy").setup({
   {
     "williamboman/mason.nvim",
     -- build = ":MasonUpdate", -- :MasonUpdate updates registry contents
-    build = function(_)
-      vim.cmd("MasonUpdate")
-      vim.cmd(
-        "MasonInstall pyright autopep8 gopls eslint_d vale bash-language-server css-lsp efm fixjson google-java-format gradle-language-server groovy-language-server html-lsp htmlbeautifier java-debug-adapter jq jsonlint kotlin-language-server lua-language-server markdownlint prettier rust-analyzer shellcheck shfmt stylelint-lsp typescript-language-server yamllint")
-    end,
+    -- build = function(_)
+    --   vim.cmd("MasonUpdate")
+    --   vim.cmd(
+    --     "MasonInstall pyright autopep8 gopls eslint_d vale bash-language-server css-lsp efm fixjson google-java-format gradle-language-server groovy-language-server html-lsp htmlbeautifier java-debug-adapter jq jsonlint kotlin-language-server lua-language-server markdownlint prettier rust-analyzer shellcheck shfmt stylelint-lsp typescript-language-server yamllint")
+    -- end,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       config = function()
@@ -318,6 +318,22 @@ require("lazy").setup({
       require("additional-functionality.folding")
     end,
   },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {
+      exclude = {
+        filetypes = {
+          "lspinfo",
+          "checkhealth",
+          "help",
+          "man",
+          "gitcommit",
+          "dashboard",
+        }
+      },
+    },
+  },
 
   -- ({ "roobert/search-replace.nvim" })
   {
@@ -333,7 +349,7 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = function(_)
       vim.cmd("TSUpdate")
-      vim.cmd("TSInstall all")
+      -- vim.cmd("TSInstall all")
     end,
     config = function()
       require("syntax.treesitter")
