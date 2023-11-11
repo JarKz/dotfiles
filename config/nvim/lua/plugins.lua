@@ -175,12 +175,6 @@ require("lazy").setup({
       require("window-plugins.filetree")
     end,
   },
-  {
-    "akinsho/toggleterm.nvim",
-    config = function()
-      require("window-plugins.toggleterm")
-    end,
-  },
 
   -- Dashboard
   {
