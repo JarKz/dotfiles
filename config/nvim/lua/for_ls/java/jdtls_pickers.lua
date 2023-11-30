@@ -79,7 +79,6 @@ local function pick_one(items, prompt, label_f)
   end
   opts.actions = {
     default = function(selected, _)
-      vim.print(selected)
       coroutine.resume(co, choices[selected[1]])
     end
   }
@@ -93,7 +92,6 @@ local function pick_one(items, prompt, label_f)
     opts
   )
   local result = coroutine.yield()
-  vim.print(result)
   return result
 end
 

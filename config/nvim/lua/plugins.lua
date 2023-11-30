@@ -295,6 +295,11 @@ require("lazy").setup({
       require("additional-functionality.spider")
     end,
   },
+  {
+    'kaarmu/typst.vim',
+    ft = 'typst',
+    lazy = false,
+  },
 
   -- GIT
   {

@@ -94,7 +94,6 @@ local function open_nvim_tree(data)
   else
     if real_file then
       local path = vim.fn.expand("%:p:h")
-      vim.print(path)
       vim.cmd.cd(path)
     end
   end
