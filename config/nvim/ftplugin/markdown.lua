@@ -6,7 +6,7 @@ glow.setup({
   -- If you don't have glow then uncomment code below and rename
   -- installation path
   -- install_path = "~/path/to/install/bin",
-  border = require("window-plugins.window-config").border,
+  border = require("config.window_config").border,
   pager = false,
   width = 100,
   height = 120,

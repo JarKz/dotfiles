@@ -1,5 +1,5 @@
-local java_boilerplate = require("for_ls.java.boilerplate")
-
+local java_boilerplate = require("extensions.java.boilerplate")
+local fzf = require("fzf-lua")
 
 local mapping_options = {
   mode = "n",
@@ -15,10 +15,25 @@ local mapping = {
     name = "Boilerplate code",
     j = {
       function()
-        vim.ui.input({ prompt = "Enter the group of boilerplate code" }, function(input)
-          local code = java_boilerplate.get_code(input)
-          vim.api.nvim_put(code, "l", true, true)
-        end)
+        local picker_opts = {
+          prompt = "Select name of boilerplate templates> ",
+          winopts = {
+            width = 0.4,
+            height = 0.3,
+          },
+          actions = {
+            default = function(selected, _)
+              local code = java_boilerplate.get_code(selected[1])
+              vim.api.nvim_put(code, "l", true, true)
+            end,
+          },
+        }
+        fzf.fzf_exec(function(fzf_cb)
+          for _, name in ipairs(java_boilerplate.get_groups()) do
+            fzf_cb(name)
+          end
+          fzf_cb()
+        end, picker_opts)
       end,
       "Java boilerplate code"
     },

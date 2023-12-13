@@ -3,8 +3,8 @@ local java_ext = os.getenv("JAVA_EXTENSIONS")
 
 local jdtls = require("jdtls")
 local jdtls_setup = require("jdtls.setup")
-local java_previews = require("for_ls.java.previews")
-require("for_ls.java.jdtls_pickers")
+local java_previews = require("extensions.java.previews")
+require("extensions.java.jdtls_pickers")
 
 function Set(list)
   local set = {}
@@ -20,21 +20,16 @@ local ignore_tasks = Set({
   "Building",
 })
 
-require("fidget").setup({
-  fmt = {
-    task = function(task_name, message, percentage)
-      if ignore_tasks[task_name] then
-        return false
-      end
-      return string.format(
-        "%s%s [%s]",
-        message,
-        percentage and string.format(" (%s%%)", percentage) or "",
-        task_name
-      )
-    end,
-  },
-})
+require("fidget").progress.options.display.format_message = function(msg)
+  if ignore_tasks[msg.title] then
+    return nil
+  end
+  if msg.message then
+    return msg.message
+  else
+    return msg.done and "Completed" or "In progres..."
+  end
+end
 
 local on_attach = function(client, bufnr)
   require("jdtls.setup").add_commands()
@@ -338,5 +333,4 @@ config.init_options = {
 
 config.handlers = {}
 config.handlers["language/status"] = function() end
--- Server
 jdtls.start_or_attach(config)

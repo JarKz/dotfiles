@@ -63,7 +63,7 @@ dap.configurations.rust = {
         return ""
       end
       local workspace_name = nil
-      for i=root:len(),1,-1 do
+      for i = root:len(), 1, -1 do
         if root:sub(i, i) == '/' then
           workspace_name = root:sub(i + 1);
           break
@@ -102,8 +102,8 @@ local mapping = {
   d = {
     R = {
       name = "Rust debug configuratoins",
-      d = {function() config.exec_version = "Debug" end, "Set debug executable version"},
-      r = {function() config.exec_version = "Release" end, "Set release executable version"},
+      d = { function() config.exec_version = "Debug" end, "Set debug executable version" },
+      r = { function() config.exec_version = "Release" end, "Set release executable version" },
     },
   },
 }

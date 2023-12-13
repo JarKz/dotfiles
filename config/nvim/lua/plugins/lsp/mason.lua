@@ -1,0 +1,47 @@
+return {
+  "williamboman/mason.nvim",
+  -- build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+  dependencies = {
+    "williamboman/mason-lspconfig.nvim",
+    config = true,
+  },
+  opts = {
+    ui = {
+      border = require('config.window_config').border,
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗",
+      },
+    },
+    ensure_installed = {
+      'pyright',
+      'autopep8',
+      'gopls',
+      'eslint_d',
+      'vale',
+      'bash-language-server',
+      'css-lsp',
+      'efm',
+      'fixjson',
+      'google-java-format',
+      'gradle-language-server',
+      'groovy-language-server',
+      'html-lsp',
+      'htmlbeautifier',
+      'java-debug-adapter',
+      'jq',
+      'jsonlint',
+      'kotlin-language-server',
+      'lua-language-server',
+      'markdownlint',
+      'prettier',
+      'rust-analyzer',
+      'shellcheck',
+      'shfmt',
+      'stylelint-lsp',
+      'typescript-language-server',
+      'yamllint',
+    },
+  },
+}
