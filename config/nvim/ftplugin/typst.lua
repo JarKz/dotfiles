@@ -9,7 +9,7 @@ lsp_defaults.capabilities.textDocument.foldingRange = {
 lsp_defaults.capabilities =
     vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-lspconfig.typst_lsp.setup{
+lspconfig.typst_lsp.setup {
   settings = {
     exportPdf = "onSave" -- Choose onType, onSave or never.
   }

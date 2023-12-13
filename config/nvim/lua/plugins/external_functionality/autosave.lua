@@ -10,7 +10,7 @@ return {
         vim.notify(msg, vim.log.levels.INFO, { timeout = 30 })
         return ""
       end,
-      dim = 0.18,             -- dim the color of `message`
+      dim = 0.18,               -- dim the color of `message`
       cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
     },
     -- trigger_events = { "InsertLeave", "QuitPre", "ExitPre", "VimLeavePre", "CursorHold" },--[[  also can "TextChange"  ]]
@@ -39,11 +39,11 @@ return {
     debounce_delay = 135,
     callbacks = {
       -- functions to be executed at different intervals
-      enabling = nil,            -- ran when enabling auto-save
-      disabling = nil,           -- ran when disabling auto-save
+      enabling = nil,              -- ran when enabling auto-save
+      disabling = nil,             -- ran when disabling auto-save
       before_asserting_save = nil, -- ran before checking `condition`
-      before_saving = nil,       -- ran before doing the actual save
-      after_saving = nil,        -- ran after doing the actual save
+      before_saving = nil,         -- ran before doing the actual save
+      after_saving = nil,          -- ran after doing the actual save
     },
   },
 }
