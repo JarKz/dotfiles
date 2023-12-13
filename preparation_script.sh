@@ -42,6 +42,7 @@ verify_installation "go" "Golang is not installed!"
 
 # For Neovim plugins
 verify_installation "fzf" "FZF is not installed!"
+verify_installation "rg" "RipGrep is not installed!"
 
 # For K8s containers
 verify_installation "kubectl" "Kubernetes (kubectl) is not installed! Or you can remove the line in zshrc file that placed at dotfiles/config/zsh/zshrc"
