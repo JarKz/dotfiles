@@ -5,19 +5,17 @@ Here's some configurations for my work environment. Sometimes I update configura
 ## List of configuration and explanation
 
 * Zsh:
-  - important configuration and without that dotfiles will be not normally worked, because in this configuration places some XDG environment paths.
-  - for making workspace, firstly need in your .bashrc or .zshrc put code `source path/to/dotfiles/config/zsh/zshrc`
-
-* Tmux:
-  - here I use a oh-my-tmux repository
-  - but I put some changes in tmux.conf.local for my comforts
+  - Important for Neovim and Tmux configuration, because some XDG environment variables used in 'dotfiles/zsh/zshrc';
+  - Also I used custom aliases or configuations with omz (oh-my-zsh).
 
 * Oh-my-zsh:
-  - terminal beautiful look with it
-  - *important* if you want check repository of this plugin, you will need visit [page](https://github.com/ohmyzsh/ohmyzsh) because in my config already added other themes that breaking the list of commits
+  - Custom themes, comfortable functions, aliases and plugins;
+  - I have other theme that not included in the omz, he's placed in 'dotfiles/zsh/themes' directory.
 
-* yarn:
-  - for neovim configuration, for some servers
+* Tmux:
+  - Default configuration is omt (oh-my-tmux);
+  - I changed some properties in 'dotfiles/tmux/tmux.conf.local' for my environment: changing powerline, enabling vi mode in shell and etc.
 
 * Neovim:
-  - my main code editor that I use a lot of time
+  - I use nightly version of nvim, so some settings my raise errors;
+  - Before Neovim usage make sure that you done all need preparations!

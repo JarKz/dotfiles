@@ -1,142 +1,116 @@
 # Neovim
 
-As I've say in README.md in previous directory, neovim is my main editor that I use everywhere. This configuration mostly contains things that I use often. I don't like adding plugins which I never use.
+The main code/text editor that I mostly use. Sometimes I can change configuration for adding minor effects or removing deprecated plugins. Also in intervals like 1-3 months I update the configurations to latest plugin standards.
 
-Sometimes I change configuration by different cases: adding barely changes that improve my coding, major changes that removing plugins because it going to be archived, fix changes for some plugin after their updating because their old configuration are deprecated...
+## Structure
 
-Here's below list of plugins that I use and description of why I use it. You also can found it in `lua/plugins.lua`.
+The current structure of configuration based on standard for 'lazy.nvim' plugin:
+
+  - main file 'init.lua';
+  - config directory that setup and loads plugins: 'lua/config/';
+  - all plugins grouped and placed at 'lua/plugins' directory;
+  - externsions for some cases placed at 'lua/extensions' directory;
+  - configurations for particular programming languages placed at 'ftplugin/' (see more in vim `:help ftplugin`).
 
 ## First start
 
-You will do nothing in first start because Lazy.nvim do all things for you. After first run close editor and run again for loading additional functions.
+When you initially starts Neovim, you must wait becuase plugins, `treesitter`parsers and `Mason` packages is installing. You can check status of installations:
+
+  - for `treesitter` parsers: type `:messages` and scroll down (by 'j' key or 'space' key);
+  - for plugins: type `:Lazy` and it pop up window with details;
+  - for `Mason`: type `:Mason` and it pop up window with list of packages and their status;
+
+If you see any errors in top-right corner, type `:Notifications` and read what is errors. Mostly it based on bad preparation, that I described in 'dotfiles/README.md'.
 
 ## List of plugins
 
-* `sainnhe/sonokai`
-  - colorscheme
-* `nvim-tree/nvim-web-devicons`
-  - dependency for some plugins that uses devicons
-  - with it nvim pretty looks
-* `shvechikov/vim-keymap-russian-jcukenmac`
-  - if you use mac-like-keyboard and you like their keyboard layout so you can use
-* `wakatime/vim-wakatime`
-  - if you use wakatime
-* `nvim-lua/plenary.nvim`
-  - important dependency for many nvim plugins
-* `williamboman/mason.nvim`
-  - easy installing ls, linters, formatters and etc. Relief from headaches
-* `williamboman/mason-lspconfig.nvim`
-  - for `mason.nvim`
-* `neovim/nvim-lspconfig`
-  - for language server configuration
-* `jose-elias-alvarez/null-ls.nvim`
-  - for applying formatters, linters
-* `mfussenegger/nvim-jdtls`
-  - important for me plugin as java developer
-  - bootstrap java language server instead built-in lsp config because it plugin could run ls directly
-* `folke/trouble.nvim`
-  - comfortable checking errors in other window
-* `mfussenegger/nvim-dap`
-  - debugger adapter because without that nvim cannot be IDE (IMHO)
-* `rcarriga/nvim-dap-ui`
-  - UI for debugger adapter, uses some small windows for displaying important information
-* `folke/neodev.nvim`
-  - if you don't configure sometimes then off this plugin
-  - useful because in configurations can display global variable vim and his functions
-* `hrsh7th/nvim-cmp`
-  - code auto-comppletion
-  - here additional plugins for cmp:
-    - `hrsh7th/cmp-cmdline`                 -- command line
-	- `hrsh7th/cmp-omni`
-	- `hrsh7th/cmp-buffer`                  -- buffer completions
-	- `hrsh7th/cmp-nvim-lua`                -- nvim config completions
-	- `hrsh7th/cmp-nvim-lsp`                -- lsp completions
-	- `hrsh7th/cmp-path`                    -- file path completions
-	- `hrsh7th/cmp-nvim-lsp-signature-help` -- function/class sugnature helping
-	- `saadparwaiz1/cmp_luasnip`            -- snippets completions
-	- `L3MON4D3/LuaSnip`
-	- `rafamadriz/friendly-snippets`
-* `onsails/lspkind-nvim`
-  - pictograms for code auto-completion
-* `tzachar/cmp-tabnine`
-  - if you don't like when plugin send code to non-local server then off it
-  - comfortable code auto-completion because this plugin uses tabnine that analyze code for sending probable line or block (for premium) code
-	},
-* `windwp/nvim-ts-autotag`
-  - autotag in html
-* `windwp/nvim-autopairs`,
-  - autopairs the parentheses, braces and brackets
-* `ibhagwan/fzf-lua`
-  - useful plugin for find some files, helps or commands and etc. that based on fzf command
-  - it's my main plugin because it faster
-* `stevearc/dressing.nvim`
-  - changes default built-in nvim displays `vim.ui.input()` and `vim.ui.select()` to more prettier
-* `nvim-tree/nvim-tree.lua`
-  - useful plugin for file-tree at side in editor
-* `akinsho/toggleterm.nvim`
-  - uses to display terminal as floating window
-* `glepnir/dashboard-nvim`
-  - nvim startup not as empty buffer, but showing dashboard, if not argument passed
-* `rcarriga/nvim-notify`
-  - prettier showing some notifications via `vim.notify()`, not like messages in bottom line
-* `j-hui/fidget.nvim`
-  - displaying status of language servers when they runs and works
-  - useful when language server not immediately starts and you understand why (example: long initializing workspace)
-* `glepnir/galaxyline.nvim`
-  - plugin that displays statusline but full-customizable
-* `JellyApple102/flote.nvim`
-  - for every workspace show editable in .md window
-  - useful if you need write thoughts immediately in "note"
-* `ellisonleao/glow.nvim`
-  - displays your .md file in other window like as [glow command](https://github.com/charmbracelet/glow) in terminal
-* `folke/which-key.nvim`
-  - easy mapping your keymaps and if you forgot then this plugin will help by showing some mapping for specific key ([read more about it](https://github.com/folke/which-key.nvim))
-* `numToStr/Comment.nvim`
-  - comments code by mapping
-  - can recognize the filetype and choose right symbols for comments
-* `edluffy/specs.nvim`
-  - useful to show your cursor if you move it to many lines up or down
-* `booperlv/nvim-gomove`
-  - moves lines right, left (increase or decrease indentations or move through symbols), up and down (like swap lines) by special mapping
-* `uga-rosa/translate.nvim`
-  - translates selected text
-  - useful for non-native english users
-* `wintermute-cell/gitignore.nvim`
-  - makes gitignore file by some patterns
-  - this plugin use only telescope and I don't like it, therefore I've maked fork:
-    - `JarKz/gitignore.nvim`
-      - supports contract with templates and friendly with any pickers like telescope, fzf...
-* `chrisgrieser/nvim-spider`
-  - remaps default nvim keys: w, b, e...
-  - **important** [by issue](https://github.com/chrisgrieser/nvim-spider/issues/14) plugin works only with ACSII symbols and it may be annoying if you also works with non-ASCII text
-    - `JarKz/nvim-spider-utf8`
-      - my forked plugin with support UTF-8, which well works
-* `lewis6991/gitsigns.nvim`
-  - show git signs left of code
-  - useful when you works with git and understand what is changes
-* `kevinhwang91/nvim-ufo`
-  - folds normally code unlike treesitter folding (IMHO)
-  - here as dependency: `kevinhwang91/promise-async`
-* `roobert/search-replace.nvim`
-  - replacing something by pattern
-  - useful when, even if you using DRY code, your code have some weird or worst naming then you can replace it by pattern
-  - but maintainer not upgrading this plugin by addin similar changes and I made fork it:
-    - `JarKz/search-replace-additional-configuration.nvim`
-      - contains two patterns: "range" ([read more here](https://neovim.io/doc/user/usr_10.html#10.3)) and part of regex pattern like global, insensitive...
-* `nvim-treesitter/nvim-treesitter`
-  - syntax-highlighting by incremental selection
-* `RRethy/vim-illuminate`
-  - highlight similar or logical keyword pairs (e.g. "for (...) {" -> "}" or "break" -> "while")
-* `Pocco81/auto-save.nvim`
-  - autosaving file when you exit from insert mode
+Colorscheme:
+
+  - `sainnhe/sonokai`
+
+Autopairs:
+
+  - `altermo/ultimate-autopair.nvim`
+  - `windwp/nvim-ts-autotag`
+  - `windwp/nvim-autopairs`
+  - `abecodes/tabout.nvim`
+
+Autocompletion:
+
+  - `hrsh7th/nvim-cmp`, depends on:
+      - `hrsh7th/cmp-cmdline`
+      - `hrsh7th/cmp-omni`
+      - `hrsh7th/cmp-buffer`
+      - `hrsh7th/cmp-nvim-lua`
+      - `hrsh7th/cmp-nvim-lsp`
+      - `hrsh7th/cmp-path`
+      - `hrsh7th/cmp-nvim-lsp-signature-help`
+      - `saadparwaiz1/cmp_luasnip`
+      - `L3MON4D3/LuaSnip`
+      - `rafamadriz/friendly-snippets`
+      - `onsails/lspkind-nvim`
+      - `tzachar/cmp-tabnine`
+
+LSP:
+
+  - `neovim/nvim-lspconfig`
+  - `williamboman/mason.nvim`
+  - `williamboman/mason-lspconfig.nvim`
+  - `jay-babu/mason-null-ls.nvim`
+  - `mfussenegger/nvim-jdtls`
+  - `folke/trouble.nvim` – easy shows list of warnings, errors, references, implementations and etc.
+
+DAP:
+
+  - `mfussenegger/nvim-dap`
+  - `rcarriga/nvim-dap-ui`
+  - `folke/neodev.nvim` – debug Neovim
+
+Syntax highlight:
+
+  - `nvim-treesitter/nvim-treesitter`
+  - `RRethy/vim-illuminate`
+
+External functionality:
+
+  - `Pocco81/auto-save.nvim`
+  - `numToStr/Comment.nvim`
+  - `wintermute-cell/gitignore.nvim`
+  - `lewis6991/gitsigns.nvim`
+  - `booperlv/nvim-gomove`
+  - `lukas-reineke/indent-blankline.nvim`
+  - `JarKz/nvim-spider-utf8` instead of `hrisgrieser/nvim-spider` for enabuling UTF-8, and it depends on:
+    - `theHamsta/nvim_rocks`
+  - `JarKz/search-replace-additional-configuration.nvim` instead of `roobert/search-replace.nvim` because of lack of additional properties.
+  - `edluffy/specs.nvim`
+  - `uga-rosa/translate.nvim`
+  - `kaarmu/typst.vim`
+  - `kevinhwang91/nvim-ufo`, which depends on `kevinhwang91/promise-async`
+  - `folke/which-key.nvim`
+
+Window plugins:
+
+  - `glepnir/dashboard-nvim`
+  - `stevearc/dressing.nvim`
+  - `j-hui/fidget.nvim`
+  - `JellyApple102/flote.nvim`
+  - `ibhagwan/fzf-lua`
+  - `glepnir/galaxyline.nvim`
+  - `ellisonleao/glow.nvim`
+  - `rcarriga/nvim-notify`
+  - `nvim-tree/nvim-tree.lua`
+
+Icons: `nvim-tree/nvim-web-devicons`
+
+Keyboard layout: `shvechikov/vim-keymap-russian-jcukenmac`
 
 ## Troubleshooting
 
-Make an issue with detailed explains what neovim does and I will response if found time for it.
+If you got some errors, please copy (or screenshot) the errors from `:messages` or `:Notifications` and open Issue with steps to reprouce this problem.
 
 ## Contribution
 
-If you found something that clean code or improve configuration then make PR :)
+If you found code improvements or you have suggestions to replace one plugin to another, or something other – open Issue or make PR.
 
 ## License
 
