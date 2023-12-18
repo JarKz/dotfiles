@@ -114,7 +114,7 @@ alias k="kubectl"
 source <(kubectl completion zsh)
 source <(kubectl completion zsh | sed s/kubectl/k/g)
 
-alias rm trash
+alias rm="trash"
 
 # For java development
 alias google-java-format="/Users/jarkz/dotfiles/share/nvim/mason/bin/google-java-format"
