@@ -1,4 +1,6 @@
-local function update_highlights()
+local function update_diagnostic_ui()
+  --- @param source table of source highlight params
+  --- @param destination table of destination highlight params
   local function map_hl(source, destination)
     for key, value in pairs(source) do
       if key ~= "link" then
@@ -7,8 +9,10 @@ local function update_highlights()
     end
   end
 
-  local function set_italic_for_virtual_text(type)
-    local hl_name = "DiagnosticVirtualText" .. type
+  --- Turning on italic style for highlight with specific severity name.
+  --- @param severity string the severity name
+  local function set_italic_for_virtual_text(severity)
+    local hl_name = "DiagnosticVirtualText" .. severity
 
     local hl = vim.api.nvim_get_hl(0, { name = hl_name })
     hl.italic = true
@@ -24,33 +28,25 @@ local function update_highlights()
     vim.api.nvim_set_hl(0, hl_name, hl)
   end
 
-  local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+  local severities = { 'Error', 'Warn', 'Hint', 'Info' }
 
-  for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-
-    set_italic_for_virtual_text(type)
+  for _, severity in ipairs(severities) do
+    set_italic_for_virtual_text(severity)
   end
+
+  local signs = {
+    [vim.diagnostic.severity.ERROR] = " ",
+    [vim.diagnostic.severity.WARN] = " ",
+    [vim.diagnostic.severity.HINT] = " ",
+    [vim.diagnostic.severity.INFO] = " "
+  }
 
   local border = require("config.window_config").border
 
   vim.diagnostic.config({
     virtual_text = {
-      prefix = "",
-      format = function(diagnostic)
-        if diagnostic.severity == vim.diagnostic.severity.ERROR then
-          return signs.Error .. " " .. diagnostic.message
-        end
-        if diagnostic.severity == vim.diagnostic.severity.WARN then
-          return signs.Warn .. " " .. diagnostic.message
-        end
-        if diagnostic.severity == vim.diagnostic.severity.INFO then
-          return signs.Info .. " " .. diagnostic.message
-        end
-        if diagnostic.severity == vim.diagnostic.severity.HINT then
-          return signs.Hint .. " " .. diagnostic.message
-        end
+      prefix = function(diagnostic, _, _)
+        return signs[diagnostic.severity]
       end,
     },
     update_in_insert = false,
@@ -58,6 +54,16 @@ local function update_highlights()
       border = border,
       source = "always",
     },
+    signs = {
+      text = signs,
+      hl = {
+        [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+        [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+        [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+        [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+      }
+    },
+    severity_sort = true,
   })
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
@@ -138,7 +144,7 @@ local function on_attach()
     end,
   })
 
-  update_highlights()
+  update_diagnostic_ui()
 end
 
 return {
