@@ -172,7 +172,7 @@ local function on_attach()
 
   gl.section.left[10] = {
     Hint = {
-      icon = "  ",
+      icon = " 󰰁 ",
       highlight = { colors.green, colors.bg },
       provider = function()
         return #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
@@ -204,7 +204,7 @@ local function on_attach()
 
   gl.section.right[2] = {
     GitBranch = {
-      icon = " ",
+      icon = " ",
       separator = " | ",
       separator_highlight = { colors.gray, colors.bg },
       condition = condition.check_git_workspace,
