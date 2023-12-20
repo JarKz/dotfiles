@@ -1,11 +1,11 @@
 ---
-
 env:
   XDG_CONFIG_HOME: $HOME/dotfiles/config
   XDG_DATA_HOME: $HOME/dotfiles/share
 
 window:
-  opacity: 0.5
+  opacity: 0.8
+  decorations: "Buttonless"
 
 font:
   normal:
@@ -31,3 +31,26 @@ cursor:
 
 terminal:
   osc52: "CopyPaste"
+
+colors:
+  primary:
+    background: '#2D2A2E'
+    foreground: '#fff1f3'
+  normal:
+    black: '#2c2525'
+    red: '#fd6883'
+    green: '#adda78'
+    yellow: '#f9cc6c'
+    blue: '#f38d70'
+    magenta: '#a8a9eb'
+    cyan: '#85dacc'
+    white: '#fff1f3'
+  bright:
+    black: '#72696a'
+    red: '#fd6883'
+    green: '#adda78'
+    yellow: '#f9cc6c'
+    blue: '#f38d70'
+    magenta: '#a8a9eb'
+    cyan: '#85dacc'
+    white: '#fff1f3'
