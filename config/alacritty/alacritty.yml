@@ -28,6 +28,9 @@ cursor:
   style:
     shape: "Block"
     blinking: "Never"
+  vi_mode_style:
+    shapre: "Block"
+    blinking: "Never"
 
 terminal:
   osc52: "CopyPaste"
