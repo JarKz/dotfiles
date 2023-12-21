@@ -1,7 +1,5 @@
 return {
-  -- "chrisgrieser/nvim-spider",
-  "JarKz/nvim-spider-utf8",
-  branch = "utf8supportdev",
+  "chrisgrieser/nvim-spider",
   dependencies = {
     {
       "theHamsta/nvim_rocks",
@@ -17,6 +15,6 @@ return {
     }
   },
   config = function()
-    require("plugins.keymap.nvim_spider_utf8")
+    require("plugins.keymap.nvim_spider")
   end,
 }
