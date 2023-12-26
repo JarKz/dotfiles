@@ -90,7 +90,7 @@ local function on_attach()
       highlight = { colors.white, colors.bg_light },
       provider = function()
         local dirname = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-        return " " .. dirname .. " "
+        return " " .. dirname .. " "
       end,
     },
   }
