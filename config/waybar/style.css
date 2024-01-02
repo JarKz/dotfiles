@@ -1,13 +1,16 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: JetBrainsMono Nerd Font, "Font Awesome 6 Free";
+  font-family:
+    JetBrainsMono Nerd Font,
+    "Font Awesome 6 Free";
   font-weight: bold;
   font-size: 16px;
 }
 
 window#waybar {
-  background-color: #1a1c2b; /* Reduced opacity background */ 
+  background-color: #1a1c2b;
+  /* Reduced opacity background */
   border-radius: 10px;
 }
 
@@ -43,11 +46,9 @@ window#waybar {
   border-radius: 0px 5px 5px 0px;
 }
 
-#disk {
-  color: #68b0d6;
-}
-
-#custom-blueberry {
+#disk,
+#custom-blueberry,
+#custom-pacman {
   color: #68b0d6;
 }
 

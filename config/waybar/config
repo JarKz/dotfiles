@@ -17,6 +17,8 @@
     "custom/filler",
     "custom/blueberry",
     "custom/filler",
+    "custom/pacman",
+    "custom/filler",
     "custom/media",
   ],
   "modules-center": [
@@ -71,6 +73,14 @@
   "custom/blueberry": {
     "format": "  ",
     "on-click": "blueberry"
+  },
+  "custom/pacman": {
+      "format": " {}   ",
+      "interval": 3600,                     // every hour
+      "exec": "checkupdates | wc -l",       // # of updates
+      "exec-if": "exit 0",                  // always run; consider advanced run conditions
+      "on-click": "alarcitty --hold --command 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar", // update system
+      "signal": 8
   },
   "custom/media": {
     "format": "[{icon} <span>{}</span> ]",
