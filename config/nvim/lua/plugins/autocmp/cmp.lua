@@ -13,28 +13,6 @@ return {
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
       "onsails/lspkind-nvim",
-      {
-        "tzachar/cmp-tabnine",
-        build = "./install.sh",
-        dependencies = "hrsh7th/nvim-cmp",
-        config = function()
-          local tabnine = require('cmp_tabnine.config')
-
-          tabnine:setup({
-            max_lines = 1000,
-            max_num_results = 3,
-            sort = true,
-            run_on_every_keystroke = true,
-            snippet_placeholder = '..',
-            ignored_file_types = {
-              -- default is not to ignore
-              -- uncomment to ignore in lua:
-              -- lua = true
-            },
-            show_prediction_strength = true
-          })
-        end,
-      },
     },
     config = function()
       local cmp = require("cmp")
@@ -44,7 +22,6 @@ return {
         buffer = "[BUF]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",
-        cmp_tabnine = "[TN]",
         path = "[PATH]",
       }
 
@@ -55,6 +32,9 @@ return {
       vim.cmd("hi link CmpItemMenu Blue")
 
       cmp.setup({
+        performance = {
+          max_view_entries = 10,
+        },
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
@@ -79,7 +59,6 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp_signature_help" },
           { name = "luasnip" },
-          { name = "cmp_tabnine",            priority = 8 },
           { name = "nvim_lsp",               priority = 8 },
           { name = "spell",                  keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] },
           -- { name = "dictionary", keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] }, -- from uga-rosa/cmp-dictionary plug
@@ -93,7 +72,6 @@ return {
           priority_weight = 2,
           comparators = {
             -- compare.score_offset, -- not good at all
-            require("cmp_tabnine.compare"),
             compare.offset,
             compare.exact,
             compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
@@ -111,21 +89,10 @@ return {
             vim_item.kind = lspkind.symbolic(vim_item.kind, { mode = "symbol" })
             -- vim_item.menu = source_mapping[entry.source.name]
 
-            if entry.source.name == "cmp_tabnine" then
-              local detail = (entry.completion_item.data or {}).detail
-              vim_item.kind = ""
-              if detail and detail:find(".*%%.*") then
-                vim_item.kind = vim_item.kind .. " " .. detail
-              end
-
-              if (entry.completion_item.data or {}).multiline then
-                vim_item.kind = vim_item.kind .. " " .. "[ML]"
-              end
-            end
             if source_mapping[entry.source.name] then
               vim_item.kind = vim_item.kind .. " " .. source_mapping[entry.source.name]
             end
-            local maxwidth = 80
+            local maxwidth = 60
             vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
             return vim_item
           end,
