@@ -72,14 +72,6 @@ return {
       ["<C-g>"] = { gitignore.generate, "Git ignore" },
       ["<C-f>"] = { "<CMD>Flote<CR>", "Float note with md filetype" },
       ["\\t"]   = { "<CMD>silent !tmux split-window -h<CR>", "Open v-pane in tmux" },
-
-      -- Very useful mapping from:
-      -- https://www.reddit.com/r/neovim/comments/12qfm20/comment/jgq0gzw/?utm_source=share&utm_medium=web2x&context=3
-      H         = { "^", "Move to start of not blank line" },
-      L         = { "$", "Move to end of line" },
-      J         = { "}", "Move to end of block" },
-      K         = { "{", "Move to start of block" },
-      M         = { "J", "Mnemonic merge" },
     }
 
     wk.register(normal_mode_mapping, normal_mode_mapping_options)
