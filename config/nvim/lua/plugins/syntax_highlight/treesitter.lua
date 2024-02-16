@@ -17,9 +17,9 @@ return {
       enable = true,
       keymaps = {
         init_selection = "gnn",
-        node_incremental = "grn",
-        scope_incremental = "grc",
-        node_decremental = "grm",
+        node_incremental = "gin",
+        scope_incremental = "gis",
+        node_decremental = "gim",
       },
     },
     autotag = {
