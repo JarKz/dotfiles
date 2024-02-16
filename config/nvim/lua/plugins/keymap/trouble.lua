@@ -19,11 +19,6 @@ local mapping = {
       q = { "<CMD>TroubleToggle quickfix<CR>", "Show quickfixes" },
     },
   },
-  g = {
-    name = "Global function",
-    R = { "<CMD>TroubleToggle lsp_references<CR>", "Lsp references" },
-    r = { "<CMD>TroubleToggle lsp_references<CR>", "Lsp references (same)" },
-  },
 }
 
 local wk = require("which-key")
