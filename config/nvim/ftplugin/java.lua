@@ -251,20 +251,12 @@ config.cmd = {
   "-Dlog.level=ALL",
   "-Xmx1g",
   "-jar",
-  -- If you use homebrew, uncomment first line below
-  -- or if use the git repository with manual building
-  -- then uncomment second line below
-  -- vim.fn.glob("/opt/homebrew/opt/jdtls/libexec/plugins/org.eclipse.equinox.launcher_*.jar", true),
   vim.fn.glob(
     java_ext
     .. "/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar",
     true
   ),
   "-configuration",
-  -- If you use homebrew, uncomment first line below
-  -- or if use the git repository with manual building
-  -- then uncomment second line below
-  -- "/opt/homebrew/opt/jdtls/libexec/config_mac",
   java_ext .. "/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_mac",
   "-data",
   workspace_folder,
@@ -282,36 +274,9 @@ end
 
 local jar_patterns = {
   java_ext .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
-  -- "/dev/dgileadi/vscode-java-decompiler/server/*.jar",
-  -- "/.local/share/vscode-java-test/java-extension/com.microsoft.java.test.plugin/target/*.jar",
-  -- "/.local/share/vscode-java-test/java-extension/com.microsoft.java.test.runner/target/*.jar",
-  -- "/.local/share/vscode-java-test/java-extension/com.microsoft.java.test.runner/lib/*.jar",
   java_ext .. "/vscode-java-test/server/*.jar",
 }
 
--- npm install broke for mfussenegger: https://github.com/npm/cli/issues/2508
--- So gather the required jars manually; this is based on the gulpfile.js in the vscode-java-test repo
--- local plugin_path =
--- "/.local/share/vscode-java-test/java-extension/com.microsoft.java.test.plugin.site/target/repository/plugins/"
--- local bundle_list = vim.tbl_map(function(x)
--- 	return require("jdtls.path").join(plugin_path, x)
--- end, {
--- 	"org.eclipse.jdt.junit4.runtime_*.jar",
--- 	"org.eclipse.jdt.junit5.runtime_*.jar",
--- 	"org.junit.jupiter.api*.jar",
--- 	"org.junit.jupiter.engine*.jar",
--- 	"org.junit.jupiter.migrationsupport*.jar",
--- 	"org.junit.jupiter.params*.jar",
--- 	"org.junit.vintage.engine*.jar",
--- 	"org.opentest4j*.jar",
--- 	"org.junit.platform.commons*.jar",
--- 	"org.junit.platform.engine*.jar",
--- 	"org.junit.platform.launcher*.jar",
--- 	"org.junit.platform.runner*.jar",
--- 	"org.junit.platform.suite.api*.jar",
--- 	"org.apiguardian*.jar",
--- })
--- vim.list_extend(jar_patterns, bundle_list)
 local bundles = {}
 for _, jar_pattern in ipairs(jar_patterns) do
   for _, bundle in ipairs(vim.split(vim.fn.glob(jar_pattern), "\n")) do
