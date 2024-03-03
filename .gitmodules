@@ -13,3 +13,6 @@
 [submodule "config/tmux/plugins/tpm"]
 	path = config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "config/hypr/scripts/hyprland_kb_switcher"]
+	path = config/hypr/scripts/hyprland_kb_switcher
+	url = https://github.com/jarkz/hyprland_kb_switcher.git
