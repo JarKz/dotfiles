@@ -30,11 +30,9 @@ return {
 
       -- From colorscheme sononkai for prettier percentage in tabnine
       vim.cmd("hi link CmpItemMenu Blue")
+      vim.opt.pumheight = 10
 
       cmp.setup({
-        performance = {
-          max_view_entries = 10,
-        },
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
@@ -46,6 +44,7 @@ return {
           },
           documentation = {
             border = border,
+            max_height = 20,
           },
         },
         mapping = cmp.mapping.preset.insert({
