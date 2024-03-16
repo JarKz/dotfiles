@@ -30,7 +30,6 @@ return {
         'html',
         'kotlin_language_server',
         'lua_ls',
-        'rust_analyzer',
         'stylelint_lsp',
         'tsserver',
         'typst_lsp',
