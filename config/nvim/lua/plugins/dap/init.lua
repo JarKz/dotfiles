@@ -4,7 +4,10 @@ return {
     dependencies = {
       {
         "rcarriga/nvim-dap-ui",
-        dependencies = { "stevearc/dressing.nvim", },
+        dependencies = {
+          "stevearc/dressing.nvim",
+          "nvim-neotest/nvim-nio",
+        },
         opts = {
           layouts = { {
             elements = { {
