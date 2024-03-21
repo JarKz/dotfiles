@@ -81,7 +81,7 @@ function M.init_buf_local_keymaps(bufnr)
         end,
         "Format",
       },
-      K = {
+      E = {
         function()
           local winid = require("ufo").peekFoldedLinesUnderCursor()
           if not winid then
@@ -106,7 +106,10 @@ function M.init_buf_local_keymaps(bufnr)
       D = { vim.lsp.buf.declaration, "Declaration" },
       d = { vim.lsp.buf.definition, "Definition" },
     },
-    ["<C-k>"] = { vim.lsp.buf.signature_help, "Signature help" },
+    -- ["<C-k>"] = { vim.lsp.buf.signature_help, "Signature help" },
+    --
+    -- Colemak
+    ["<C-e>"] = { vim.lsp.buf.signature_help, "Signature help" },
     ["<leader>"] = {
       name = "Leader functions",
       R = { fzf.lsp_references, "References" },

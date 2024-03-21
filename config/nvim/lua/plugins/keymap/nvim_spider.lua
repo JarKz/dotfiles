@@ -16,7 +16,7 @@ local mapping = {
     end,
     "Spider w",
   },
-  e = {
+  f = {
     function()
       spider.motion("e")
     end,
@@ -29,7 +29,7 @@ local mapping = {
     "Spider b",
   },
   g = {
-    e = {
+    f = {
       function()
         spider.motion("ge")
       end,

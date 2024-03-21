@@ -88,5 +88,7 @@ return {
       ["<C-c>"] = { '"*y', "Copy selected to system buffer" },
     }
     wk.register(visual_mode_mapping, select_mode_mapping_options)
+
+    require("plugins.keymap.colemak")
   end,
 }
