@@ -1,6 +1,9 @@
 return {
   "wintermute-cell/gitignore.nvim",
-  dependencies = { "folke/which-key.nvim", },
+  dependencies = {
+    "folke/which-key.nvim",
+    "ibhagwan/fzf-lua",
+  },
   config = function()
     local gitignore = require("gitignore")
     local fzf = require("fzf-lua")
@@ -12,18 +15,17 @@ return {
           width = 0.4,
           height = 0.3,
         },
+        fzf_opts = {
+          ["--multi"] = "",
+          ["--no-multi"] = nil,
+        },
         actions = {
           default = function(selected, _)
             gitignore.createGitignoreBuffer(opts.args, selected)
           end,
         },
       }
-      fzf.fzf_exec(function(fzf_cb)
-        for _, prefix in ipairs(gitignore.templateNames) do
-          fzf_cb(prefix)
-        end
-        fzf_cb()
-      end, picker_opts)
+      fzf.fzf_exec(gitignore.templateNames, picker_opts)
     end
 
     vim.api.nvim_create_user_command("Gitignore", gitignore.generate, { nargs = "?", complete = "file" })
