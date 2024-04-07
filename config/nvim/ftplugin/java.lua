@@ -227,7 +227,7 @@ config.settings = {
         },
         {
           name = "JavaSE-21",
-          path = os.getenv("JAVA_LASTEST_HOME"),
+          path = os.getenv("JAVA_LATEST_HOME"),
         },
         {
           name = "JavaSE-11",
