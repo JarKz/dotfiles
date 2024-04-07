@@ -109,11 +109,6 @@ export LANG=en_US.UTF-8
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# For k8s
-alias k="kubectl"
-source <(kubectl completion zsh)
-source <(kubectl completion zsh | sed s/kubectl/k/g)
-
 alias rm="trash"
 
 # For java development
@@ -132,6 +127,7 @@ export PATH="$XDG_CONFIG_HOME/yarn/bin:$XDG_CONFIG_HOME/yarn/global/node_modules
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$DOTFILES/npm-packages/bin:$PATH"
 export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 export GPG_TTY=$(tty)
 
