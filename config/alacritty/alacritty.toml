@@ -57,5 +57,5 @@ style = "Regular"
 osc52 = "CopyPaste"
 
 [window]
-decorations = "Buttonless"
+# decorations = "Buttonless"
 opacity = 0.8
