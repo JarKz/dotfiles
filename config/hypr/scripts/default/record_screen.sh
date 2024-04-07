@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # If an instance of wf-recorder is running under this user kill it with SIGINT and exit
 pkill --euid "$USER" --signal SIGINT wf-recorder && exit
 
@@ -39,7 +37,7 @@ SavePath=$( zenity \
 cp $TmpRecordPath "$SavePath"
 
 # copy the file location to your clipboard
-wl-copy "$SavePath"
+wl-copy --type video/mp4 "$SavePath"
 
 # Append .gif to the SavePath if it's missing
 #[[ $SavePath =~ \.gif$ ]] || SavePath+='.gif'

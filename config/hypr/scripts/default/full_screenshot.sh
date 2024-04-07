@@ -1,3 +1,1 @@
-#!/usr/bin/bash
-
-grim - | wl-copy
+grim - | wl-copy --type image/jpeg
