@@ -1,123 +1,124 @@
 * {
+  min-height: 0;
   padding: 0;
   margin: 0;
   font-family:
-    JetBrainsMono Nerd Font,
+    JetBrainsMono NFM,
     "Font Awesome 6 Free";
   font-weight: bold;
-  font-size: 16px;
+  font-size: 12px;
 }
 
-window#waybar {
+.modules-left, .modules-right {
   background-color: #1a1c2b;
-  /* Reduced opacity background */
   border-radius: 10px;
 }
 
-#custom-launcher {
-  font-size: 20px;
-  color: #00bfff;
+.modules-left widget:first-child label,
+.modules-right widget:first-child label {
+  padding-left: 10px;
+}
+
+.modules-left widget:last-child label,
+.modules-right widget:last-child label {
   padding-right: 10px;
+}
+
+window#waybar {
+  background: none;
+}
+
+#custom-launcher {
+  /* font-size: 20px; */
+  color: #00bfff;
+  padding-right: 4px;
 }
 
 #cpu,
 #memory,
 #temperature {
-  font-size: 15px;
   background: #2a2d45;
   margin-top: 5px;
   margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 0 4px;
 }
 
 #cpu {
   color: #eed49f;
-  padding: 0px 10px 0px 12px;
-  border-radius: 5px 0px 0px 5px;
 }
 
 #memory {
   color: #a6da95;
-  padding: 0px 10px 0px 0px;
 }
 
 #temperature {
   color: #8aadf4;
-  padding: 0px 12px 0px 0px;
-  border-radius: 0px 5px 5px 0px;
 }
 
 #disk,
-#custom-blueberry,
-#custom-pacman {
+#custom-blueberry {
   color: #68b0d6;
 }
 
-#custom-media {
-  color: #8aadf4;
+#workspaces {
+  background-color: #1a1c2b;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 #workspaces button:nth-child(1) label {
   color: #8aadf4;
-  margin: 0px 8px;
 }
 
 #workspaces button:nth-child(2) label {
   color: #ed8796;
-  margin: 0px 8px;
 }
 
 #workspaces button:nth-child(3) label {
   color: #a6da95;
-  margin: 0px 8px;
 }
 
 #workspaces button:nth-child(4) label {
   color: #c6a0f6;
-  margin: 0px 8px;
 }
 
 #workspaces button:nth-child(5) label {
   color: #f4dbd6;
-  margin: 0px 8px;
 }
 
 #workspaces button:nth-child(6) label {
   color: #f5a97f;
-  margin: 0px 8px;
 }
 
 #workspaces button:nth-child(7) label {
   color: #8bd5ca;
-  margin: 0px 8px;
 }
 
 #workspaces button:nth-child(8) label {
   color: #68b0d6;
-  margin: 0px 8px;
 }
 
 #workspaces button:nth-child(9) label {
   color: #aab1d3;
-  margin: 0px 8px;
-}
-
-.modules-right {
-  border-radius: 5px 0px 0px 5px;
 }
 
 #pulseaudio {
-  font-size: 15px;
   background-color: #2a2d45;
   margin-top: 5px;
   margin-bottom: 5px;
   color: #91d7e3;
   border-radius: 5px;
-  padding: 0 10px;
+  padding: 0 8px;
+}
+
+#battery {
+  color: #5bc236
 }
 
 #network {
   color: #c6a0f6;
-  margin-right: 10px;
 }
 
 #language {
@@ -126,22 +127,10 @@ window#waybar {
 
 #custom-dot {
   color: #6e738d;
-  padding-right: 10px;
-}
-
-#custom-dot-alt {
-  color: #a5adcb;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 #custom-filler {
   color: #6e738d;
-  padding-left: 0px;
-  padding-right: 9px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-radius: 5px;
 }
 
 #clock {
