@@ -95,6 +95,7 @@ local function on_attach()
     "rust_analyzer",
     "kotlin_language_server",
     "clangd",
+    "nil_ls",
   }
   for _, server in ipairs(servers) do
     lspconfig[server].setup({})
@@ -125,7 +126,8 @@ local function on_attach()
       "sugarss",
       "html",
       "xml",
-      "python"
+      "python",
+      "nix"
     },
   })
 

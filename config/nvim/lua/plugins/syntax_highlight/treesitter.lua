@@ -62,6 +62,7 @@ return {
       'make',
       'markdown',
       'markdown_inline',
+      'nix',
       'proto',
       'python',
       'query',

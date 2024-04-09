@@ -109,6 +109,10 @@ tools:
     format-command: "autopep8 -"
     format-stdin: true
 
+  nixpkgs-fmt: &nixpkgs-fmt
+    format-command: "nixpkgs-fmt"
+    format-stdin: true
+
 # languages setting
 languages:
   java:
@@ -188,3 +192,6 @@ languages:
 
   python:
     - <<: *autopep8
+
+  nix:
+    - <<: *nixpkgs-fmt
