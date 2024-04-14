@@ -12,3 +12,4 @@
 - go (for fzf)
 - fzf
 - rg (better than grep, and used for neovim)
+- tmux
