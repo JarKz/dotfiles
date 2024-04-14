@@ -27,6 +27,10 @@ To avoid strange behaviors, create file `.profile` at the `$HOME` directory with
 ```bash
 export XDG_CONFIG_HOME=path/to/dotfiles/config
 export XDG_DATA_HOME=path/to/dotfiles/share
+
+# For debug in C, C++, Rust
+# Usually path is /usr/bin/lldb-vscode
+export LLDB=patn/to/lldb-vscode
 ```
 
 4. Next, create file `.zshrc` with single line:
