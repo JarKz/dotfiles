@@ -2,7 +2,7 @@
 
 The main code/text editor that I mostly use.
 
-It's my final neovim configuration and I don't want to change anymore. Of course, I can change if one or more plugins breaks or will be deprecateds (i.e. fixing after updating).
+It's my final neovim configuration and I don't want to change anymore. Of course, I can change if one or more plugins breaks or will be deprecateds (i.e. I'm fixing after updating).
 
 ## Structure
 
