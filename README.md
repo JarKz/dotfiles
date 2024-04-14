@@ -1,56 +1,78 @@
 # About
 
-It's dotfiles that I use in my work.
+The dotfiles, that I use everywhere when possible. It contain necessary and non-necessary files, which depends on situations. I store here many configs as possible.
 
-I am Java developer and this dotfiles is sharpened for this. Powerful JDKs, JDT.LS and good code editor Neovim with specific plugins for this environment.
+You can remove some directories or files as you want.
 
 ## Preparation steps
 
-Firsly, I shall to tell you that this dotfiles need some dependencies if you want use all potential power. I know, some dependencies for you may be not good for you. But it is my ecosystem, this is comfortable for me.
+Here is no installation script, so you must do all things manually. I don't want to add this script only because I want that you know, what you need to use.
 
-Preparation by three steps:
+But, I left here the other file named `NEEDED_PACKAGES.md`. You can read a content of this file through for understanding what I used to my ecosystem.
 
-1. Run the shell script that checks your system by existance of binaries. It tell you if needed package is missing.
+Please, hold in head that the most packages are used for NeoVim.
 
-```bash
-sh preparation_script.sh
-```
+1. Install needed packages, that listed in the file above.
+2. Pull each git submodule: `config/oh-my-zsh`, `share/java_extensions/eclipse.jdt.ls` (optional), `java_extensions/java-debug` (optional), `java_extensions/vscode-java-test` (optional).
 
-2. Make sure installed git submodules. If is not, run the command below:
+> __NOTE__
+> Three last submodules only java development, so you can skip they, if don't use.
 
-```bash
-git pull --recursive-submodules
-```
+For `share/java_extensions/eclipse.jdt.ls`, you need compile target file. Please, read instructions for it at [the site](https://github.com/eclipse-jdtls/eclipse.jdt.ls). See [`ABOUT_JAVA.md`](./ABOUT_JAVA.md) for additional information.
 
-3. Fine-tuning. I will focus on this point in more detail.
+3. Setting env variables.
 
-Make sure that you have installed JDK with four versions: Java-20, Java-17, Java-11 and Java-1.8. And put it in your `.zshrc` file the environment variables by template:
+To avoid strange behaviors, create file `.profile` at the `$HOME` directory with these variables:
 
 ```bash
-export JAVA_HOME={path_to_java_17}
-export JAVA_LASTEST_HOME={path_to_java_20}
-export JAVA_11_HOME={path_to_java_11}
-export JAVA_8_HOME={path_to_java8}
+export XDG_CONFIG_HOME=path/to/dotfiles/config
+export XDG_DATA_HOME=path/to/dotfiles/share
 ```
 
-Also you need put this line for referencing specific zshrc file:
+4. Next, create file `.zshrc` with single line:
 
 ```bash
-source {path/to}/dotfiles/config/zsh/zshrc
+source path/to/dotfiles/config/zsh/zshrc
 ```
 
-Next, you need compile the `eclipse.jdt.ls`. Make sure that your environment variable JAVA_HOME is right and go to the git submodule `eclipse.jdt.ls` that placed at `dotfiles/share/java_extensions`. Compile the project by command:
+> __NOTE__
+> That is why the git submodule `config/oh-my-zsh` is required.
+
+5. Make symbolic links to specific config files:
 
 ```bash
-./mwnw clean verify
+ln -s ~/path/to/dotfiles/config/icons ~/.icons
+ln -s ~/path/to/dotfiles/config/dunst ~/.config/dunst
 ```
 
-And that is all! Enjoy the code editor!
+> __NOTE__
+> Maybe, you need to create ~/.config directory before run second command.
 
-### Troubleshooting
+Why you must do it? Only beacuse some application doesn't read `$XDG_CONFIG_HOME` environment variable that sounds very sad and incomfortable. Please to have patience with this information.
 
-If you have missing plugin that needed for this environment, but it is not described. Then make the issue, I will fix it and help you!
+6. (OPTIONAL) Only for java devs. You must create specific environment variables according to neovim java-lsp config:
 
-#### License
+```bash
+export JAVA_HOME=path/to/jdk17
+export JAVA_8_HOME=path/to/jdk8
+export JAVA_11_HOME=path/to/jdk11
+export JAVA_LATEST_HOME=path/to/jdk21
+```
 
-[MIT](https://github.com/jarkz/dotfiles/LICENSE)
+In `~/.zshrc` or `.profile` file.
+
+> __NOTE__
+> I'm not using java 22 or higher because it doesn't have any sense to use. 
+> You can modify this configuration, please read `ABOUT_JAVA.md`.
+
+## Troubleshooting
+
+If you figured out that this dotfiles requires missing package or environment variables, please open an issue or make PR with needed changes.
+
+## Contribution
+
+I'm open to apporopriate changes that makes this dotfiles more better.
+
+## License
+
+[MIT](./LICENSE)
