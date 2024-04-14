@@ -4,6 +4,9 @@ The main code/text editor that I mostly use.
 
 It's my final neovim configuration and I don't want to change anymore. Of course, I can change if one or more plugins breaks or will be deprecateds (i.e. I'm fixing after updating).
 
+> __NOTE__
+> I'm using neovim-nigthly because this version have a lot of functionality that I need to comfort coding. So this config with the neovim stable version will be have some errors.
+
 ## Structure
 
 The current structure of configuration based on standard for 'lazy.nvim' plugin:
