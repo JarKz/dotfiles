@@ -1,6 +1,8 @@
 # Neovim
 
-The main code/text editor that I mostly use. Sometimes I can change configuration for adding minor effects or removing deprecated plugins. Also in intervals like 1-3 months I update the configurations to latest plugin standards.
+The main code/text editor that I mostly use.
+
+It's my final neovim configuration and I don't want to change anymore. Of course, I can change if one or more plugins breaks or will be deprecateds (i.e. fixing after updating).
 
 ## Structure
 
@@ -16,13 +18,17 @@ The current structure of configuration based on standard for 'lazy.nvim' plugin:
 
 When you initially starts Neovim, you must wait becuase plugins, `treesitter`parsers and `Mason` packages is installing. You can check status of installations:
 
-  - for `treesitter` parsers: type `:messages` and scroll down (by 'j' key or 'space' key);
+  - for `treesitter` parsers: type `:messages` and scroll down (by 'j'/'space' key);
   - for plugins: type `:Lazy` and it pop up window with details;
   - for `Mason`: type `:Mason` and it pop up window with list of packages and their status;
 
-If you see any errors in top-right corner, type `:Notifications` and read what is errors. Mostly it based on bad preparation, that I described in 'dotfiles/README.md'.
+If you see any errors in top-right corner, type `:Notifications` and read what is errors. Mostly it based on bad preparation, that I described in `README.md`.
 
 ## List of plugins
+
+Plugin manager:
+
+  - `folke/lazy.nvim`
 
 Colorscheme:
 
@@ -49,22 +55,23 @@ Autocompletion:
       - `L3MON4D3/LuaSnip`
       - `rafamadriz/friendly-snippets`
       - `onsails/lspkind-nvim`
-      - `tzachar/cmp-tabnine`
 
 LSP:
 
   - `neovim/nvim-lspconfig`
   - `williamboman/mason.nvim`
   - `williamboman/mason-lspconfig.nvim`
-  - `jay-babu/mason-null-ls.nvim`
+  - `jay-babu/mason-null-ls.nvim` which depends on:
+    - `jose-elias-alvarez/null-ls.nvim`
   - `mfussenegger/nvim-jdtls`
   - `folke/trouble.nvim` – easy shows list of warnings, errors, references, implementations and etc.
 
 DAP:
 
   - `mfussenegger/nvim-dap`
-  - `rcarriga/nvim-dap-ui`
-  - `folke/neodev.nvim` – debug Neovim
+  - `rcarriga/nvim-dap-ui` which depends on:
+    - `nvim-neotest/nvim-nio`
+  - `folke/neodev.nvim` - helps to write lua in neovim configurations.
 
 Syntax highlight:
 
@@ -79,13 +86,14 @@ External functionality:
   - `lewis6991/gitsigns.nvim`
   - `booperlv/nvim-gomove`
   - `lukas-reineke/indent-blankline.nvim`
-  - `JarKz/nvim-spider-utf8` instead of `hrisgrieser/nvim-spider` for enabuling UTF-8, and it depends on:
-    - `theHamsta/nvim_rocks`
+  - `hrisgrieser/nvim-spider`, depends on:
+    - `theHamsta/nvim_rocks` - for enabling UTF-8
   - `JarKz/search-replace-additional-configuration.nvim` instead of `roobert/search-replace.nvim` because of lack of additional properties.
   - `edluffy/specs.nvim`
   - `uga-rosa/translate.nvim`
   - `kaarmu/typst.vim`
-  - `kevinhwang91/nvim-ufo`, which depends on `kevinhwang91/promise-async`
+  - `kevinhwang91/nvim-ufo`, which depends on:
+    - `kevinhwang91/promise-async`
   - `folke/which-key.nvim`
 
 Window plugins:
@@ -102,11 +110,9 @@ Window plugins:
 
 Icons: `nvim-tree/nvim-web-devicons`
 
-Keyboard layout: `shvechikov/vim-keymap-russian-jcukenmac`
-
 ## Troubleshooting
 
-If you got some errors, please copy (or screenshot) the errors from `:messages` or `:Notifications` and open Issue with steps to reprouce this problem.
+If you got some errors, please copy (or screenshot) the errors from `:messages` or `:Notifications` and open issue with steps to reprouce this problem.
 
 ## Contribution
 
@@ -114,4 +120,4 @@ If you found code improvements or you have suggestions to replace one plugin to 
 
 ## License
 
-  [MIT](https://github.com/JarKz/dotfiles/blob/main/LICENSE)
+  [MIT](/LICENSE)
