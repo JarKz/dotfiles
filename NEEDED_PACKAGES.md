@@ -2,6 +2,8 @@
 
 - zsh
 - gcc/g++
+- neovim-nightly (because configuration works fine only on development version)
+- tree-sitter (maybe also development version, uses for neovim-nightly)
 - python (min version - 3.11) with pip
 - unzip
 - nodejs (for LSP in NeoVim)
