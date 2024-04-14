@@ -43,6 +43,7 @@ source path/to/dotfiles/config/zsh/zshrc
 ```bash
 ln -s ~/path/to/dotfiles/config/icons ~/.icons
 ln -s ~/path/to/dotfiles/config/dunst ~/.config/dunst
+ln -s ~/path/to/dotfiles/config/nixpkgs ~/.config/nixpkgs
 ```
 
 > __NOTE__
