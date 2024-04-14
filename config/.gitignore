@@ -11,6 +11,8 @@
 /TabNine
 /kiorc
 /cef_user_data
+/discord
+/obsidian
 
 trashrc
 
@@ -22,3 +24,6 @@ kconf_updaterc
 kservicemenurc
 baloofileinformationrc
 dolphinrc
+
+/pulse
+pavucontrol.ini
