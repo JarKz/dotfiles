@@ -94,7 +94,6 @@ local function on_attach()
     "bashls",
     "rust_analyzer",
     "kotlin_language_server",
-    "clangd",
     "nil_ls",
   }
   for _, server in ipairs(servers) do
