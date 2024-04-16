@@ -81,7 +81,7 @@ function M.init_buf_local_keymaps(bufnr)
         end,
         "Format",
       },
-      E = {
+      K = {
         function()
           local winid = require("ufo").peekFoldedLinesUnderCursor()
           if not winid then
