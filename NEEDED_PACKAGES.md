@@ -14,3 +14,8 @@
 - rg (better than grep, and used for neovim)
 - tmux
 - lldb & lldb-vscode
+- wl-clipboard
+- grim
+- slurp
+- wf-recorder
+- zenity
