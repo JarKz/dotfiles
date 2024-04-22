@@ -38,19 +38,19 @@ XDG_DATA_HOME = "$HOME/dotfiles/share"
 size = 14
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono NFM"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono NFM"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono NFM"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono NFM"
 style = "Regular"
 
 [terminal]
