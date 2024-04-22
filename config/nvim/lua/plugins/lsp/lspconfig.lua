@@ -140,7 +140,7 @@ local function on_attach()
     callback = function(ev)
       -- Enable completion triggered by <c-x><c-o>
       vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-      vim.lsp.inlay_hint.enable(nil, true);
+      vim.lsp.inlay_hint.enable(true, nil);
       keymap.init_buf_local_keymaps(ev.buf)
     end,
   })
