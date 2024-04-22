@@ -21,7 +21,6 @@ return {
     opts = {
       ensure_installed = {
         'pyright',
-        'gopls',
         'bashls',
         'cssls',
         'efm',
