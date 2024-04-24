@@ -1,5 +1,5 @@
 return {
-  "edluffy/specs.nvim",
+  "jarkz/specs.nvim",
   config = function()
     require("specs").setup({
       show_jumps = true,

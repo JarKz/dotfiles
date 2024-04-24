@@ -92,7 +92,7 @@ External functionality:
   - `hrisgrieser/nvim-spider`, depends on:
     - `theHamsta/nvim_rocks` - for enabling UTF-8
   - `JarKz/search-replace-additional-configuration.nvim` instead of `roobert/search-replace.nvim` because of lack of additional properties.
-  - `edluffy/specs.nvim`
+  - `JarKz/specs.nvim` instead of `edluffy/specs.nvim` because of deprecatibility nvim-api of nightly-version.
   - `uga-rosa/translate.nvim`
   - `kaarmu/typst.vim`
   - `kevinhwang91/nvim-ufo`, which depends on:
