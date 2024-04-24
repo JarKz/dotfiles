@@ -93,9 +93,9 @@ function M.init_buf_local_keymaps(bufnr)
       i = {
         function()
           if vim.lsp.inlay_hint.is_enabled() then
-            vim.lsp.inlay_hint.enable(nil, false);
+            vim.lsp.inlay_hint.enable(false, nil);
           else
-            vim.lsp.inlay_hint.enable(nil, true);
+            vim.lsp.inlay_hint.enable(true, nil);
           end
         end,
         "Toggle inlay hints"
