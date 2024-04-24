@@ -161,9 +161,8 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
--- local workspace_folder = home .. "/.workspace" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_folder = home .. "/Documents/Coding/javaProjects/AllProjects/" .. project_name
+local workspace_folder = home .. "/Coding/javaProjects/jdtlsWorkspaces" .. project_name
 local config = {
   flags = {
     allow_incremental_sync = true,
