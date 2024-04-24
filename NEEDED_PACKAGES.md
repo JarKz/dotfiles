@@ -19,3 +19,11 @@
 - slurp
 - wf-recorder
 - zenity
+- dunst
+- glow (for neovim MarkDown reading)
+- bc (to show time cost of executed process)
+- wofi
+- pulseaudio
+- papirus
+- trash-cli
+- openssh
