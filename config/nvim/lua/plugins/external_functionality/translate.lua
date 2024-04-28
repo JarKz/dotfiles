@@ -13,6 +13,8 @@ return {
         },
         floating = {
           style = "minimal",
+          width = 100,
+          height = 100,
           focusable = true,
           border = require("config.window_config").border,
           -- for upper than lsp documentation
