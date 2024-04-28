@@ -95,7 +95,7 @@ export ZSHRC_PATH="$XDG_CONFIG_HOME/zsh"
 plugins=(git gh gradle brew archlinux)
 
 source "$ZSH/oh-my-zsh.sh"
-source "$ZSHRC_PATH/themes/passion.zsh-theme"
+source "$ZSHRC_PATH/themes/ohmyzsh-theme-passion/passion.zsh-theme"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8

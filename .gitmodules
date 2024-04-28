@@ -10,3 +10,6 @@
 [submodule "config/oh-my-zsh"]
 	path = config/oh-my-zsh
 	url = git@github.com:ohmyzsh/ohmyzsh.git
+[submodule "config/zsh/themes/ohmyzsh-theme-passion"]
+	path = config/zsh/themes/ohmyzsh-theme-passion
+	url = git@github.com:chesteryue/ohmyzsh-theme-passion
