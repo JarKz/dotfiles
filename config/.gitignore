@@ -12,6 +12,7 @@
 /cef_user_data
 /discord
 /obsidian
+/GIMP
 
 trashrc
 
@@ -26,3 +27,10 @@ dolphinrc
 
 /pulse
 pavucontrol.ini
+
+/qBittorrent
+/gtk-2.0
+
+/tmux/plugins
+
+mimeapps.list
