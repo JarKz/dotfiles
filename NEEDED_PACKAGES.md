@@ -16,6 +16,7 @@
 - lldb & lldb-vscode
 - wl-clipboard
 - grim
+- satty (https://github.com/gabm/satty)
 - slurp
 - wf-recorder
 - zenity
