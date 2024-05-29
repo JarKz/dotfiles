@@ -28,3 +28,4 @@
 - papirus
 - trash-cli
 - openssh
+- btop (for waybar)
