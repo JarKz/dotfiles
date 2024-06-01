@@ -6,5 +6,6 @@ return {
   },
   config = function()
     require("plugins.keymap.trouble")
+    require("trouble").setup()
   end
 }

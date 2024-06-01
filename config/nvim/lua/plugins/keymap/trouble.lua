@@ -11,12 +11,13 @@ local mapping = {
   ["<leader>"] = {
     name = "Leader functions",
     x = {
-      name = "TroubleToggle",
-      x = { "<CMD>TroubleToggle<CR>", "Open" },
-      w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Workspace diagnostics" },
-      d = { "<CMD>TroubleToggle document_diagnostics<CR>", "Document diagnostics" },
-      l = { "<CMD>TroubleToggle loclist<CR>", "Local diagnostics list" },
-      q = { "<CMD>TroubleToggle quickfix<CR>", "Show quickfixes" },
+      name = "Trouble",
+      x = { "<CMD>Trouble diagnostics toggle<CR>", "Diagnostics" },
+      X = { "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", "Buffer Diagnostics" },
+      s = { "<CMD>Trouble symbols toggle focus=false<CR>", "Symbols" },
+      l = { "<CMD>Trouble lsp toggle focus=false win.position=right<CR>", "LSP Definitions / references / ..." },
+      L = { "<CMD>Trouble loclist toggle<CR>", "Location List" },
+      Q = { "<CMD>Trouble qflist toggle<CR>", "Quickfix List" }
     },
   },
 }
