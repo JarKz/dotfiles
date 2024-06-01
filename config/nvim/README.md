@@ -2,10 +2,11 @@
 
 The main code/text editor that I mostly use.
 
-It's my final neovim configuration and I don't want to change anymore. Of course, I can change if one or more plugins breaks or will be deprecateds (i.e. I'm fixing after updating).
+It's at most complete neovim configuration for me, because all required functionality are exists and used many times. But thrends can change, so I can remove or add another plugin that can be helpful in particular cases. Also I can replace one plugin by another for specific reasons (archived plugin, unmantained code for some years or etc.).
 
 > __NOTE__
-> I'm using neovim-nigthly because this version have a lot of functionality that I need to comfort coding. So this config with the neovim stable version will be have some errors.
+>
+> Be sure that you use stable neovim version since 0.10, because my configuration have inlay hints functionality. Be patient, please 🙏.
 
 ## Structure
 
@@ -104,10 +105,8 @@ Window plugins:
   - `glepnir/dashboard-nvim`
   - `stevearc/dressing.nvim`
   - `j-hui/fidget.nvim`
-  - `JellyApple102/flote.nvim`
   - `ibhagwan/fzf-lua`
   - `glepnir/galaxyline.nvim`
-  - `ellisonleao/glow.nvim`
   - `rcarriga/nvim-notify`
   - `nvim-tree/nvim-tree.lua`
 
