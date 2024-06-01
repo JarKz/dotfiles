@@ -1,34 +1,17 @@
 local function on_attach()
   local gl = require("galaxyline")
   local condition = require("galaxyline.condition")
+  local vcs = require("galaxyline.provider_vcs")
 
-  -- onedark
   local colors = {
-    bg = "bg0",
-    bg_dim = "bg_dim",
-    bg_light = "bg4",
-    black = "black",
-    white = "fg",
-    gray = "gray",
+    fg = "fg",
+    gray = "grey",
     red = "red",
     green = "green",
     yellow = "yellow",
     blue = "blue",
     purple = "purple",
-    teal = "#56b6c2",
   }
-
-  local function make_colors_as_code(tbl_colors)
-    local configuration = vim.fn['sonokai#get_configuration']()
-    local palette = vim.fn['sonokai#get_palette'](configuration.style, configuration.colors_override)
-    for key, value in pairs(tbl_colors) do
-      if (palette[value] ~= nil) then
-        tbl_colors[key] = palette[value][1]
-      end
-    end
-  end
-
-  make_colors_as_code(colors)
 
   local function mode_alias(m)
     local alias = {
@@ -49,7 +32,7 @@ local function on_attach()
     local mode_colors = {
       normal = colors.green,
       insert = colors.blue,
-      visual = colors.prple,
+      visual = colors.purple,
       replace = colors.red,
     }
 
@@ -64,7 +47,7 @@ local function on_attach()
       v = mode_colors.visual,
     }
 
-    return color[m] or colors.bg_light
+    return color[m] or mode_colors.normal
   end
 
   -- disable for these file types
@@ -72,22 +55,18 @@ local function on_attach()
 
   gl.section.left[1] = {
     ViModeIcon = {
-      separator = "  ",
-      separator_highlight = { colors.black, colors.bg_light },
-      highlight = { colors.white, colors.black },
+      highlight = colors.gray,
       provider = function()
-        return "   "
+        return "  󰅁󰅂 "
       end,
     },
   }
 
   gl.section.left[2] = {
     CWD = {
-      separator = "  ",
-      separator_highlight = function()
-        return { colors.bg_light, condition.buffer_not_empty() and colors.bg_dim or colors.bg }
-      end,
-      highlight = { colors.white, colors.bg_light },
+      separator = "󰅁󰅂 ",
+      separator_highlight = colors.gray,
+      highlight = colors.green,
       provider = function()
         local dirname = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
         return " " .. dirname .. " "
@@ -99,13 +78,13 @@ local function on_attach()
     FileIcon = {
       provider = "FileIcon",
       condition = condition.buffer_not_empty,
-      highlight = { colors.gray, colors.bg_dim },
+      highlight = colors.fg,
     },
   }
 
   local fileinfo_provider = require "galaxyline.provider_fileinfo"
-  local modified_icon = ' '
-  local readonly_icon = ' '
+  local modified_icon = ''
+  local readonly_icon = ''
 
   gl.section.left[4] = {
     FileName = {
@@ -113,79 +92,106 @@ local function on_attach()
         return fileinfo_provider.get_current_file_name(modified_icon, readonly_icon)
       end,
       condition = condition.buffer_not_empty,
-      highlight = { colors.gray, colors.bg_dim },
-      separator_highlight = { colors.bg_dim, colors.bg },
-      separator = "  ",
+      highlight = colors.fg,
+      separator_highlight = colors.gray,
+      separator = "󰅁󰅂",
     },
   }
 
   gl.section.left[5] = {
     DiffAdd = {
       icon = "  ",
-      provider = "DiffAdd",
+      provider = function ()
+        local count = vcs.diff_add()
+        if count then
+          return count
+        else
+          return "0 "
+        end
+      end,
       condition = condition.hide_in_width,
-      highlight = { colors.white, colors.bg },
+      highlight = colors.fg,
+      separator = "|",
+      separator_highlight = colors.gray,
     },
   }
 
   gl.section.left[6] = {
     DiffModified = {
       icon = "  ",
-      provider = "DiffModified",
+      provider = function ()
+        local count = vcs.diff_modified()
+        if count then
+          return count
+        else
+          return "0 "
+        end
+      end,
       condition = condition.hide_in_width,
-      highlight = { colors.gray, colors.bg },
+      highlight = colors.gray,
+      separator = "|",
+      separator_highlight = colors.gray,
     },
   }
 
   gl.section.left[7] = {
     DiffRemove = {
       icon = "  ",
-      provider = "DiffRemove",
+      provider = function ()
+        local count = vcs.diff_remove()
+        if count then
+          return count
+        else
+          return "0 "
+        end
+      end,
       condition = condition.hide_in_width,
-      highlight = { colors.gray, colors.bg },
+      highlight = colors.gray,
+      separator = "󰅁󰅂",
+      separator_highlight = colors.gray,
     },
   }
 
   gl.section.left[8] = {
     Warns = {
-      icon = " ",
-      highlight = { colors.yellow, colors.bg },
+      icon = "  ",
+      highlight = colors.yellow,
       provider = function()
         return #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
       end,
       separator = " |",
-      separator_highlight = { colors.gray, colors.bg },
+      separator_highlight = colors.gray,
     },
   }
 
   gl.section.left[9] = {
     Errors = {
       icon = "  ",
-      highlight = { colors.red, colors.bg },
+      highlight = colors.red,
       provider = function()
         return #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
       end,
       separator = " |",
-      separator_highlight = { colors.gray, colors.bg },
+      separator_highlight = colors.gray,
     },
   }
 
   gl.section.left[10] = {
     Hint = {
       icon = " 󰰁 ",
-      highlight = { colors.green, colors.bg },
+      highlight = colors.green,
       provider = function()
         return #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
       end,
       separator = " |",
-      separator_highlight = { colors.gray, colors.bg },
+      separator_highlight = colors.gray,
     },
   }
 
   gl.section.left[11] = {
     Info = {
       icon = "  ",
-      highlight = { colors.blue, colors.bg },
+      highlight = colors.blue,
       provider = function()
         return #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
       end,
@@ -194,7 +200,7 @@ local function on_attach()
 
   gl.section.right[1] = {
     FileType = {
-      highlight = { colors.gray, colors.bg },
+      highlight = colors.gray,
       provider = function()
         local buf = require("galaxyline.provider_buffer")
         return string.lower(buf.get_buffer_filetype())
@@ -206,9 +212,9 @@ local function on_attach()
     GitBranch = {
       icon = " ",
       separator = " | ",
-      separator_highlight = { colors.gray, colors.bg },
+      separator_highlight = colors.gray,
       condition = condition.check_git_workspace,
-      highlight = { colors.teal, colors.bg },
+      highlight = colors.blue,
       provider = "GitBranch",
     },
   }
@@ -217,8 +223,8 @@ local function on_attach()
     FileLocation = {
       icon = "  ",
       separator = " ",
-      separator_highlight = { colors.bg_dim, colors.bg },
-      highlight = { colors.gray, colors.bg_dim },
+      separator_highlight = colors.gray,
+      highlight = colors.gray,
       provider = function()
         local current_line = vim.fn.line(".")
         local total_lines = vim.fn.line("$")
@@ -235,53 +241,29 @@ local function on_attach()
     },
   }
 
-  vim.api.nvim_command("hi GalaxyViModeReverse guibg=" .. colors.bg_dim)
+  vim.api.nvim_command("hi link GalaxyViMode green")
 
   gl.section.right[4] = {
     ViMode = {
       -- icon = " ",
       icon = " √",
       separator = " ",
-      separator_highlight = "GalaxyViModeReverse",
-      highlight = { colors.bg, mode_color() },
+      separator_highlight = "GalaxyViMode",
+      highlight = "GalaxyViMode",
       provider = function()
         local m = vim.fn.mode() or vim.fn.visualmode()
         local mode = mode_alias(m)
         local color = mode_color(m)
-        vim.api.nvim_command("hi GalaxyViMode guibg=" .. color)
-        vim.api.nvim_command("hi GalaxyViModeReverse guifg=" .. color .. " guibg=" .. colors.bg_dim)
+        vim.api.nvim_command("hi link GalaxyViMode " .. color)
         return " " .. mode .. " "
       end,
     },
   }
 
-  vim.cmd([[
-  function! CurrentKeymap() abort
-      return &iminsert ? b:keymap_name : ""
-  endfunction
-  ]])
-
   gl.section.right[5] = {
-    KeymapName = {
-      separator = "  ",
-      separator_highlight = "GalaxyViModeReverse",
-      highlight = { colors.gray, colors.bg_dim },
-      provider = function()
-        local postfix = "  "
-        local lang = vim.fn.CurrentKeymap()
-        if lang == "ru" then
-          return "Russian" .. postfix
-        else
-          return "ABC" .. postfix
-        end
-      end,
-    },
-  }
-
-  gl.section.right[6] = {
     LinePosfifx = {
       separator = "  ",
-      separator_highlight = { colors.bg_dim, nil },
+      separator_highlight = "GalaxyViMode",
       highlight = nil,
       provider = function() end,
     },
