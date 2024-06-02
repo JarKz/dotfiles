@@ -70,13 +70,13 @@ LSP:
     - `jose-elias-alvarez/null-ls.nvim`
   - `mfussenegger/nvim-jdtls`
   - `folke/trouble.nvim` – easy shows list of warnings, errors, references, implementations and etc.
+  - `folke/lazydev.nvim` - helps to write lua in neovim configurations or plugins.
 
 DAP:
 
   - `mfussenegger/nvim-dap`
   - `rcarriga/nvim-dap-ui` which depends on:
     - `nvim-neotest/nvim-nio`
-  - `folke/neodev.nvim` - helps to write lua in neovim configurations.
 
 Syntax highlight:
 
