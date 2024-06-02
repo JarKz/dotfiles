@@ -13,6 +13,7 @@ return {
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
       "onsails/lspkind-nvim",
+      "folke/lazydev.nvim",
     },
     config = function()
       local cmp = require("cmp")
@@ -58,11 +59,12 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp_signature_help" },
           { name = "luasnip" },
+          { name = "lazydev",                priority = 8,       group_index = 0 },
           { name = "nvim_lsp",               priority = 8 },
-          { name = "spell",                  keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] },
+          { name = "spell",                  keyword_length = 3, priority = 5,   keyword_pattern = [[\w\+]] },
           -- { name = "dictionary", keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] }, -- from uga-rosa/cmp-dictionary plug
-          -- { name = "rg" },
           { name = "nvim_lua",               priority = 5 },
+          -- { name = "rg" },
           -- { name = "path" },
           { name = "buffer",                 priority = 3 },
           { name = "calc",                   priority = 3 },
@@ -71,6 +73,7 @@ return {
           priority_weight = 2,
           comparators = {
             -- compare.score_offset, -- not good at all
+            compare.kind,
             compare.offset,
             compare.exact,
             compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
@@ -79,7 +82,6 @@ return {
             compare.order,
             -- compare.scopes, -- what?
             -- compare.sort_text,
-            -- compare.kind,
             -- compare.length, -- useless
           },
         },
