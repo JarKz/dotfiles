@@ -54,27 +54,18 @@ local function on_attach()
   gl.short_line_list = { "startify", "term", "fugitive", "NvimTree" }
 
   gl.section.left[1] = {
-    ViModeIcon = {
-      highlight = colors.gray,
+    CWD = {
+      separator = "󰅂 ",
+      separator_highlight = colors.gray,
+      highlight = colors.green,
       provider = function()
-        return "  󰅁󰅂 "
+        local dirname = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+        return "   " .. dirname .. " "
       end,
     },
   }
 
   gl.section.left[2] = {
-    CWD = {
-      separator = "󰅁󰅂 ",
-      separator_highlight = colors.gray,
-      highlight = colors.green,
-      provider = function()
-        local dirname = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-        return " " .. dirname .. " "
-      end,
-    },
-  }
-
-  gl.section.left[3] = {
     FileIcon = {
       provider = "FileIcon",
       condition = condition.buffer_not_empty,
@@ -86,7 +77,7 @@ local function on_attach()
   local modified_icon = ''
   local readonly_icon = ''
 
-  gl.section.left[4] = {
+  gl.section.left[3] = {
     FileName = {
       provider = function()
         return fileinfo_provider.get_current_file_name(modified_icon, readonly_icon)
@@ -94,11 +85,11 @@ local function on_attach()
       condition = condition.buffer_not_empty,
       highlight = colors.fg,
       separator_highlight = colors.gray,
-      separator = "󰅁󰅂",
+      separator = "󰅂",
     },
   }
 
-  gl.section.left[5] = {
+  gl.section.left[4] = {
     DiffAdd = {
       icon = "  ",
       provider = function ()
@@ -116,7 +107,7 @@ local function on_attach()
     },
   }
 
-  gl.section.left[6] = {
+  gl.section.left[5] = {
     DiffModified = {
       icon = "  ",
       provider = function ()
@@ -134,7 +125,7 @@ local function on_attach()
     },
   }
 
-  gl.section.left[7] = {
+  gl.section.left[6] = {
     DiffRemove = {
       icon = "  ",
       provider = function ()
@@ -152,7 +143,7 @@ local function on_attach()
     },
   }
 
-  gl.section.left[8] = {
+  gl.section.left[7] = {
     Warns = {
       icon = "  ",
       highlight = colors.yellow,
@@ -164,7 +155,7 @@ local function on_attach()
     },
   }
 
-  gl.section.left[9] = {
+  gl.section.left[8] = {
     Errors = {
       icon = "  ",
       highlight = colors.red,
@@ -176,7 +167,7 @@ local function on_attach()
     },
   }
 
-  gl.section.left[10] = {
+  gl.section.left[9] = {
     Hint = {
       icon = " 󰰁 ",
       highlight = colors.green,
@@ -188,7 +179,7 @@ local function on_attach()
     },
   }
 
-  gl.section.left[11] = {
+  gl.section.left[10] = {
     Info = {
       icon = "  ",
       highlight = colors.blue,
