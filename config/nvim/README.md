@@ -37,6 +37,7 @@ Plugin manager:
 Colorscheme:
 
   - `sainnhe/sonokai`
+  - `catppuccin/nvim`
 
 Autopairs:
 
