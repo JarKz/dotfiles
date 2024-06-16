@@ -17,6 +17,13 @@ return {
     trigger_events = { "InsertLeave", "QuitPre", "ExitPre", "VimLeavePre", },
     condition = function(buf)
       local fn = vim.fn
+
+      local bufname = fn.bufname(buf)
+      local oil_path = "oil://"
+      if bufname:sub(1, oil_path:len()) == oil_path then
+        return false
+      end
+
       local utils = require("auto-save.utils.data")
 
       local isModidified = fn.getbufvar(buf, "&modified")
