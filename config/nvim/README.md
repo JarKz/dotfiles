@@ -109,7 +109,7 @@ Window plugins:
   - `ibhagwan/fzf-lua`
   - `glepnir/galaxyline.nvim`
   - `rcarriga/nvim-notify`
-  - `nvim-tree/nvim-tree.lua`
+  - `stevearc/oil.nvim`
 
 Icons: `nvim-tree/nvim-web-devicons`
 
