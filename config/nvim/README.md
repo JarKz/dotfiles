@@ -110,6 +110,7 @@ Window plugins:
   - `glepnir/galaxyline.nvim`
   - `rcarriga/nvim-notify`
   - `stevearc/oil.nvim`
+  - `NStefan002/screenkey.nvim`
 
 Icons: `nvim-tree/nvim-web-devicons`
 
