@@ -91,9 +91,9 @@ External functionality:
   - `lewis6991/gitsigns.nvim`
   - `booperlv/nvim-gomove`
   - `lukas-reineke/indent-blankline.nvim`
-  - `hrisgrieser/nvim-spider`, depends on:
+  - `chrisgrieser/nvim-spider`, depends on:
     - `theHamsta/nvim_rocks` - for enabling UTF-8
-  - `JarKz/search-replace-additional-configuration.nvim` instead of `roobert/search-replace.nvim` because of lack of additional properties.
+  - `chrisgrieser/nvim-rip-substitute`
   - `JarKz/specs.nvim` instead of `edluffy/specs.nvim` because of deprecatibility nvim-api of nightly-version.
   - `uga-rosa/translate.nvim`
   - `kaarmu/typst.vim`
