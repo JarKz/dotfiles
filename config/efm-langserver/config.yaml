@@ -7,6 +7,16 @@ tools:
     format-command: "google-java-format -"
     format-stdin: true
 
+  kotlin-format: &kotlin-format
+    format-command: "ktfmt --kotlinlang-style -"
+    format-stdin: true
+
+  kotlin-lint: &kotlin-lint
+    lint-command: "ktlint --stdin"
+    lint-stdin: true
+    lint-formats:
+      - "%f:%l:%c: %m"
+
   cppcheck-lint: &cppcheck-lint
     lint-command: "cppcheck --enable=style --error-exitcode=1 ${INPUT}"
     lint-stdin: false
@@ -117,6 +127,10 @@ tools:
 languages:
   java:
     - <<: *google-java-format
+
+  kotlin:
+    - <<: *kotlin-format
+    - <<: *kotlin-lint
 
   markdown:
     - <<: *markdownlint-lint
