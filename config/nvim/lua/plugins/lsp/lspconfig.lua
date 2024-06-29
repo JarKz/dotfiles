@@ -105,6 +105,7 @@ local function on_attach()
     cmd = { "efm-langserver", "-c=" .. os.getenv("XDG_CONFIG_HOME") .. "/efm-langserver/config.yaml" },
     filetypes = {
       "java",
+      "kotlin",
       "markdown",
       "json",
       "json5",

@@ -30,7 +30,7 @@ function M.init_global_keymaps()
   wk.register(mapping, mapping_options)
 end
 
-local ignore_lsp_servers = { jdtls = true }
+local ignore_lsp_servers = { jdtls = true, kotlin_language_server = true }
 local function table_contains(tbl, element)
   return not tbl[element]
 end

@@ -49,6 +49,8 @@ return {
         'vale',
         'fixjson',
         'google-java-format',
+        'ktfmt',
+        'ktlint',
         'htmlbeautifier',
         'java-debug-adapter',
         'jq',
