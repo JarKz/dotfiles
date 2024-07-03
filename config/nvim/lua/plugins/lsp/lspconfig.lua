@@ -67,9 +67,6 @@ local function update_diagnostic_ui()
   })
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
-
-  -- WARNING: It's available for neovim-nightly version
-  vim.cmd("hi link LspInlayHint @lsp.type.comment")
 end
 
 local function on_attach()
