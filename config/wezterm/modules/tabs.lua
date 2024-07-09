@@ -22,14 +22,13 @@ wezterm.on(
   'format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
     local palette = config.resolved_palette
-    print(palette)
 
-    local edge_background = palette.background
+    local edge_background = config.colors.tab_bar.background
     local background = palette.brights[1]
-    local foreground = palette.foreground
+    local foreground = "#FFFFFF"
 
     if tab.is_active then
-      background = palette.ansi[6]
+      background = palette.ansi[7]
     end
 
     local edge_foreground = background
@@ -54,4 +53,12 @@ wezterm.on(
   end
 )
 
-return {}
+return {
+  apply = function(config)
+    config.colors = {
+      tab_bar = {
+        background = '#bcbcbc',
+      }
+    }
+  end,
+}

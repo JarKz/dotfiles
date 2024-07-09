@@ -12,7 +12,6 @@ local config = {
   tab_bar_at_bottom = true,
   hide_tab_bar_if_only_one_tab = false,
   show_new_tab_button_in_tab_bar = false,
-  window_background_opacity = 0.8,
   xcursor_theme = "Bibata-Modern-Classic",
 }
 
@@ -22,7 +21,7 @@ for k, v in pairs(wezterm.config_builder()) do
   end
 end
 
-require("modules.tabs")
+require("modules.tabs").apply(config)
 require("modules.keymapping").apply(config)
 
 return config
