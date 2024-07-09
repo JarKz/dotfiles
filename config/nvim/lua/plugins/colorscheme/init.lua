@@ -33,22 +33,27 @@ return {
       global.sonokai_dim_inactive_windows = true
       global.sonokai_enable_italic = true
 
-      vim.cmd("colorscheme sonokai")
+      -- vim.cmd("colorscheme sonokai")
     end,
   }, {
-  "catppuccin/nvim",
-  name = "catppuccin",
-  opts = {
-    custom_highlights = function(colors)
-      return {
-        red = { fg = colors.red },
-        blue = { fg = colors.blue },
-        yellow = { fg = colors.yellow },
-        purple = { fg = colors.flamingo },
-        grey = { fg = "#716f71" },
-        green = { fg = colors.green },
-      }
-    end
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    opts = {
+      custom_highlights = function(colors)
+        return {
+          red = { fg = colors.red },
+          blue = { fg = colors.blue },
+          yellow = { fg = colors.yellow },
+          purple = { fg = colors.flamingo },
+          grey = { fg = "#716f71" },
+          green = { fg = colors.green },
+        }
+      end
+    },
+    config = function(_, opts)
+      require("catppuccin").setup(opts)
+      vim.cmd("colorscheme catppuccin-latte")
+    end,
   }
-}
 }

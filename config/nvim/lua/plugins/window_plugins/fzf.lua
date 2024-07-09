@@ -131,7 +131,8 @@ local function on_attach()
       bat = {
         cmd    = "bat",
         args   = "--style=numbers,changes --color always",
-        theme  = 'Monokai Extended Origin', -- bat preview theme (bat --list-themes)
+        -- theme  = 'Monokai Extended Origin', -- bat preview theme (bat --list-themes)
+        theme  = 'Catppuccin Latte', -- bat preview theme (bat --list-themes)
         config = nil,                       -- nil uses $BAT_CONFIG_PATH
       },
       head = {
