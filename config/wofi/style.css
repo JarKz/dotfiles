@@ -6,7 +6,7 @@
 
 * {
   font-family: "JetBrainsMono Nerd Font";
-  color: #c4d3da;
+  color: #000000;
 }
 
 window {
@@ -17,7 +17,7 @@ window {
   padding: 1em;
   border: none;
   font-weight: bold;
-  background: #1e2030;
+  background: #FFFFFF;
   border-radius: 8px;
 }
 
@@ -36,7 +36,7 @@ window {
 
 #scroll {
   border: 3px solid #90cdfa;
-  background: #1e2030;
+  background: #FFFFFF;
   border-radius: 8px;
 
   margin-top: 20px;
