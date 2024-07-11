@@ -10,15 +10,8 @@
 }
 
 .modules-left, .modules-right {
-  background-color: #FFFFFF;
-}
-
-.modules-left {
-  border-radius: 0 0 10px 0;
-}
-
-.modules-right {
-  border-radius: 0 0 0 10px;
+  background-color: #1a1c2b;
+  border-radius: 10px;
 }
 
 .modules-left widget:first-child label,
@@ -44,6 +37,7 @@ window#waybar {
 #cpu,
 #memory,
 #temperature {
+  background: #2a2d45;
   margin-top: 5px;
   margin-bottom: 5px;
   border-radius: 5px;
@@ -51,29 +45,27 @@ window#waybar {
 }
 
 #cpu {
-  color: orange;
+  color: #eed49f;
 }
 
 #memory {
-  color: green;
+  color: #a6da95;
 }
 
 #temperature {
-  color: blue;
+  color: #8aadf4;
 }
 
-#disk {
-  color: brown;
-}
-
+#disk,
 #custom-blueberry {
-  color: blue;
+  color: #68b0d6;
 }
 
 #workspaces {
-  background-color: #FFFFFF;
+  background-color: #1a1c2b;
+  margin-top: 5px;
   margin-bottom: 5px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 5px;
 }
 
 #workspaces button:nth-child(1) label {
@@ -113,9 +105,10 @@ window#waybar {
 }
 
 #pulseaudio {
+  background-color: #2a2d45;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: blue;
+  color: #91d7e3;
   border-radius: 5px;
   padding: 0 8px;
 }
@@ -125,11 +118,11 @@ window#waybar {
 }
 
 #network {
-  color: brown;
+  color: #c6a0f6;
 }
 
 #language {
-  color: blue;
+  color: #91d7e3;
 }
 
 #custom-dot {
@@ -141,5 +134,5 @@ window#waybar {
 }
 
 #clock {
-  color: black;
+  color: white;
 }
