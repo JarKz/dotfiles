@@ -1,18 +1,14 @@
-local mapping_options = {
-  mode = "n",
-  prefix = "<leader>",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = false,
-}
-
-local mapping = {
-  z = {
-    name = "Zsh",
-    a = { "<CMD>LspStart bashls<CR>", "Attach the bashls" },
-  },
-}
-
+local wk_utils = require("plugins.external_functionality.which_key.utils")
 local wk = require("which-key")
-wk.register(mapping, mapping_options)
+wk.add(wk_utils.keymaps({
+    z = {
+      name = "Zsh",
+      a = { "<CMD>LspStart bashls<CR>", desc = "Attach the bashls" },
+    },
+  },
+  {
+    prefix = "<leader>",
+    remap = false,
+    nowait = false,
+  }
+))

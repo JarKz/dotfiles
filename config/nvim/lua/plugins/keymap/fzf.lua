@@ -17,47 +17,46 @@ local function toggle()
   })
 end
 
-local mapping = {
-  f = {
-    name = "Find",
-    t = {
-      toggle,
-      "Toggle FZF",
-    },
-    f = {
-      fzf.files,
-      "Files",
-    },
-    h = {
-      fzf.help_tags,
-      "Help",
-    },
-    b = {
-      fzf.buffers,
-      "Buffers",
-    },
-  },
-  g = {
-    name = "Grep",
-    l = {
-      fzf.live_grep,
-      "Live grep",
-    },
-    c = {
-      fzf.grep_curbuf,
-      "Code grep",
-    },
-  },
-}
-
-local mapping_options = {
-  mode = "n",
-  prefix = "<leader>",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = false,
-}
-
+local wk_utils = require("plugins.external_functionality.which_key.utils")
 local wk = require("which-key")
-wk.register(mapping, mapping_options)
+
+wk.add(
+  wk_utils.keymaps({
+      f = {
+        name = "Find",
+        t = {
+          toggle,
+          desc = "Toggle FZF",
+        },
+        f = {
+          fzf.files,
+          desc = "Files",
+        },
+        h = {
+          fzf.help_tags,
+          desc = "Help",
+        },
+        b = {
+          fzf.buffers,
+          desc = "Buffers",
+        },
+      },
+      g = {
+        name = "Grep",
+        l = {
+          fzf.live_grep,
+          desc = "Live grep",
+        },
+        c = {
+          fzf.grep_curbuf,
+          desc = "Code grep",
+        },
+      },
+    },
+    {
+      prefix = "<leader>",
+      remap = false,
+      nowait = false,
+    }
+  )
+)

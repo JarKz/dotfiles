@@ -40,94 +40,101 @@ local on_attach = function(client, bufnr)
 
   -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  local mapping_options = {
-    mode = "n",
-    prefix = "<leader>",
-    buffer = bufnr,
-    silent = true,
-    noremap = true,
-    nowait = false,
-  }
-
   local java_functions = {
     name = "Java Tools",
-    o = { jdtls.organize_imports, "Organize imports" },
+    o = { jdtls.organize_imports, desc = "Organize imports" },
     c = {
       name = "Compile",
       f = {
         function()
           jdtls.compile("full")
         end,
-        "Full compile",
+        desc = "Full compile",
       },
       i = {
         function()
           jdtls.compile("incremental")
         end,
-        "Incremental compile",
+        desc = "Incremental compile",
       },
     },
-    b = { jdtls.build_projects, "Build projects" },
-    u = { jdtls.update_projects_confis, "Update projects config" },
+    b = { jdtls.build_projects, desc = "Build projects" },
+    u = { jdtls.update_projects_confis, desc = "Update projects config" },
     e = {
       name = "Extract",
-      c = { jdtls.extract_constant, "Constant" },
-      v = { jdtls.extract_variable, "Variable" },
-      m = { jdtls.extract_method, "Method" },
+      c = { jdtls.extract_constant, desc = "Constant" },
+      v = { jdtls.extract_variable, desc = "Variable" },
+      m = { jdtls.extract_method, desc = "Method" },
     },
-    j = { jdtls.javap, "Javap" },
-    s = { jdtls.jshell, "JShell" },
+    j = { jdtls.javap, desc = "Javap" },
+    s = { jdtls.jshell, desc = "JShell" },
     t = {
       name = "Test",
-      c = { jdtls.test_class, "Class" },
-      m = { jdtls.test_nearest_method, "Nearest method" },
+      c = { jdtls.test_class, desc = "Class" },
+      m = { jdtls.test_nearest_method, desc = "Nearest method" },
     },
     p = {
       name = "Preview",
-      e = { java_previews.enable, "Enable" },
-      d = { java_previews.disable, "Disable" },
+      e = { java_previews.enable, desc = "Enable" },
+      d = { java_previews.disable, desc = "Disable" },
     },
   }
 
-  local mapping = {
-    d = {
-      s = {
-        function()
-          jdtls_setup.wipe_data_and_restart()
-          require("jdtls.dap").setup_dap_main_class_configs()
-        end,
-        "Java setup debug",
-      },
-    },
-    j = java_functions,
-  }
-
+  local wk_utils = require("plugins.external_functionality.which_key.utils")
   local wk = require("which-key")
-  wk.register(mapping, mapping_options)
 
-  local visual_mapping_options = mapping_options
-  visual_mapping_options.mode = "v"
-  local visual_mapping = {
-    j = {
-      name = "Java in visual mode",
-      e = {
-        name = "Extract",
-        v = {
-          function()
-            jdtls.extract_variable(true)
-          end,
-          "Variables",
+  wk.add(
+    wk_utils.keymaps({
+        d = {
+          s = {
+            function()
+              jdtls_setup.wipe_data_and_restart()
+              require("jdtls.dap").setup_dap_main_class_configs()
+            end,
+            desc = "Java setup debug",
+          },
         },
-        m = {
-          function()
-            jdtls.extract_method(true)
-          end,
-          "Methods",
+        j = java_functions,
+      },
+      {
+        prefix = "<leader>",
+        buffer = bufnr,
+        remap = false,
+        nowait = false,
+      }
+    )
+  )
+
+  wk.add(
+    wk_utils.keymaps({
+        j = {
+          name = "Java in visual mode",
+          e = {
+            name = "Extract",
+            v = {
+              function()
+                jdtls.extract_variable(true)
+              end,
+              desc = "Variables",
+            },
+            m = {
+              function()
+                jdtls.extract_method(true)
+              end,
+              desc = "Methods",
+            },
+          },
         },
       },
-    },
-  }
-  wk.register(visual_mapping, visual_mapping_options)
+      {
+        prefix = "<leader>",
+        mode = "v",
+        buffer = bufnr,
+        remap = false,
+        nowait = false,
+      }
+    )
+  )
 
   vim.cmd([[
           hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow

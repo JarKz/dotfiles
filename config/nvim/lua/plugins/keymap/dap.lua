@@ -1,15 +1,6 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
-local mapping_options = {
-  mode = "n",
-  prefix = "",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = false,
-}
-
 local options = {
   width = nil,
   height = nil,
@@ -17,25 +8,28 @@ local options = {
 }
 local window_type = nil
 
-local mapping = {
-  ["<leader>"] = {
-    name = "Leader functions",
+local wk_utils = require("plugins.external_functionality.which_key.utils")
+local wk = require("which-key")
+
+wk.add(wk_utils.keymaps({
     d = {
       name = "Debug",
-      r = { dap.run, "Run" },
-      c = { dap.continue, "Continue" },
-      t = { dap.toggle_breakpoint, "Toggle breakpoint" },
-      u = { dapui.toggle, "Toggle UI" },
+      r = { dap.run, desc = "Run" },
+      c = { dap.continue, desc = "Continue" },
+      t = { dap.toggle_breakpoint, desc = "Toggle breakpoint" },
+      u = { dapui.toggle, desc = "Toggle UI" },
       f = {
         function()
           vim.print(dapui.elements)
           dapui.float_element(window_type, options)
         end,
-        "Open float window",
+        desc = "Open float window",
       },
     },
   },
-}
-
-local wk = require("which-key")
-wk.register(mapping, mapping_options)
+  {
+    prefix = "<leader>",
+    remap = false,
+    nowait = false,
+  }
+))

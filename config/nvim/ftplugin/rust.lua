@@ -89,24 +89,23 @@ dap.configurations.rust = {
   }
 }
 
-local mapping_options = {
-  mode = "n",
-  prefix = "<leader>",
-  buffer = 0,
-  silent = true,
-  noremap = true,
-  nowait = false,
-}
-
-local mapping = {
-  d = {
-    R = {
-      name = "Rust debug configuratoins",
-      d = { function() config.exec_version = "Debug" end, "Set debug executable version" },
-      r = { function() config.exec_version = "Release" end, "Set release executable version" },
-    },
-  },
-}
-
+local wk_utils = require("plugins.external_functionality.which_key.utils")
 local wk = require("which-key")
-wk.register(mapping, mapping_options)
+wk.add(
+  wk_utils.keymaps({
+      d = {
+        name = "Debug",
+        R = {
+          name = "Rust debug configuratoins",
+          d = { function() config.exec_version = "Debug" end, desc = "Set debug executable version" },
+          r = { function() config.exec_version = "Release" end, desc = "Set release executable version" },
+        },
+      },
+    },
+    {
+      prefix = "<leader>",
+      remap = false,
+      nowait = false,
+    }
+  )
+)

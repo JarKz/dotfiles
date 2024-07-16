@@ -41,22 +41,3 @@ require("lspconfig").lua_ls.setup({
     },
   },
 })
-
-local mapping_options = {
-  mode = "n",
-  prefix = "<leader>",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = false,
-}
-
-local mapping = {
-  l = {
-    name = "Lua",
-    a = { "<CMD>LspStart lua_ls<CR>", "Attach the lua_ls" },
-  },
-}
-
-local wk = require("which-key")
-wk.register(mapping, mapping_options)

@@ -1,33 +1,33 @@
 local M = {}
+local wk_utils = require("plugins.external_functionality.which_key.utils")
 local wk = require("which-key")
 local fzf = require("fzf-lua")
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 function M.init_global_keymaps()
-  local mapping_options = {
-    mode = "n",
-    prefix = "",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = false,
-  }
-
-  local mapping = {
-    ["<space>"] = {
-      name = "Special",
-      e = { vim.diagnostic.open_float, "Open diagnostic window" },
-      q = { vim.diagnostic.setloclist, "List of diagnostics" },
-    },
-    ["]"] = {
-      d = { vim.diagnostic.goto_next, "Next diagnostic" },
-    },
-    ["["] = {
-      d = { vim.diagnostic.goto_prev, "Previous diagnostic" },
-    },
-  }
-  wk.register(mapping, mapping_options)
+  wk.add(
+    wk_utils.keymaps({
+        ["<space>"] = {
+          name = "Special",
+          e = { vim.diagnostic.open_float, desc = "Open diagnostic window" },
+          q = { vim.diagnostic.setloclist, desc = "List of diagnostics" },
+        },
+        ["]"] = {
+          name = "Right Bracket",
+          d = { vim.diagnostic.goto_next, desc = "Next diagnostic" },
+        },
+        ["["] = {
+          name = "Left Bracket",
+          d = { vim.diagnostic.goto_prev, desc = "Previous diagnostic" },
+        },
+      },
+      {
+        remap = false,
+        nowait = false,
+      }
+    )
+  )
 end
 
 local ignore_lsp_servers = { jdtls = true, kotlin_language_server = true }
@@ -38,82 +38,81 @@ end
 -- Buffer local mappings.
 -- See `:help vim.lsp.*` for documentation on any of the below functions
 function M.init_buf_local_keymaps(bufnr)
-  local lsp_mapping_options = {
-    mode = "n",
-    prefix = "",
-    buffer = bufnr,
-    silent = true,
-    noremap = true,
-    nowait = false,
-  }
+  wk.add(
+    wk_utils.keymaps({
+        ["<space>"] = {
+          name = "Special",
+          w = {
+            name = "Workspace",
+            a = { vim.lsp.buf.add_workspace_folder, desc = "Add workspace folder" },
+            r = { vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
+            l = {
+              function()
+                print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+              end,
+              desc = "List of workspace folders",
+            },
+          },
+          D = { vim.lsp.buf.type_definition, desc = "Type definition" },
+          r = {
+            name = "Rename -> prefix",
+            n = { vim.lsp.buf.rename, desc = "ename" },
 
-  local lsp_mapping = {
-    ["<space>"] = {
-      name = "Special",
-      w = {
-        name = "Workspace",
-        a = { vim.lsp.buf.add_workspace_folder, "Add workspace folder" },
-        r = { vim.lsp.buf.remove_workspace_folder, "Remove workspace folder" },
-        l = {
-          function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-          end,
-          "List of workspace folders",
+          },
+          c = {
+            name = "Code action -> prefix",
+            a = { vim.lsp.buf.code_action, desc = "Code action" },
+          },
+          f = {
+            function()
+              vim.lsp.buf.format({
+                async = true,
+                filter = function(client)
+                  return table_contains(ignore_lsp_servers, client.name)
+                end
+              })
+            end,
+            desc = "Format",
+          },
+          K = {
+            function()
+              local winid = require("ufo").peekFoldedLinesUnderCursor()
+              if not winid then
+                vim.lsp.buf.hover()
+              end
+            end,
+            desc = "Hower (show documentation or show fold preview)",
+          },
+          i = {
+            function()
+              if vim.lsp.inlay_hint.is_enabled() then
+                vim.lsp.inlay_hint.enable(false, nil);
+              else
+                vim.lsp.inlay_hint.enable(true, nil);
+              end
+            end,
+            desc = "Toggle inlay hints"
+          },
+        },
+        g = {
+          name = "Global function",
+          D = { vim.lsp.buf.declaration, desc = "Declaration" },
+          d = { vim.lsp.buf.definition, desc = "Definition" },
+        },
+        ["<C-k>"] = { vim.lsp.buf.signature_help, desc = "Signature help" },
+        ["<leader>"] = {
+          name = "Leader functions",
+          R = { fzf.lsp_references, desc = "References" },
+          I = { fzf.lsp_implementations, desc = "Implementations" },
         },
       },
-      D = { vim.lsp.buf.type_definition, "Type definition" },
-      r = {
-        name = "Rename -> prefix",
-        n = { vim.lsp.buf.rename, "Rename" },
-      },
-      c = {
-        name = "Code action -> prefix",
-        a = { vim.lsp.buf.code_action, "Code action" },
-      },
-      f = {
-        function()
-          vim.lsp.buf.format({
-            async = true,
-            filter = function(client)
-              return table_contains(ignore_lsp_servers, client.name)
-            end
-          })
-        end,
-        "Format",
-      },
-      K = {
-        function()
-          local winid = require("ufo").peekFoldedLinesUnderCursor()
-          if not winid then
-            vim.lsp.buf.hover()
-          end
-        end,
-        "Hower (show documentation or show fold preview)",
-      },
-      i = {
-        function()
-          if vim.lsp.inlay_hint.is_enabled() then
-            vim.lsp.inlay_hint.enable(false, nil);
-          else
-            vim.lsp.inlay_hint.enable(true, nil);
-          end
-        end,
-        "Toggle inlay hints"
-      },
-    },
-    g = {
-      name = "Global function",
-      D = { vim.lsp.buf.declaration, "Declaration" },
-      d = { vim.lsp.buf.definition, "Definition" },
-    },
-    ["<C-k>"] = { vim.lsp.buf.signature_help, "Signature help" },
-    ["<leader>"] = {
-      name = "Leader functions",
-      R = { fzf.lsp_references, "References" },
-      I = { fzf.lsp_implementations, "Implementations" },
-    },
-  }
-  wk.register(lsp_mapping, lsp_mapping_options)
+      {
+        buffer = bufnr,
+        remap = false,
+        nowait = false,
+      }
+    )
+  )
 end
 
 return M

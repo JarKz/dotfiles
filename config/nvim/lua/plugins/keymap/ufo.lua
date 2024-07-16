@@ -1,23 +1,20 @@
 local ufo = require("ufo")
-
-local mapping_options = {
-  mode = "n",
-  prefix = "",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = false,
-}
-
-local mapping = {
-  z = {
-    name = "fold",
-    R = { ufo.openAllFolds, "Open all folds" },
-    M = { ufo.closeAllFolds, "Close all folds" },
-    r = { ufo.openFoldsExceptKinds, "Open folds except kinds" },
-    m = { ufo.closeFoldsWith, "Close folds with" },
-  },
-}
-
+local wk_utils = require("plugins.external_functionality.which_key.utils")
 local wk = require("which-key")
-wk.register(mapping, mapping_options)
+
+wk.add(
+  wk_utils.keymaps({
+      z = {
+        name = "fold",
+        R = { ufo.openAllFolds, desc = "Open all folds" },
+        M = { ufo.closeAllFolds, desc = "Close all folds" },
+        r = { ufo.openFoldsExceptKinds, desc = "Open folds except kinds" },
+        m = { ufo.closeFoldsWith, desc = "Close folds with" },
+      },
+    },
+    {
+      remap = false,
+      nowait = false,
+    }
+  )
+)
