@@ -37,7 +37,7 @@ function M.apply(config)
       mods = "LEADER",
       action = wezterm.action.SendKey({
         key = "a",
-        mods = "LEADER",
+        mods = "CTRL",
       }),
     },
 
