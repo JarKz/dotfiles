@@ -48,6 +48,7 @@ function M.apply(config)
       action = wezterm.action.ActivateKeyTable {
         name = "activate_pane",
         one_shot = false,
+        replace_current = true,
       }
     },
 
@@ -58,6 +59,7 @@ function M.apply(config)
       action = wezterm.action.ActivateKeyTable {
         name = "resize_pane",
         one_shot = false,
+        replace_current = true,
       }
     },
 
@@ -96,6 +98,7 @@ function M.apply(config)
       action = wezterm.action.ActivateKeyTable {
         name = 'activate_tab',
         one_shot = false,
+        replace_current = true,
       }
     },
   }
