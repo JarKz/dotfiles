@@ -100,7 +100,6 @@ source "$ZSHRC_PATH/themes/ohmyzsh-theme-passion/passion.zsh-theme"
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -114,8 +113,7 @@ alias rm="trash"
 # For java development
 alias google-java-format="/Users/jarkz/dotfiles/share/nvim/mason/bin/google-java-format"
 
-for script in "$XDG_DATA_HOME/bash-scripts"/*
-do
+for script in "$XDG_DATA_HOME/bash-scripts"/*; do
   alias ${script:t:r}="sh ${script}"
 done
 
@@ -136,3 +134,5 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 export SDKMAN_DIR="$XDG_CONFIG_HOME/sdkman"
 [[ -s "$XDG_CONFIG_HOME/sdkman/bin/sdkman-init.sh" ]] && source "$XDG_CONFIG_HOME/sdkman/bin/sdkman-init.sh"
+
+source "$ZSHRC_PATH/plugins/yazi.zsh"
