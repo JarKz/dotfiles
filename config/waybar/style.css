@@ -124,6 +124,18 @@ window#waybar {
   color: #5bc236
 }
 
+#custom-ergonaut-battery.normal {
+  color: green;
+}
+
+#custom-ergonaut-battery.urgent {
+  color: orange;
+}
+
+#custom-ergonaut-battery.critical {
+  color: red;
+}
+
 #network {
   color: brown;
 }
