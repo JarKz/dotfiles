@@ -1,24 +1,29 @@
+/*
+* The colorsheme inspired by catppuccin-latte and used colors from its
+* palette.
+*/
+@import "catppuccin-latte.css";
+
 * {
   min-height: 0;
   padding: 0;
   margin: 0;
-  font-family:
-    JetBrainsMono NFM,
-    "Font Awesome 6 Free";
+  font-family: JetBrainsMono NFM;
   font-weight: bold;
   font-size: 14px;
 }
 
-.modules-left, .modules-right {
-  background-color: #FFFFFF;
+.modules-left,
+.modules-right {
+  background-color: @background;
 }
 
 .modules-left {
-  border-radius: 0 0 10px 0;
+  border-radius: 0 0 3px 0;
 }
 
 .modules-right {
-  border-radius: 0 0 0 10px;
+  border-radius: 0 0 0 3px;
 }
 
 .modules-left widget:first-child label,
@@ -37,7 +42,7 @@ window#waybar {
 
 #custom-launcher {
   /* font-size: 20px; */
-  color: #00bfff;
+  color: @sky;
   padding-right: 4px;
 }
 
@@ -51,29 +56,29 @@ window#waybar {
 }
 
 #cpu {
-  color: orange;
+  color: @orange;
 }
 
 #memory {
-  color: green;
+  color: @green;
 }
 
 #temperature {
-  color: blue;
+  color: @blue;
 }
 
 #disk {
-  color: brown;
+  color: @rosewater;
 }
 
 #custom-blueberry {
-  color: blue;
+  color: @blue;
 }
 
 #workspaces {
-  background-color: #FFFFFF;
+  background-color: @background;
   margin-bottom: 5px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 3px 3px;
 }
 
 #workspaces button:nth-child(1) label {
@@ -121,37 +126,45 @@ window#waybar {
 }
 
 #battery {
-  color: #5bc236
+  color: @green;
+}
+
+#battery.urgent {
+  color: @orange;
+}
+
+#battery.critical {
+  color: @red;
 }
 
 #custom-ergonaut-battery.normal {
-  color: green;
+  color: @green;
 }
 
 #custom-ergonaut-battery.urgent {
-  color: orange;
+  color: @orange;
 }
 
 #custom-ergonaut-battery.critical {
-  color: red;
+  color: @red;
 }
 
 #network {
-  color: brown;
+  color: @rosewater;
 }
 
 #language {
-  color: blue;
+  color: @blue;
 }
 
 #custom-dot {
-  color: #6e738d;
+  color: @text;
 }
 
 #custom-filler {
-  color: #6e738d;
+  color: @text;
 }
 
 #clock {
-  color: black;
+  color: @text;
 }
