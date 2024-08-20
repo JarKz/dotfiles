@@ -8,7 +8,7 @@ return {
     opts = {
       delete_to_trash = true,
     },
-    config = function(opts)
+    config = function(_, opts)
       require("oil").setup(opts)
       require("plugins.keymap.oil")
     end,
