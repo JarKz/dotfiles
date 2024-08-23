@@ -32,7 +32,8 @@ return {
         'stylelint_lsp',
         'tsserver',
         'typst_lsp',
-        'nil_ls'
+        'nil_ls',
+        'jdtls'
       },
     },
   },

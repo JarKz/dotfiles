@@ -257,6 +257,12 @@ config.cmd = {
   "-Dlog.protocol=true",
   "-Dlog.level=ALL",
   "-Xmx1g",
+  "--add-modules=ALL-SYSTEM",
+  "--add-opens",
+  "java.base/java.util=ALL-UNNAMED",
+  "--add-opens",
+  "java.base/java.lang=ALL-UNNAMED",
+  "-javaagent:" .. os.getenv("XDG_DATA_HOME") .. "/nvim/mason/packages/jdtls/lombok.jar",
   "-jar",
   vim.fn.glob(
     java_ext
@@ -264,14 +270,9 @@ config.cmd = {
     true
   ),
   "-configuration",
-  java_ext .. "/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_mac",
+  java_ext .. "/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux",
   "-data",
   workspace_folder,
-  "--add-modules=ALL-SYSTEM",
-  "--add-opens",
-  "java.base/java.util=ALL-UNNAMED",
-  "--add-opens",
-  "java.base/java.lang=ALL-UNNAMED",
 }
 
 config.on_attach = on_attach
