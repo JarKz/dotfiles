@@ -86,6 +86,7 @@ local on_attach = function(client, bufnr)
   wk.add(
     wk_utils.keymaps({
         d = {
+          name = "Debug",
           s = {
             function()
               jdtls_setup.wipe_data_and_restart()
