@@ -90,12 +90,19 @@ local function on_attach()
     "html",
     "bashls",
     "rust_analyzer",
-    "kotlin_language_server",
     "nil_ls",
   }
+
   for _, server in ipairs(servers) do
     lspconfig[server].setup({})
   end
+
+  lspconfig.kotlin_language_server.setup {
+    cmd = { os.getenv("XDG_DATA_HOME") .. "/kotlin_lang/server/bin/kotlin-language-server" },
+    filetypes = { "kotlin" },
+    flags = { "-sp", "8842" }
+  }
+
 
   lspconfig.efm.setup({
     init_options = { documentFormatting = true },

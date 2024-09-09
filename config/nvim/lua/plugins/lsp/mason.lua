@@ -27,7 +27,6 @@ return {
         'gradle_ls',
         'groovyls',
         'html',
-        'kotlin_language_server',
         'lua_ls',
         'stylelint_lsp',
         'tsserver',
