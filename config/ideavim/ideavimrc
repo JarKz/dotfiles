@@ -1,0 +1,22 @@
+set ideajoin
+
+map <Space>e <Action>(ShowErrorDescription)
+
+map <leader>ft <Action>(SearchEverywhere)
+map <leader>gl <Action>(FindInPath)
+
+map <Space>ca <Action>(ShowIntentionActions)
+map <Space>cg <Action>(Generate)
+
+nmap <C-j> <Action>(EditorDuplicate)
+nmap <C-k> <Action>(EditorDuplicate)
+
+vmap <C-j> <Action>(EditorDuplicate)
+vmap <C-k> <Action>(EditorDuplicate)
+
+vmap <S-j> <Action>(MoveLineDown)
+vmap <S-k> <Action>(MoveLineUp)
+
+vmap <C-c> <Action>($Copy)
+
+map <leader>xs <Action>(ActivateStructureToolWindow)
