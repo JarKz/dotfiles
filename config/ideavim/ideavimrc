@@ -1,12 +1,18 @@
 set ideajoin
 
 map <Space>e <Action>(ShowErrorDescription)
+map <Space>f <Action>(ReformatCode)
 
+" finder -> toggle
 map <leader>ft <Action>(SearchEverywhere)
+" grep -> live
 map <leader>gl <Action>(FindInPath)
 
+" c - code
 map <Space>ca <Action>(ShowIntentionActions)
+map <Space>cr <Action>(Refactorings.QuickListPopupAction)
 map <Space>cg <Action>(Generate)
+map <Space>coi <Action>(OptimizeImports)
 
 nmap <C-j> <Action>(EditorDuplicate)
 nmap <C-k> <Action>(EditorDuplicate)
