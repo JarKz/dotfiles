@@ -1,10 +1,17 @@
 set ideajoin
 
+nmap <leader>ge <Action>(Gradle.ExecuteTask)
+
+nmap gcc <Action>(CommentByLineComment)
+vmap gc <Action>(CommentByLineComment)
+
 map <Space>e <Action>(ShowErrorDescription)
 map <Space>f <Action>(ReformatCode)
 
 " finder -> toggle
 map <leader>ft <Action>(SearchEverywhere)
+" finder -> find file
+map <leader>ff <Action>(GotoFile)
 " grep -> live
 map <leader>gl <Action>(FindInPath)
 
