@@ -109,9 +109,7 @@ export LANG=en_US.UTF-8
 # For a full list of active aliases, run `alias`.
 
 alias rm="trash"
-
-# For java development
-alias google-java-format="/Users/jarkz/dotfiles/share/nvim/mason/bin/google-java-format"
+alias cat="bat --theme='Catppuccin Latte'"
 
 for script in "$XDG_DATA_HOME/bash-scripts"/*; do
   alias ${script:t:r}="sh ${script}"
