@@ -101,7 +101,32 @@ function M.apply(config)
         replace_current = true,
       }
     },
+
+    -- Scroll by line
+    {
+      key = "UpArrow",
+      mods = "SHIFT",
+      action = wezterm.action.ScrollByLine(-1),
+    },
+    {
+      key = "DownArrow",
+      mods = "SHIFT",
+      action = wezterm.action.ScrollByLine(1),
+    },
+
+    -- Scroll by half to up and down
+    {
+      key = "PageUp",
+      mods = "SHIFT",
+      action = wezterm.action.ScrollByPage(-0.5),
+    },
+    {
+      key = "PageDown",
+      mods = "SHIFT",
+      action = wezterm.action.ScrollByPage(0.5),
+    },
   }
+
   config.key_tables = {
     resize_pane = {
       { key = 'h',      action = wezterm.action.AdjustPaneSize { "Left", 5 } },
