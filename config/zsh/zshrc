@@ -92,7 +92,7 @@ export ZSHRC_PATH="$XDG_CONFIG_HOME/zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gh gradle brew archlinux)
+plugins=(git gh gradle brew archlinux rust)
 
 source "$ZSH/oh-my-zsh.sh"
 source "$ZSHRC_PATH/themes/ohmyzsh-theme-passion/passion.zsh-theme"
