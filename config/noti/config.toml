@@ -1,0 +1,510 @@
+[general]
+font = [ "JetBrainsMono Nerd Font", 20 ]
+# anchor = "bottom right"
+anchor = "top right"
+offset = [10, 10]
+width = 400
+height = 120
+gap = 2
+sorting = { by = "urgency", ordering = "desc" }
+
+[display]
+markup = true
+padding = 15
+timeout = 3000
+
+[display.border]
+size = 5
+color = "#000000"
+radius = 15
+
+[display.colors.low]
+background = "#1e1e2e"
+foreground = "#ffffff"
+
+[display.colors.normal]
+background = "#ffffff"
+foreground = "#000000"
+
+[display.colors.critical]
+background = "#c8c8c8"
+foreground = "#151523"
+
+[display.image]
+max_size = 64
+margin = {right = 25}
+# rounding = 32
+# resizing_method = "nearest"
+
+[display.text]
+style = "bold"
+ellipsize_at = "end"
+
+[display.title]
+wrap = false
+# style = "bold"
+# margin = { top =  10 }
+
+[display.body]
+# wrap = false
+style = "regular"
+justification = "left"
+# line_spacing = 3
+# margin = {top = 10}
+ellipsize_at = "middle"
+# margin = { top = 10, left = 25 }
+
+# WARNING: APPS
+[[app]]
+name = "Spotify"
+
+[app.display]
+border = { size = 2, color = "#c8c8c850" } # #1a1a2b
+
+[app.display.colors.low]
+background = "#1e1e2e"
+foreground = "#99AEB3"
+
+# NOTE: #ff0000
+[[app]]
+name = "red-border"
+
+[app.display]
+border = { color = "#ff0000" } 
+
+[app.display.colors.low]
+background = "#ffffff50"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#00000050"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c850"
+foreground = "#000000"
+
+[app.display.text]
+style = "regular"
+
+[[app]]
+name = "red-border-semitransparent"
+
+[app.display]
+border = { color = "#ff000050" }
+
+[app.display.colors.low]
+background = "#ffffffAA"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000AA"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8AA"
+foreground = "#000000"
+
+[app.display.text]
+style = "regular"
+
+[[app]]
+name = "red-border-transparent"
+
+[app.display]
+border = { color = "#ff000000" }
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[app.display.text]
+style = "regular"
+
+# NOTE: #00ff00
+[[app]]
+name = "green-border"
+
+[app.display]
+border = { color = "#00ff00" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "green-border-semitransparent"
+
+[app.display]
+border = { color = "#00ff0050" }
+
+[app.display.colors.low]
+background = "#ffffffAA"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000AA"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8AA"
+foreground = "#000000"
+
+[[app]]
+name = "green-border-transparent"
+
+[app.display]
+border = { color = "#00ff0000" }
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+# NOTE: #0000ff
+[[app]]
+name = "blue-border"
+
+[app.display]
+border = { color = "#0000ff" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "blue-border-semitransparent"
+
+[app.display]
+border = { color = "#0000ff50" }
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "blue-border-transparent"
+
+[app.display]
+border = { color = "#0000ff00" }
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+# NOTE: #000000
+[[app]]
+name = "black-border"
+
+[app.display]
+border = { color = "#000000" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#ff0000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "black-border-semitransparent"
+
+[app.display]
+border = { color = "#00000050" }
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#ff0000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "black-border-transparent"
+
+[app.display]
+border = { color = "#00000000" }
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#ff0000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+# NOTE: #ffffff
+[[app]]
+name = "white-border"
+
+[app.display]
+border = { color = "#ffffff" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "white-border-semitransparent"
+
+[app.display]
+border = { color = "#ffffff50" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "white-border-transparent"
+
+[app.display]
+border = { color = "#ffffff00" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+# NOTE: #c8c8c8
+[[app]]
+name = "gray-border"
+
+[app.display]
+border = { color = "#c8c8c8" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#ff0000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "gray-border-semitransparent"
+[app.display]
+border = { color = "#c8c8c850" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#ff0000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "gray-border-transparent"
+[app.display]
+border = { color = "#c8c8c800" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#ff0000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+# NOTE: #ff00cc
+[[app]]
+name = "pink-border"
+
+[app.display]
+border = { color = "#ff00cc" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "pink-border-semitransparent"
+[app.display]
+border = { color = "#ff00cc50" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+[[app]]
+name = "pink-border-transparent"
+[app.display]
+border = { color = "#ff00cc00" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
+
+# NOTE: #fff600
+[[app]]
+name = "yellow-border"
+
+[app.display]
+border = { color = "#fff600" } 
+
+[app.display.colors.low]
+background = "#ffffffAA"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000AA"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8AA"
+foreground = "#000000"
+
+[[app]]
+name = "yellow-border-semitransparent"
+[app.display]
+border = { color = "#fff600AA" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+# background = "#c8c8c8"
+background = "#00ff00"
+foreground = "#000000"
+
+[[app]]
+name = "yellow-border-transparent"
+[app.display]
+border = { color = "#fff60000" } 
+
+[app.display.colors.low]
+background = "#ffffff"
+foreground = "#151523"
+
+[app.display.colors.normal]
+background = "#000000"
+foreground = "#ffffff"
+
+[app.display.colors.critical]
+background = "#c8c8c8"
+foreground = "#000000"
