@@ -2,6 +2,8 @@
 
 The dotfiles, that I use everywhere when possible. It contain necessary and non-necessary files, which depends on situations. I store here many configs as possible.
 
+[Example](/share/images/example.png)
+
 You can remove some directories or files as you want.
 
 ## Preparation steps
