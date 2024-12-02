@@ -1,21 +1,21 @@
-# Configuration directory
+# List of configurations
 
-Here's some configurations for my work environment. Sometimes I update configuration when needed, especially neovim. Some changes may be barely, also may be majority.
+Make sure that directories `oh-my-zsh` and `zsh/themes/ohmyzsh-theme-passion` aren't empty.
 
-## List of configuration and explanation
+- [Hyprland related](./hypr)
+- [Waybar](./waybar)
+- [WezTerm](./wezterm)
+- [zsh](./zsh)
+- [btop](./btop)
+- [NeoVim](./nvim) also related:
+  - [efm-langserver](./efm-langserver)
+- [IdeaVim](./ideavim) for JetBrains
+- [Noti](./noti)
+- [Satty](./satty)
+- [Wofi](./wofi)
+- [Qt5](./qt5ct) and [Qt6](./qt6ct)
 
-* Zsh:
-  - Important for Neovim and Tmux configuration, because some XDG environment variables used in 'dotfiles/zsh/zshrc';
-  - Also I used custom aliases or configuations with omz (oh-my-zsh).
-
-* Oh-my-zsh:
-  - Custom themes, comfortable functions, aliases and plugins;
-  - I have other theme that not included in the omz, he's placed in 'dotfiles/zsh/themes' directory.
-
-* Tmux:
-  - Default configuration is omt (oh-my-tmux);
-  - I changed some properties in 'dotfiles/tmux/tmux.conf.local' for my environment: changing powerline, enabling vi mode in shell and etc.
-
-* Neovim:
-  - I use nightly version of nvim, so some settings my raise errors;
-  - Before Neovim usage make sure that you done all need preparations!
+> [!NOTE]
+>
+> 1. Kvantum is used for Qt5 and Qt6.
+> 2. `NeoVim`, `WezTerm`, `btop`, `bat` and `Kvantum` uses catppuccin-latte themes. For other applications themes were manually set by colors.
