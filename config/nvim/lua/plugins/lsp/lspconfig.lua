@@ -85,7 +85,7 @@ local function on_attach()
     "pyright",
     "gradle_ls",
     "groovyls",
-    "tsserver",
+    "ts_ls",
     "cssls",
     "html",
     "bashls",

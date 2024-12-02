@@ -29,7 +29,7 @@ return {
         'html',
         'lua_ls',
         'stylelint_lsp',
-        'tsserver',
+        'ts_ls',
         'typst_lsp',
         'nil_ls',
       },
