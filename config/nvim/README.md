@@ -15,7 +15,6 @@ The current structure of configuration based on standard for 'lazy.nvim' plugin:
   - main file 'init.lua';
   - config directory that setup and loads plugins: 'lua/config/';
   - all plugins grouped and placed at 'lua/plugins' directory;
-  - externsions for some cases placed at 'lua/extensions' directory;
   - configurations for particular programming languages placed at 'ftplugin/' (see more in vim `:help ftplugin`).
 
 ## First start
@@ -68,7 +67,6 @@ LSP:
   - `williamboman/mason-lspconfig.nvim`
   - `jay-babu/mason-null-ls.nvim` which depends on:
     - `jose-elias-alvarez/null-ls.nvim`
-  - `mfussenegger/nvim-jdtls`
   - `folke/trouble.nvim` – easy shows list of warnings, errors, references, implementations and etc.
   - `folke/lazydev.nvim` - helps to write lua in neovim configurations or plugins.
 

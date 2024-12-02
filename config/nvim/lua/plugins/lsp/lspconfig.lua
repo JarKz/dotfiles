@@ -97,19 +97,10 @@ local function on_attach()
     lspconfig[server].setup({})
   end
 
-  lspconfig.kotlin_language_server.setup {
-    cmd = { os.getenv("XDG_DATA_HOME") .. "/kotlin_lang/server/bin/kotlin-language-server" },
-    filetypes = { "kotlin" },
-    flags = { "-sp", "8842" }
-  }
-
-
   lspconfig.efm.setup({
     init_options = { documentFormatting = true },
     cmd = { "efm-langserver", "-c=" .. os.getenv("XDG_CONFIG_HOME") .. "/efm-langserver/config.yaml" },
     filetypes = {
-      "java",
-      "kotlin",
       "markdown",
       "json",
       "json5",

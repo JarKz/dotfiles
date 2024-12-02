@@ -30,11 +30,6 @@ function M.init_global_keymaps()
   )
 end
 
-local ignore_lsp_servers = { jdtls = true, kotlin_language_server = true }
-local function table_contains(tbl, element)
-  return not tbl[element]
-end
-
 -- Buffer local mappings.
 -- See `:help vim.lsp.*` for documentation on any of the below functions
 function M.init_buf_local_keymaps(bufnr)
@@ -67,9 +62,6 @@ function M.init_buf_local_keymaps(bufnr)
             function()
               vim.lsp.buf.format({
                 async = true,
-                filter = function(client)
-                  return table_contains(ignore_lsp_servers, client.name)
-                end
               })
             end,
             desc = "Format",
