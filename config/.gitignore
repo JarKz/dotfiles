@@ -26,6 +26,7 @@ trashrc
 QtProject.conf
 
 /kde.org
+kdeglobals
 kconf_updaterc
 kservicemenurc
 baloofileinformationrc
