@@ -24,7 +24,6 @@ vim.opt.shiftwidth = 2
 vim.opt.updatetime = 2000
 
 vim.wo.number = true
-vim.opt.relativenumber = true
 
 vim.opt.listchars = "eol:\\u23CE"
 vim.opt.list = true
