@@ -14,6 +14,7 @@ local function update_diagnostic_ui()
   local function set_italic_for_virtual_text(severity)
     local hl_name = "DiagnosticVirtualText" .. severity
 
+    ---@class vim.api.keyset.hl_info
     local hl = vim.api.nvim_get_hl(0, { name = hl_name })
     hl.italic = true
     if hl.link then
@@ -69,80 +70,6 @@ local function update_diagnostic_ui()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
 end
 
-local function on_attach()
-  local lspconfig = require("lspconfig")
-
-  local servers = {
-    pyright = {},
-    gradle_ls = {},
-    groovyls = {},
-    ts_ls = {},
-    cssls = {},
-    html = {},
-    bashls = {},
-    rust_analyzer = {},
-    nil_ls = {},
-  }
-
-  for server, config in pairs(servers) do
-      -- passing config.capabilities to blink.cmp merges with the capabilities in your
-      -- `opts[server].capabilities, if you've defined it
-    config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-    config.capabilities.textDocument.foldingRange = {
-      dynamicRegistration = false,
-      lineFoldingOnly = true,
-    }
-
-    lspconfig[server].setup(config)
-  end
-
-  lspconfig.efm.setup({
-    init_options = { documentFormatting = true },
-    cmd = { "efm-langserver", "-c=" .. os.getenv("XDG_CONFIG_HOME") .. "/efm-langserver/config.yaml" },
-    filetypes = {
-      "markdown",
-      "json",
-      "json5",
-      "text",
-      "help",
-      "cpp",
-      "c",
-      "sh",
-      "bash",
-      "zsh",
-      "yaml",
-      "javascript",
-      "typescript",
-      "css",
-      "scss",
-      "sass",
-      "less",
-      "sugarss",
-      "html",
-      "xml",
-      "python",
-      "nix"
-    },
-  })
-
-  local keymap = require('plugins.keymap.lspconfig')
-  keymap.init_global_keymaps()
-
-  -- Use LspAttach autocommand to only map the following keys
-  -- after the language server attaches to the current buffer
-  vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-    callback = function(ev)
-      -- Enable completion triggered by <c-x><c-o>
-      vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-      vim.lsp.inlay_hint.enable(true, nil);
-      keymap.init_buf_local_keymaps(ev.buf)
-    end,
-  })
-
-  update_diagnostic_ui()
-end
-
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -150,5 +77,96 @@ return {
     "folke/which-key.nvim",
     "saghen/blink.cmp",
   },
-  config = on_attach,
+
+  opts = {
+    servers = {
+      pyright = {},
+      gradle_ls = {},
+      groovyls = {},
+      ts_ls = {},
+      cssls = {},
+      html = {},
+      bashls = {},
+      rust_analyzer = {
+        settings = {
+          ['rust-analyzer'] = {
+            check = {
+              command = 'clippy'
+            },
+            cargo = {
+              buildScript = {
+                enable = true,
+              },
+            },
+          }
+        }
+      },
+      nil_ls = {},
+    },
+
+    efm = {
+      init_options = {
+        documentFormatting = true,
+      },
+      cmd = { "efm-langserver", "-c=" .. os.getenv("XDG_CONFIG_HOME") .. "/efm-langserver/config.yaml" },
+
+      filetypes = {
+        "markdown",
+        "json",
+        "json5",
+        "text",
+        "help",
+        "cpp",
+        "c",
+        "sh",
+        "bash",
+        "zsh",
+        "yaml",
+        "javascript",
+        "typescript",
+        "css",
+        "scss",
+        "sass",
+        "less",
+        "sugarss",
+        "html",
+        "xml",
+        "python",
+        "nix"
+      },
+    },
+  },
+
+  config = function(_, opts)
+    local lspconfig = require("lspconfig")
+
+    for server, config in pairs(opts.servers) do
+      config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+      config.capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
+
+      lspconfig[server].setup(config)
+    end
+
+    lspconfig.efm.setup(opts.efm)
+
+    local keymap = require('plugins.keymap.lspconfig')
+    keymap.init_global_keymaps()
+
+    -- Use LspAttach autocommand to only map the following keys
+    -- after the language server attaches to the current buffer
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+      callback = function(ev)
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+        vim.lsp.inlay_hint.enable(true, nil);
+        keymap.init_buf_local_keymaps(ev.buf)
+      end,
+    })
+
+    update_diagnostic_ui()
+  end,
 }
