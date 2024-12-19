@@ -71,30 +71,29 @@ end
 
 local function on_attach()
   local lspconfig = require("lspconfig")
-  local lsp_defaults = lspconfig.util.default_config
-
-  lsp_defaults.capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true,
-  }
-
-  lsp_defaults.capabilities =
-      vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
   local servers = {
-    "pyright",
-    "gradle_ls",
-    "groovyls",
-    "ts_ls",
-    "cssls",
-    "html",
-    "bashls",
-    "rust_analyzer",
-    "nil_ls",
+    pyright = {},
+    gradle_ls = {},
+    groovyls = {},
+    ts_ls = {},
+    cssls = {},
+    html = {},
+    bashls = {},
+    rust_analyzer = {},
+    nil_ls = {},
   }
 
-  for _, server in ipairs(servers) do
-    lspconfig[server].setup({})
+  for server, config in pairs(servers) do
+      -- passing config.capabilities to blink.cmp merges with the capabilities in your
+      -- `opts[server].capabilities, if you've defined it
+    config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+    config.capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
+
+    lspconfig[server].setup(config)
   end
 
   lspconfig.efm.setup({
@@ -149,6 +148,7 @@ return {
   dependencies = {
     "sainnhe/sonokai",
     "folke/which-key.nvim",
+    "saghen/blink.cmp",
   },
   config = on_attach,
 }
