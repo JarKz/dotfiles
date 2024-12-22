@@ -2,7 +2,9 @@
 
 The main code/text editor that I mostly use.
 
-It's at most complete neovim configuration for me, because all required functionality are exists and used many times. But thrends can change, so I can remove or add another plugin that can be helpful in particular cases. Also I can replace one plugin by another for specific reasons (archived plugin, unmantained code for some years or etc.).
+It's at most complete neovim configuration for me, because all required functionality are exists and used many times.
+But thrends can change, so I can remove or add another plugin that can be helpful in particular cases. 
+Also I can replace one plugin by another for specific reasons (archived plugin, unmantained code for some years or etc.).
 
 > __NOTE__
 >
@@ -15,7 +17,7 @@ The current structure of configuration based on standard for 'lazy.nvim' plugin:
   - main file 'init.lua';
   - config directory that setup and loads plugins: 'lua/config/';
   - all plugins grouped and placed at 'lua/plugins' directory;
-  - configurations for particular programming languages placed at 'ftplugin/' (see more in vim `:help ftplugin`).
+  - configurations for particular file types placed at 'ftplugin/' (see more in vim `:help ftplugin`).
 
 ## First start
 
@@ -47,18 +49,8 @@ Autopairs:
 
 Autocompletion:
 
-  - `hrsh7th/nvim-cmp`, depends on:
-      - `hrsh7th/cmp-cmdline`
-      - `hrsh7th/cmp-omni`
-      - `hrsh7th/cmp-buffer`
-      - `hrsh7th/cmp-nvim-lua`
-      - `hrsh7th/cmp-nvim-lsp`
-      - `hrsh7th/cmp-path`
-      - `hrsh7th/cmp-nvim-lsp-signature-help`
-      - `saadparwaiz1/cmp_luasnip`
-      - `L3MON4D3/LuaSnip`
+  - `saghen/blink.cmp`, depends on:
       - `rafamadriz/friendly-snippets`
-      - `onsails/lspkind-nvim`
 
 LSP:
 
@@ -67,8 +59,8 @@ LSP:
   - `williamboman/mason-lspconfig.nvim`
   - `jay-babu/mason-null-ls.nvim` which depends on:
     - `jose-elias-alvarez/null-ls.nvim`
-  - `folke/trouble.nvim` – easy shows list of warnings, errors, references, implementations and etc.
-  - `folke/lazydev.nvim` - helps to write lua in neovim configurations or plugins.
+  - `folke/trouble.nvim`
+  - `folke/lazydev.nvim`
 
 DAP:
 
@@ -76,12 +68,12 @@ DAP:
   - `rcarriga/nvim-dap-ui` which depends on:
     - `nvim-neotest/nvim-nio`
 
-Syntax highlight:
+Highlights:
 
   - `nvim-treesitter/nvim-treesitter`
   - `RRethy/vim-illuminate`
 
-External functionality:
+Extensions:
 
   - `Pocco81/auto-save.nvim`
   - `numToStr/Comment.nvim`
@@ -90,16 +82,18 @@ External functionality:
   - `booperlv/nvim-gomove`
   - `lukas-reineke/indent-blankline.nvim`
   - `chrisgrieser/nvim-spider`, depends on:
-    - `theHamsta/nvim_rocks` - for enabling UTF-8
+    - `theHamsta/nvim_rocks` - to enable UTF-8
   - `chrisgrieser/nvim-rip-substitute`
-  - `JarKz/specs.nvim` instead of `edluffy/specs.nvim` because of deprecatibility nvim-api of nightly-version.
+  - `JarKz/specs.nvim` instead of `edluffy/specs.nvim` because of deprecatibility nvim-api.
+  - `noti-rs/noti.nvim`
   - `uga-rosa/translate.nvim`
   - `kaarmu/typst.vim`
   - `kevinhwang91/nvim-ufo`, which depends on:
     - `kevinhwang91/promise-async`
-  - `folke/which-key.nvim`
+  - `folke/which-key.nvim`, which depends on:
+    - `echasnovski/mini.icons`
 
-Window plugins:
+Window extensions:
 
   - `glepnir/dashboard-nvim`
   - `stevearc/dressing.nvim`
