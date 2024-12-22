@@ -4,5 +4,6 @@ return {
   opts = {},
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
+    "numToStr/Comment.nvim",
   }
 }

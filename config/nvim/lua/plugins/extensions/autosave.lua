@@ -1,6 +1,6 @@
 return {
   "Pocco81/auto-save.nvim",
-  -- for avoid duplicate of message
+  -- To avoid duplicate of message
   branch = "dev",
   opts = {
     enabled = true,

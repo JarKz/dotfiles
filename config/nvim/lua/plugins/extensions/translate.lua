@@ -1,6 +1,12 @@
 return {
   "uga-rosa/translate.nvim",
-  dependencies = { "folke/which-key.nvim", },
+  keys = {
+    remap = false,
+    nowait = false,
+    { "<leader>t",  group = "Translate" },
+    { "<leader>tr", "<CMD>Translate ru<CR>", desc = "Translate to Russian", mode = "x" },
+    { "<leader>te", "<CMD>Translate en<CR>", desc = "Translate to English", mode = "x" },
+  },
   opts = {
     default = {
       command = "translate_shell",
@@ -23,8 +29,4 @@ return {
       },
     },
   },
-  config = function(_, opts)
-    require('plugins.keymap.translate')
-    require("translate").setup(opts)
-  end,
 }

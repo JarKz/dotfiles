@@ -34,7 +34,26 @@ return {
       require('plugins.dap.setup.configuration')
       require('plugins.dap.setup.languages')
       require('plugins.dap.setup.breakpoints')
-      require('plugins.keymap.dap')
+
+      local dap = require("dap")
+      local dapui = require("dapui")
+
+      require("which-key").add {
+        remap = false,
+        nowait = false,
+        { "<leader>d",  group = "Debug" },
+        { "<leader>dr", dap.run,               desc = "Run debug adapter" },
+        { "<leader>dc", dap.continue,          desc = "Continue debug adapter" },
+        { "<leader>dt", dap.toggle_breakpoint, desc = "Toggle DAP breakpoint" },
+        { "<leader>du", dapui.toggle,          desc = "Toggle DapUI" },
+        {
+          "<leader>df",
+          function()
+            dapui.float_element(nil, { width = nil, height = nil, enter = true })
+          end,
+          desc = "Open float window",
+        }
+      }
     end,
   },
 }

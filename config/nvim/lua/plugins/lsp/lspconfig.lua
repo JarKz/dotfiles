@@ -78,6 +78,14 @@ return {
     "saghen/blink.cmp",
   },
 
+  keys = {
+    remap = false,
+    nowait = false,
+    {"<space>e", vim.diagnostic.open_float, desc = "Open diagnostic window"},
+    {"]d", vim.diagnostic.goto_next, desc = "Next diagnostic entry"},
+    {"[d", vim.diagnostic.goto_prev, desc = "Previous diagonostic entry"},
+  },
+
   opts = {
     servers = {
       pyright = {},
@@ -152,9 +160,6 @@ return {
 
     lspconfig.efm.setup(opts.efm)
 
-    local keymap = require('plugins.keymap.lspconfig')
-    keymap.init_global_keymaps()
-
     -- Use LspAttach autocommand to only map the following keys
     -- after the language server attaches to the current buffer
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -162,8 +167,41 @@ return {
       callback = function(ev)
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-        vim.lsp.inlay_hint.enable(true, nil);
-        keymap.init_buf_local_keymaps(ev.buf)
+        vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf });
+
+        local wk = require("which-key")
+        local fzf = require("fzf-lua")
+        wk.add {
+          buffer = ev.buf,
+          remap = false,
+          nowait = false,
+          { "<space>D", vim.lsp.buf.type_definition, desc = "Type definition" },
+          { "<space>r", vim.lsp.buf.rename, desc = "Rename" },
+          { "<space>c", vim.lsp.buf.code_action, desc = "Code action" },
+          { "<space>f", function() vim.lsp.buf.format{async = true} end, desc = "Format buffer" },
+          {
+            "<space>K",
+              function()
+                local winid = require("ufo").peekFoldedLinesUnderCursor()
+                if not winid then
+                  vim.lsp.buf.hover()
+                end
+              end,
+            desc = "Hower (show documentation or show fold preview)"
+          },
+          {
+            "<space>i",
+            function()
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), nil)
+            end,
+            desc = "Toggle inlay hints"
+          },
+          { "gD", vim.lsp.buf.declaration, desc = "Go to Declaration" },
+          { "gd", vim.lsp.buf.definition, desc = "Go to Definition" },
+          { "<C-k>", vim.lsp.buf.signature_help, desc = "Signature help" },
+          { "<leader>R", fzf.lsp_references, desc = "Show references" },
+          { "<leader>I", fzf.lsp_implementations, desc = "Show implementations" }
+        }
       end,
     })
 

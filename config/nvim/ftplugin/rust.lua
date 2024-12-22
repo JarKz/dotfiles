@@ -1,86 +1,41 @@
 local dap = require("dap")
-local uv = vim.loop
 
-local has_value = function(tbl, target)
-  for _, value in ipairs(tbl) do
-    if value == target then
-      return true
-    end
-  end
-  return false
-end
-
-local reference_files = { "Cargo.toml", "Cargo.lock", "build.rs" }
-local function find_app_root_path()
-  local cur_dir = vim.fn.getcwd()
-  local prev_path = nil
-  repeat
-    local found = false
-    if cur_dir == "/" then
-      vim.api.nvim_err_write("Not found the rust project!")
-      return
-    end
-
-    local dir_content = uv.fs_scandir(cur_dir)
-    if not dir_content then
-      vim.api.nvim_err_write("Invalid directory and path!")
-      return
-    end
-
-    repeat
-      local name = uv.fs_scandir_next(dir_content)
-      if has_value(reference_files, name) then
-        found = true
-      end
-    until not name
-
-    prev_path = cur_dir
-
-    local next_dir = uv.fs_realpath(cur_dir .. "/..")
-    if not next_dir then
-      vim.api.nvim_err_write("Invalid directory and path!")
-      return
-    end
-    cur_dir = next_dir
-  until found
-
-  return prev_path
-end
+---@enum ExecType
+local EXEC_TYPE = {
+  release = "release",
+  debug = "debug",
+}
 
 local config = {
-  exec_version = "Debug",
+  ---@type ExecType
+  exec_type = EXEC_TYPE.debug,
 }
 
 dap.configurations.rust = {
   {
-    name = "Launch",
+    name = "Rust LLDB",
     type = "lldb",
     request = "launch",
     program = function()
-      local root = find_app_root_path()
+      -- INFO: need to search only Cargo.lock because it points to main binary crate.
+      -- Libraries can have Cargo.toml and build.rs but they aren't executable and debuggable,
+      -- so they will be ignored.
+      local root = vim.fs.root(vim.fn.getcwd(), { "Cargo.lock" })
+      vim.print(root)
       if not root then
-        vim.api.nvim_err_write("Not found the rust project!")
-        return ""
-      end
-      local workspace_name = nil
-      for i = root:len(), 1, -1 do
-        if root:sub(i, i) == '/' then
-          workspace_name = root:sub(i + 1);
-          break
-        end
-      end
-      if not workspace_name then
-        vim.api.nvim_err_write("Not found the rust project!")
-        return ""
+        vim.notify("Not found the Rust project!\nMake sure that it's not library crate!", vim.log.levels.ERROR,
+          { title = "Rust LLDB" })
+        return dap.ABORT
       end
 
-      root = root .. "/target"
-      if config.exec_version == "Debug" then
-        root = root .. "/debug"
-      else
-        root = root .. "/release"
+      local workspace_name = vim.fs.basename(root)
+      if not workspace_name then
+        vim.notify("The Rust workspace name is invalid!", vim.log.levels.ERROR, { title = "Rust LLDB" })
+        return dap.ABORT
       end
-      return root .. "/" .. workspace_name
+
+      vim.notify("DAP attached!", vim.log.levels.INFO, { title = "Rust LLDB" })
+      return root .. "/target/" .. config.exec_type .. "/" .. workspace_name
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
@@ -89,23 +44,10 @@ dap.configurations.rust = {
   }
 }
 
-local wk_utils = require("plugins.external_functionality.which_key.utils")
-local wk = require("which-key")
-wk.add(
-  wk_utils.keymaps({
-      d = {
-        name = "Debug",
-        R = {
-          name = "Rust debug configuratoins",
-          d = { function() config.exec_version = "Debug" end, desc = "Set debug executable version" },
-          r = { function() config.exec_version = "Release" end, desc = "Set release executable version" },
-        },
-      },
-    },
-    {
-      prefix = "<leader>",
-      remap = false,
-      nowait = false,
-    }
-  )
-)
+require("which-key").add {
+  remap = false,
+  nowait = false,
+  { "<leader>dR",  group = "Rust debug configurations" },
+  { "<leader>dRd", function() config.exec_type = EXEC_TYPE.debug end,   desc = "Use Debug executable version" },
+  { "<leader>dRr", function() config.exec_type = EXEC_TYPE.release end, desc = "Use Release executable version" },
+}

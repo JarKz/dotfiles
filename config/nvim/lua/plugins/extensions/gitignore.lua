@@ -30,6 +30,10 @@ return {
 
     vim.api.nvim_create_user_command("Gitignore", gitignore.generate, { nargs = "?", complete = "file" })
 
-    require('plugins.keymap.gitignore')
+    require("which-key").add {
+      remap = false,
+      nowait = false,
+      { "<space>gi", require("gitignore").generate, desc = "Generate gitignore file" },
+    }
   end,
 }

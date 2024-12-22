@@ -30,7 +30,6 @@ return {
   "kevinhwang91/nvim-ufo",
   dependencies = {
     "kevinhwang91/promise-async",
-
     "folke/which-key.nvim",
   },
   opts = {
@@ -56,12 +55,21 @@ return {
     fold_virt_text_handler = handler,
   },
   config = function(_, opts)
-    require('ufo').setup(opts)
+    local ufo = require("ufo")
+    ufo.setup(opts)
     vim.o.foldcolumn = "9"
     vim.o.foldlevel = 99
     vim.o.foldlevelstart = 99
     vim.o.foldenable = true
 
-    require('plugins.keymap.ufo')
+    require("which-key").add {
+      remap = false,
+      nowait = false,
+      { "z",  group = "UFO fols" },
+      { "zR", ufo.openAllFolds,         desc = "Reveal all folds" },
+      { "zM", ufo.closeAllFolds,        desc = "Minimize all folds" },
+      { "zr", ufo.openFoldsExceptKinds, desc = "Reveal parent fold" },
+      { "zm", ufo.closeFoldsWith,       desc = "Minimize parent fold" },
+    }
   end
 }

@@ -14,7 +14,6 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    -- build = ":MasonUpdate", -- :MasonUpdate updates registry contents
     dependencies = {
       "williamboman/mason.nvim",
     },
@@ -30,7 +29,8 @@ return {
         'lua_ls',
         'stylelint_lsp',
         'ts_ls',
-        'typst_lsp',
+        -- INFO: disabled until mason resolves issue with correctness
+        -- 'typst_lsp',
         'nil_ls',
       },
     },

@@ -1,9 +1,9 @@
 return {
   { import = "plugins.colorscheme" },
-  { import = "plugins.autocmp" },
+  { import = "plugins.cmp" },
   { import = "plugins.lsp" },
   { import = "plugins.dap" },
-  { import = "plugins.external_functionality" },
-  { import = "plugins.syntax_highlight" },
-  { import = "plugins.window_plugins" },
+  { import = "plugins.extensions" },
+  { import = "plugins.highlights" },
+  { import = "plugins.win_ext" },
 }
