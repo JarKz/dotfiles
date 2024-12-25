@@ -95,6 +95,7 @@ return {
       cssls = {},
       html = {},
       bashls = {},
+      hls = {},
       rust_analyzer = {
         settings = {
           ['rust-analyzer'] = {
@@ -176,8 +177,8 @@ return {
           remap = false,
           nowait = false,
           { "<space>D", vim.lsp.buf.type_definition, desc = "Type definition" },
-          { "<space>r", vim.lsp.buf.rename, desc = "Rename" },
-          { "<space>c", vim.lsp.buf.code_action, desc = "Code action" },
+          { "<space>rn", vim.lsp.buf.rename, desc = "Rename" },
+          { "<space>ca", vim.lsp.buf.code_action, desc = "Code action" },
           { "<space>f", function() vim.lsp.buf.format{async = true} end, desc = "Format buffer" },
           {
             "<space>K",
