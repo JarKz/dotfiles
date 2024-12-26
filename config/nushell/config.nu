@@ -26,6 +26,9 @@ $env.XDG_STATE_HOME = $"($env.DOTFILES)/state"
 
 $env.GPG_TTY = ^tty
 
+$env.VISUAL = "nvim"
+$env.EDITOR = $"($env.VISUAL)"
+
 $env.config.edit_mode = "vi"
 $env.config.buffer_editor = "nvim"
 
