@@ -1,0 +1,560 @@
+l
+ls
+alias l=ls
+alias l="ls"
+alias l= "ls"
+alias l = "ls"
+alias l = ls
+l
+export EDITOR="nvim"
+help commands
+math 3 + 5
+math sum 3 5
+math sum
+3 + 5
+3 | sum 5
+help let
+help set
+help const
+md
+alias md = mkdir
+rm --help
+help remove
+help delete
+help save
+"hello<\n>"
+"hello"
+help rm
+[1 2 3] | to yaml
+[1 2 3] | to json
+[1 2 3] | to toml
+[1 2 3] | to csv
+{a: 3, b: 2} | to toml
+{a: 3, b: 2} | to csv
+$'(ansi purple_bold)This text is a bold purple!(ansi reset)'
+l
+[1 2 3] | pop
+[1 2 3] | remove
+[1 2 3] | compact
+help editor
+help edit
+help start
+start
+start .
+l
+start zshrc
+$env.HOME
+config nu
+exit
+v
+exit
+cd
+cd dotfiles/config/nushell/
+v
+exit
+v
+cd
+exit
+v
+exit
+v
+l
+exit
+l
+ls
+l
+start zshrc
+v zshrc
+paclist 
+$env.XDG_STATE_HOME
+exit
+$env
+$env.XDG_STATE_HOME
+eixt
+exit
+exti
+exit
+nu
+exit
+$env.GPG_TTY
+exit
+tail 
+exit
+tail 
+/home/jarkz/Coding/ | tail
+/home/jarkz/Coding/:t
+/home/jarkz/Coding/:p
+[1 2 3]  | last
+/home/jarkz/Coding/ | split 
+/home/jarkz/Coding/ split
+split /home/jarkz/Coding/ 
+path split /home/jarkz/Coding
+'/home/jarkz/Coding/' | split
+'/home/jarkz/Coding/' | path split
+'/home/jarkz/Coding/' | path split | last
+'/home/jarkz/Coding/ta.txt' | path split | last
+'/home/jarkz/Coding/ta.txt' | path split | split '.'
+'/home/jarkz/Coding/ta.txt' | path split | split-by '.'
+'/home/jarkz/Coding/ta.txt' | path split | split 
+'/home/jarkz/Coding/ta.txt' | path split | last | split-by '.'
+'/home/jarkz/Coding/ta.txt' | path split | last 
+'/home/jarkz/Coding/ta.txt' | path split | last | split
+'/home/jarkz/Coding/ta.txt' | path split | last | split '.'
+'/home/jarkz/Coding/ta.txt' | path split | last | split
+'/home/jarkz/Coding/ta.txt' | path split | last | split words '.'
+'/home/jarkz/Coding/ta.txt' | path split | last | split words
+'/home/jarkz/Coding/ta.txt' | path split | last | split words | first
+'/home/jarkz/Coding/' | path split | last | split words | first
+exit
+count-lines
+exit
+nu
+exit
+exits
+exit
+for script in $"($env.XDG_DATA_HOME)/bash-scripts"/* {<\n>}
+for script in $"($env.XDG_DATA_HOME)/bash-scripts"/* {<\n>print script<\n>}
+for script in $"($env.XDG_DATA_HOME)/bash-scripts"/* {<\n>print $script<\n>}
+for script in expand $"($env.XDG_DATA_HOME)/bash-scripts"/* {<\n>print $script<\n>}
+exit
+for script in expand "($env.XDG_DATA_HOME)/bash-scripts"/* {<\n>print $script<\n>}
+let path = glob $"($env.XDG_DATA_HOME)/bash-scripts/*"
+path
+let paths = glob $"($env.XDG_DATA_HOME)/bash-scripts/*"
+paths
+exit
+help alias
+help aliases
+exit
+count-lines 
+isfile
+help isfile
+help isdir
+help lines
+help open
+l
+ls .
+cd Coding/
+l
+cd bash_scripting/
+l
+open test.sh
+open test.sh | lines
+open test.sh | lines | count
+open test.sh | lines 
+open test.sh | lines | length 
+open test.sh | length 
+exit
+help eq
+help equal
+help ==
+help =
+help is
+"/home/jarkz/Coding/" | path type | == "dir"
+"/home/jarkz/Coding/" | path type 
+("/home/jarkz/Coding/" | path type) == "dir"
+exit
+cd Coding/bash_scripting/
+l
+count-lines test.sh
+exit
+count-lines test.sh
+exit
+count-lines bash_scripting/
+count-lines bash_scripting
+count-lines bash_scripting/*
+count-lines bash_scripting/
+glob "bash_scripting/*"
+glob "bash_scripting//*"
+count-lines ./bash_scripting
+exit
+count-lines ./bash_scripting
+exit
+count-lines ./bash_scripting
+count-lines ./bash_scripting/
+echo normalize
+help normalize
+glob "bash_scripting//*"
+glob "bash_scripting/*"
+help path
+exit
+count-lines ./bash_scripting/
+count-lines ./bash_scripting
+count-lines bash_scripting/
+help map
+help transform
+help sum
+[1 2 3] | sum
+[1 2 3] | product
+[1 2 3] | math sum
+exit
+help path
+help path type
+exit
+eixt
+exit
+nu
+exit
+help glob
+exit
+count-lines bash_scripting/
+exit
+count-lines bash_scripting/
+exit
+count-lines bash_scripting/
+l
+exit
+count-lines notibook/
+help each
+exit
+count-lines notibook/
+l
+l notibook/
+'notibook/book/favicon.png' | path type
+'notibook/book/favicon.png' | lines
+'notibook/book/favicon.png' | lines | length
+count-lines notibook/
+exit
+count-lines notibook/
+l notibook/book/Images/
+exit
+count-lines notibook/
+'notibook/book/Images/example-jsonmaf1a.png' | lines | length
+'notibook/book/Images/example-jsonmaf1a.png' | lines | length | math sum
+help math sm
+help math sum
+help type
+help list
+1 | length
+help describe
+exit
+glob notibook/book/Images/
+glob notibook/book/Images/*
+glob notibook/book/Images/* | list
+glob notibook/book/Images/* | length
+glob notibook/book/Images/* | eval {|in| $in}
+glob notibook/book/Images/* | each {|in| $in}
+exit
+cd notibook/
+l
+cd book/
+count-lines Images/
+Images/example-jsonmaf1a.png | lines
+'Images/example-jsonmaf1a.png' | lines
+open Images/example-jsonmaf1a.png | lines
+open 'Images/example-jsonmaf1a.png' | lines
+open "Images/example-jsonmaf1a.png" | lines
+open Images/example-jsonmaf1a.png
+open Images/example-jsonmaf1a.png | lines
+exit
+count-lines notibook/
+cd notibook/book/Images/
+cd ../
+open Images/example-jsonmaf1a.png | lines
+try {open Images/example-jsonmaf1a.png | lines} catch { 0}
+exit
+count-lines notibook/
+exit
+count-lines notibook/
+help math sum
+exit
+help math sum
+count-lines notibook/
+cd notibook/book/Images/
+l
+open 'example-jsonmaf1a.png' | lines | length
+open 'example-jsonmaf1a.png' | lines
+open 'example-jsonmaf1a.png' | lines | length
+try {open 'example-jsonmaf1a.png' | lines | length} catch {0}
+try {open 'example-jsonmaf1a.png' | lines } catch {[]} | length
+try {open 'example-jsonmaf1a.png' | lines } catch {[]} | lengt
+try {open 'example-jsonmaf1a.png' | lines } catch {[]} | length
+try {open 'example-jsonmaf1a.png' | lines } catch {[]} 
+try {open 'example-jsonmaf1a.png' | lines } catch {[]} | length
+try {open 'example-jsonmaf1a.png' | lines } catch {[]} | is-not-empty 
+try {open 'example-jsonmaf1a.png' | lines } catch {[]}
+(try {open 'example-jsonmaf1a.png' | lines } catch {[]} ) | length
+(try {open 'example-jsonmaf1a.png' | lines } catch {[]} ) 
+(try {open 'example-jsonmaf1a.png' | lines } catch {|_|[]} ) 
+(try {open 'example-jsonmaf1a.png' | lines } catch {|_|[]} ) | length
+[] | length
+(try {(open 'example-jsonmaf1a.png') | lines } catch {|_|[]} ) | length
+open 'example-jsonmaf1a.png' | length
+(try {(open 'example-jsonmaf1a.png') | lines } catch {|_|[]} ) | length
+(try {(open 'example-jsonmaf1a.png') | lines } catch {|_|[]} )
+(try {(open 'example-jsonmaf1a.png') | lines } catch {|_|[]} ) |lines
+(try {(open 'example-jsonmaf1a.png') | lines } catch {|_|[]} ) |lines |length
+(try {(open 'example-jsonmaf1a.png') | lines } catch {[]} ) |lines |length
+(try {(open 'example-jsonmaf1a.png') | lines } catch {[]} ) | lines |length
+try {(open 'example-jsonmaf1a.png') | lines } catch {[]}  | lines |length
+try {(open 'example-jsonmaf1a.png') | lines } } | lines |length
+try {(open 'example-jsonmaf1a.png') | lines }  | lines |length
+try {(open 'example-jsonmaf1a.png') | lines }  | length
+try {(open 'example-jsonmaf1a.png') | lines }  
+try {(open 'example-jsonmaf1a.png') | lines }
+help try
+try {(open 'example-jsonmaf1a.png') | lines }
+(open 'example-jsonmaf1a.png') | lines
+try {(open 'example-jsonmaf1a.png') | lines } catch { 0}
+try {(open 'example-jsonmaf1a.png') | lines } catch { 0 }
+try {(open 'example-jsonmaf1a.png') | lines } catch { 0 } | length
+try {(open 'example-jsonmaf1a.png') | lines } catch { [] } | length
+exit
+count-lines notibook/
+exit
+count-lines notibook/
+cd notibook/book/Images/
+try {(open 'example-jsonmaf1a.png') | lines } catch { [] } | get json | from json
+try {(open 'example-jsonmaf1a.png') | lines } catch { [] } 
+try {(open 'example-jsonmaf1a.png') | lines }
+try {(open 'example-jsonmaf1a.png') | lines } | length
+try {(open 'example-jsonmaf1a.png')  } | length
+try {(open 'example-jsonmaf1a.png') | lines } catch { [] } 
+try {(open 'example-jsonmaf1a.png') | lines } catch { [] }  | length
+help is-list
+help is
+help lines
+try {(open 'example-jsonmaf1a.png') | lines -s } catch { [] }  | length
+try {(open 'example-jsonmaf1a.png') | lines -s } catch { [] }
+(open 'example-jsonmaf1a.png') | lines -s 
+(try {(open 'example-jsonmaf1a.png') | lines -s } catch { [] } ) | length
+(try {(open 'example-jsonmaf1a.png') | lines  } catch { [] } ) | length
+(try {(open 'example-jsonmaf1a.png') | lines } catch { [] } ) | length
+(try {(open 'example-jsonmaf1a.png') | lines } catch { [] } ) | describe
+(try {(open 'example-jsonmaf1a.png') | lines } catch { [] } )
+exti
+exit
+count-lines notibook/
+exit
+cd notibook/book/Images/
+get-lines example-jsonmaf1a.png
+get-lines example-jsonmaf1a.png | length
+cd ../
+l
+get-lines 404.html
+get-lines 404.html | length
+get-lines ayu-highlight.css| length
+get-lines 'ayu-highlight.css' | length
+get-lines './ayu-highlight.css' | length
+exit
+cd notibook/book/Images/
+cd ../
+get-lines './ayu-highlight.css' | length
+get-lines 'ayu-highlight.css' | length
+exit
+cd notibook/book/
+get-lines 'ayu-highlight.css' | length
+l
+v ayu-highlight.css
+open ayu-highlight.css | lines
+exit
+count-lines notibook/
+cd notibook/book/
+l
+get-lines 'ayu-highlight.css' | length
+get-lines 'ayu-highlight.css'
+open ayu-highlight.css | lines 
+open ayu-highlight.css | lines | length
+exit
+cd notibook/book/
+open ayu-highlight.css | lines | length
+get-lines 'ayu-highlight.css'
+exit
+open ayu-highlight.css | lines | length
+cd notibook/book/
+get-lines 'ayu-highlight.css'
+exit
+cd notibook/book/
+get-lines 'ayu-highlight.css'
+get-lines 'ayu-highlight.css' | length
+l
+get-lines favicon.png | lines
+get-lines favicon.png 
+get-lines favicon.png | describe
+get-lines favicon.png | lines
+cd ../
+count-lines notibook/
+exit
+count-lines notibook/
+exit
+count-lines notibook/
+[1] | math sum
+[] | math sum
+exit
+count-lines notibook/
+exit
+count-lines notibook/
+exit
+count-lines notibook/
+cd notibook/book/
+cd Images/
+get-lines example-jsonmaf1a.png
+get-lines example-jsonmaf1a.png | length
+get-lines example-jsonmaf1a.png
+open example-jsonmaf1a.png | lines o>| length
+open example-jsonmaf1a.png | lines 
+open example-jsonmaf1a.png | decode
+help decode
+open example-jsonmaf1a.png | decode utf-8
+help decode
+open example-jsonmaf1a.png | decode utf-8 | lines
+open example-jsonmaf1a.png | decode | lines
+help lines
+l
+help open
+open example-jsonmaf1a.png -r | decode utf-8
+open example-jsonmaf1a.png -r | decode utf-8 | lines
+wc -l
+wc -l example-jsonmaf1a.png
+wc example-jsonmaf1a.png
+wc --help
+wc -l example-jsonmaf1a.png
+help append
+[1 2] | append 3
+[1 2] | append 3 | length
+exit
+count-lines notibook/
+exit
+count-lines notibook/
+exit
+count-lines notibook/
+exit
+count-lines notibook/
+exit
+count-lines src/
+exit
+count-lines src/
+cd src/
+l
+v Autostart.md
+open Autostart.md | lines
+open Autostart.md | lines -s
+open Autostart.md | lines --skip-empty
+help
+help lines
+$"bebra\n\nbebra" | lnes
+$"bebra\n\nbebra" | lines
+$"bebra\n\nbebra" | lines -s
+open Autostart.md | lines --skip-empty
+v Autostart.md
+open Autostart.md | lines --skip-empty
+open Autostart.md --raw | decode utf-8 | lines -s
+open Autostart.md | lines --skip-empty
+open Autostart.md --raw | decode utf-8 | lines -s
+exit
+count-lines src/
+exit
+count-lines src/
+cd book/
+count-lines Images/
+cd Images/
+l
+try {open example-jsonmaf1a.png -r | decode utf-8 | lines | length } catch { 0 }
+open example-jsonmaf1a.png -r | decode utf-8 | lines | length
+open example-jsonmaf1a.png -r | decode utf-8 | lines
+"Error:<\n>  × Main thread panicked.<\n>  ├─▶ at /build/.cargo/registry/src/index.crates.io-6f17d22bba15001f/papergrid-0.12.0/src/util/string.rs:46:27<\n>  ╰─▶ byte index 699 is not a char boundary; it is inside '�' (bytes 698..701) of<\n>      `\n��1��q����{���nB��,�ݯx'n��&�>�<~��7oo{��\�g>����3>�%uT�cS��v-.p��;ն��z�ī�ʒ�w��h4�,<\n>                                                                                           ʢ`��{����������-�:H����,N��`[...]<\n>  help: set the `RUST_BACKTRACE=1` environment variable to display a backtrace." | lines
+"Error:<\n>  × Main thread panicked.<\n>  ├─▶ at /build/.cargo/registry/src/index.crates.io-6f17d22bba15001f/papergrid-0.12.0/src/util/string.rs:46:27<\n>  ╰─▶ byte index 699 is not a char boundary; it is inside '�' (bytes 698..701) of<\n>      `\n��1��q����{���nB��,�ݯx'n��&�>�<~��7oo{��\�g>����3>�%uT�cS��v-.p��;ն��z�ī�ʒ�w��h4�,<\n>                                                                                           ʢ`��{����������-�:H����,N��`[...]<\n>  help: set the `RUST_BACKTRACE=1` environment variable to display a backtrace." | length
+$"Error:<\n>  × Main thread panicked.<\n>  ├─▶ at /build/.cargo/registry/src/index.crates.io-6f17d22bba15001f/papergrid-0.12.0/src/util/string.rs:46:27<\n>  ╰─▶ byte index 699 is not a char boundary; it is inside '�' (bytes 698..701) of<\n>      `\n��1��q����{���nB��,�ݯx'n��&�>�<~��7oo{��\�g>����3>�%uT�cS��v-.p��;ն��z�ī�ʒ�w��h4�,<\n>                                                                                           ʢ`��{����������-�:H����,N��`[...]<\n>  help: set the `RUST_BACKTRACE=1` environment variable to display a backtrace." | length
+$"Error:<\n>  × Main thread panicked.<\n>  ├─▶ at /build/.cargo/registry/src/index.crates.io-6f17d22bba15001f/papergrid-0.12.0/src/util/string.rs:46:27<\n>  ╰─▶ byte index 699 is not a char boundary; it is inside '�' \(bytes 698..701) of<\n>      `\n��1��q����{���nB��,�ݯx'n��&�>�<~��7oo{��\�g>����3>�%uT�cS��v-.p��;ն��z�ī�ʒ�w��h4�,<\n>                                                                                           ʢ`��{����������-�:H����,N��`[...]<\n>  help: set the `RUST_BACKTRACE=1` environment variable to display a backtrace." | length
+$"Error:\<\n>  × Main thread panicked.\<\n>  ├─▶ at /build/.cargo/registry/src/index.crates.io-6f17d22bba15001f/papergrid-0.12.0/src/util/string.rs:46:27\<\n>  ╰─▶ byte index 699 is not a char boundary; it is inside '�' \(bytes 698..701) of\<\n>      `\n��1��q����{���nB��,�ݯx'n��&�>�<~��7oo{��\�g>����3>�%uT�cS��v-.p��;ն��z�ī�ʒ�w��h4�,\<\n>                                                                                           ʢ`��{����������-�:H����,N��`[...]\<\n>  help: set the `RUST_BACKTRACE=1` environment variable to display a backtrace." | length
+$"Error:<\n>  × Main thread panicked.<\n>  ├─▶ at /build/.cargo/registry/src/index.crates.io-6f17d22bba15001f/papergrid-0.12.0/src/util/string.rs:46:27<\n>  ╰─▶ byte index 699 is not a char boundary; it is inside '�' \(bytes 698..701) of<\n>      `\n��1��q����{���nB��,�ݯx'n��&�>�<~��7oo{��\�g>����3>�%uT�cS��v-.p��;ն��z�ī�ʒ�w��h4�,<\n>                                                                                           ʢ`��{����������-�:H����,N��`[...]<\n>  help: set the `RUST_BACKTRACE=1` environment variable to display a backtrace." | length
+$"Error:<\n>  × Main thread panicked.<\n>  ├─▶ at /build/.cargo/registry/src/index.crates.io-6f17d22bba15001f/papergrid-0.12.0/src/util/string.rs:46:27<\n>  ╰─▶ byte index 699 is not a char boundary; it is inside '�' \(bytes 698..701) of<\n>      `\n��1��q����{���nB��,�ݯx'n��&�>�<~��7oo{��\�g>����3>�%uT�cS��v-.p��;ն��z�ī�ʒ�w��h4�,<\n>                                                                                           ʢ`��{����������-�:H����,N��`[...]<\n>  help: set the `RUST_BACKTRACE=1` environment variable to display a backtrace." | length | length
+open example-jsonmaf1a.png -r | decode utf-8 | lines
+open example-jsonmaf1a.png -r | decode utf-8 | lines | length
+open example-jsonmaf1a.png -r | decode utf-8 |  length
+open example-jsonmaf1a.png -r | decode utf-8 | length
+open example-jsonmaf1a.png -r | | length
+open example-jsonmaf1a.png -r |  length
+open example-jsonmaf1a.png -r | decode utf-8 | length
+open example-jsonmaf1a.png -r | decode utf-8 | lines | length
+help length
+length
+length "enviea"
+length
+exit
+exit
+l
+exit
+git status
+chsh --help
+echo $SHELL
+echo $env.SHELL
+cd Coding/haskell_programming/test/
+l
+zsh
+cd
+cd dotfiles/config/nvim
+v
+exit
+v
+v
+exit
+exit
+v lua/plugins/extensions/
+exit
+v flake.nix
+cd
+cd dotfiles/config/nushell/
+l
+v config.nu
+exit
+exit
+l
+cd
+cd Coding/
+git clone git@github.com:nushell/nu-scripts
+git clone git@github.com:nushell/nuXscripts.git
+git clone git@github.com:nushell/nu_scripts.git
+cd nu_scripts/
+l
+cd themes/
+l
+cd nu-themes/
+source catppuccin-latte.nu
+l
+cp catppuccin-latte.nu ~/dotfiles/config/nushell/
+cd ../
+l
+cd ../
+l
+cd custom-completions/
+l
+cp cargo cargo curl git gh rg nix bat make man rustup typst ~/dotfiles/config/nushell
+cp -r cargo cargo curl git gh rg nix bat make man rustup typst ~/dotfiles/config/nushell
+cp -r cargo cargo-make curl git gh rg nix bat make man rustup typst ~/dotfiles/config/nushell
+cd
+cd dotfiles/config/nushell/
+l
+md completions
+mv bat cargo* curl/ gh git make man nix rg rustup/ typst/ completions/
+l
+md themes
+mv catppuccin-latte.nu themes
+exit
+echo const
+help const
+l completions/*
+l completions/*/
+l completions/*/*
+l completions/*/* | get name
+l completions/*/* | get name | each {|in| $"source ($in)"}
+l completions/*/* | get name | each {|in| $"source ($in)"} |wl-copy
+l completions/*/* | get name | each {|in| $"source ($in)"} |join  | wl-copy
+help join
+help concat
+help ++
+help +
+"hell" + "o"
+l completions/*/* | get name | each {|in| $"source ($in)"} | reduce   | wl-copy
+help reduce
+l completions/*/* | get name | each {|in| $"source ($in)"} | reduce {|lhs, rhs| $lhs + $rhs}  | wl-copy
+l completions/*/* | get name | each {|in| $"source ($in)"} | reduce {|lhs, rhs| $lhs + "\n" + $rhs}  | wl-copy
+exit
+l
+rg --help
+exit
+v config.nu
+cd>./
+cd ../
+git statu
+git status .
