@@ -22,10 +22,14 @@ $env.config.rm.always_trash = true
 $env.config.completions.algorithm = "fuzzy"
 $env.config.completions.sort = "smart"
 
-alias v = nvim
+def v [ path: path ] { nvim $path }
+def nv [ path: path ] { neovide $path }
+
+
 alias l = ls -la
 alias md = mkdir
-alias cat = bat --theme='Catppuccin Latte'
+
+def cat [ path: path ] { bat --theme='Catppuccin Latte' $path }
 
 alias caban = cabal
 
@@ -59,3 +63,7 @@ source "./completions/curl/curl-completions.nu"
 source "./completions/cargo-make/cargo-make-completions.nu"
 source "./completions/cargo/cargo-completions.nu"
 source "./completions/bat/bat-completions.nu"
+
+# --- Starship propmt ---
+use ~/.cache/starship/init.nu
+# -----------------------
