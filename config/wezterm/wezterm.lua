@@ -6,7 +6,6 @@ local config = {
   font = wezterm.font("JetBrainsMono Nerd Font Mono"),
   font_size = 14,
   check_for_updates = false,
-  enable_wayland = false,
   enable_tab_bar = true,
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = true,
