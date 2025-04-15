@@ -15,12 +15,14 @@ return {
 
       ["<C-d>"] = {"scroll_documentation_down"},
       ["<C-u>"] = {"scroll_documentation_up"},
+    },
 
-      cmdline = {
+    cmdline = {
+      keymap = {
         preset = 'enter',
         ['<CR>'] = {},
         ['<S-CR>'] = { 'accept' },
-      }
+      },
     },
 
     appearance = {
