@@ -1,0 +1,92 @@
+# Theming
+font: JetBrainsMono Nerd Font 14
+background: "#282828d0"
+color: "#fbf1c7"
+border: "#8ec07c"
+separator: " ➜ "
+border_width: 3
+corner_r: 2
+padding: 15
+column_padding: 25
+
+# One of center, left, right, top, bottom, bottom-left, top-left, etc.
+anchor: bottom 
+# Only relevant when anchor is not center
+margin_right: 0
+margin_bottom: 30
+margin_left: 0
+margin_top: 0
+
+# Permits key bindings that conflict with compositor key bindings.
+# Default is `false`.
+inhibit_compositor_keyboard_shortcuts: true
+
+menu:
+  - key: [Left, "h"]
+    keep_open: true
+    desc: Move the focused column to the left
+    cmd: niri msg action move-column-left
+  - key: [Right, "l"]
+    keep_open: true
+    desc: Move the focused column to the right
+    cmd: niri msg action move-column-right
+  - key: [Down, "j"]
+    keep_open: true
+    desc: Move the focused window down in a column
+    cmd: niri msg action move-window-down
+  - key: [Up, "k"]
+    keep_open: true
+    desc: Move the focused window up in a column
+    cmd: niri msg action move-window-up
+  - key: [Alt+Right, Alt+l]
+    keep_open: true
+    desc: Consume or expel the window right
+    cmd: niri msg action consume-or-expel-window-right
+  - key: [Alt+Left, Alt+h]
+    keep_open: true
+    desc: Consume or expel the window left
+    cmd: niri msg action consume-or-expel-window-left
+
+  - key: ["1"]
+    keep_open: true
+    desc: Move the focused column toworkspace 1
+    cmd: niri msg action move-column-to-workspace 1
+  - key: ["2"]
+    keep_open: true
+    desc: Move the focused column toworkspace 2
+    cmd: niri msg action move-column-to-workspace 2
+  - key: ["3"]
+    keep_open: true
+    desc: Move the focused column toworkspace 3
+    cmd: niri msg action move-column-to-workspace 3
+  - key: ["4"]
+    keep_open: true
+    desc: Move the focused column toworkspace 4
+    cmd: niri msg action move-column-to-workspace 4
+  - key: ["5"]
+    keep_open: true
+    desc: Move the focused column toworkspace 5
+    cmd: niri msg action move-column-to-workspace 5
+  - key: ["6"]
+    keep_open: true
+    desc: Move the focused column toworkspace 6
+    cmd: niri msg action move-column-to-workspace 6
+  - key: ["7"]
+    keep_open: true
+    desc: Move the focused column toworkspace 7
+    cmd: niri msg action move-column-to-workspace 7
+  - key: ["8"]
+    keep_open: true
+    desc: Move the focused column toworkspace 8
+    cmd: niri msg action move-column-to-workspace 8
+  - key: ["9"]
+    keep_open: true
+    desc: Move the focused column toworkspace 9
+    cmd: niri msg action move-column-to-workspace 9
+
+  - key: "f"
+    desc: Use focus mode
+    cmd: wlr-which-key focus
+  - key: "r"
+    desc: Use resize mode
+    cmd: wlr-which-key resize

@@ -1,0 +1,53 @@
+font: JetBrainsMono Nerd Font 14
+background: "#282828d0"
+color: "#fbf1c7"
+border: "#8ec07c"
+separator: " ➜ "
+border_width: 3
+corner_r: 2
+padding: 15
+column_padding: 25
+
+# One of center, left, right, top, bottom, bottom-left, top-left, etc.
+anchor: bottom 
+# Only relevant when anchor is not center
+margin_right: 0
+margin_bottom: 30
+margin_left: 0
+margin_top: 0
+
+# Permits key bindings that conflict with compositor key bindings.
+# Default is `false`.
+inhibit_compositor_keyboard_shortcuts: true
+
+menu:
+  - key: [Left, "h"]
+    keep_open: true
+    desc: Decrease width of the focused column
+    cmd: niri msg action set-column-width "-10%"
+  - key: [Right, "l"]
+    keep_open: true
+    desc: Increase width of the focused column
+    cmd: niri msg action set-column-width "+10%"
+  - key: [Up, "k"]
+    keep_open: true
+    desc: Increase heigth of the focused window
+    cmd: niri msg action set-window-height "+10%"
+  - key: [Down, "j"]
+    keep_open: true
+    desc: Decrease heigth of the focused window
+    cmd: niri msg action set-window-height "-10%"
+  - key: "r"
+    keep_open: true
+    desc: Use next preset of width for the focused column
+    cmd: niri msg action switch-preset-column-width
+  - key: "c"
+    keep_open: true
+    desc: Use next preset of height for the focused window
+    cmd: niri msg action switch-preset-window-height
+  - key: "f"
+    desc: Use focus mode
+    cmd: wlr-which-key focus
+  - key: "m"
+    desc: Use move mode
+    cmd: wlr-which-key move

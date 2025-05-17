@@ -1,0 +1,34 @@
+# Theming
+font: JetBrainsMono Nerd Font 14
+background: "#282828d0"
+color: "#fbf1c7"
+border: "#8ec07c"
+separator: " ➜ "
+border_width: 3
+corner_r: 2
+padding: 15 # Defaults to corner_r
+rows_per_column: 5 # No limit by default
+column_padding: 25 # Defaults to padding
+
+# Anchor and margin
+anchor: bottom # One of center, left, right, top, bottom, bottom-left, top-left, etc.
+# Only relevant when anchor is not center
+margin_right: 0
+margin_bottom: 30
+margin_left: 0
+margin_top: 0
+
+# Permits key bindings that conflict with compositor key bindings.
+# Default is `false`.
+inhibit_compositor_keyboard_shortcuts: true
+
+menu:
+  - key: "f"
+    desc: Focus
+    cmd: wlr-which-key focus
+  - key: "m"
+    desc: Move
+    cmd: wlr-which-key move
+  - key: "r"
+    desc: Resize
+    cmd: wlr-which-key resize

@@ -1,0 +1,83 @@
+font: JetBrainsMono Nerd Font 14
+background: "#282828d0"
+color: "#fbf1c7"
+border: "#8ec07c"
+separator: " ➜ "
+border_width: 3
+corner_r: 2
+padding: 15
+column_padding: 25
+
+# One of center, left, right, top, bottom, bottom-left, top-left, etc.
+anchor: bottom 
+# Only relevant when anchor is not center
+margin_right: 0
+margin_bottom: 30
+margin_left: 0
+margin_top: 0
+
+# Permits key bindings that conflict with compositor key bindings.
+# Default is `false`.
+inhibit_compositor_keyboard_shortcuts: true
+
+menu:
+  - key: [Left, "h"]
+    keep_open: true
+    desc: Focus the column left
+    cmd: niri msg action focus-column-left
+  - key: [Right, "l"]
+    keep_open: true
+    desc: Focus the column right
+    cmd: niri msg action focus-column-right
+  - key: [Down, "j"]
+    keep_open: true
+    desc: Focus the window below
+    cmd: niri msg action focus-window-down
+  - key: [Up, "k"]
+    keep_open: true
+    desc: Focus the window above
+    cmd: niri msg action focus-window-up
+
+  - key: ["1"]
+    keep_open: true
+    desc: Focus the workspace 1
+    cmd: niri msg action focus-workspace 1
+  - key: ["2"]
+    keep_open: true
+    desc: Focus the workspace 2
+    cmd: niri msg action focus-workspace 2
+  - key: ["3"]
+    keep_open: true
+    desc: Focus the workspace 3
+    cmd: niri msg action focus-workspace 3
+  - key: ["4"]
+    keep_open: true
+    desc: Focus the workspace 4
+    cmd: niri msg action focus-workspace 4
+  - key: ["5"]
+    keep_open: true
+    desc: Focus the workspace 5
+    cmd: niri msg action focus-workspace 5
+  - key: ["6"]
+    keep_open: true
+    desc: Focus the workspace 6
+    cmd: niri msg action focus-workspace 6
+  - key: ["7"]
+    keep_open: true
+    desc: Focus the workspace 7
+    cmd: niri msg action focus-workspace 7
+  - key: ["8"]
+    keep_open: true
+    desc: Focus the workspace 8
+    cmd: niri msg action focus-workspace 8
+  - key: ["9"]
+    keep_open: true
+    desc: Focus the workspace 9
+    cmd: niri msg action focus-workspace 9
+
+  - key: "m"
+    desc: Use move mode
+    cmd: wlr-which-key move
+  - key: "r"
+    desc: Use resize mode
+    cmd: wlr-which-key resize
