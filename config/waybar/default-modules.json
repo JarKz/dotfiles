@@ -1,47 +1,4 @@
 {
-  "layer": "top",
-  "margin-top": 0,
-  "margin-left": 0,
-  "margin-bottom": 0,
-  "margin-right": 0,
-  "spacing": 4,
-
-  "include": [
-    "$XDG_CONFIG_HOME/waybar/default-modules.json"
-  ],
-
-  "modules-left": [
-    "custom/launcher",
-    "custom/separator",
-    "cpu",
-    "memory",
-    "temperature",
-    "custom/filler",
-    "disk",
-    "custom/filler",
-    "custom/blueberry",
-    "custom/filler",
-    "custom/pacman",
-  ],
-
-  "modules-center": [
-    "niri/workspaces"
-  ],
-
-  "modules-right": [
-    "battery",
-    "custom/filler",
-    "custom/ergonaut-battery",
-    "custom/filler",
-    "pulseaudio",
-    "custom/filler",
-    "network",
-    "custom/filler",
-    "niri/language",
-    "custom/filler",
-    "clock"
-  ],
-
   "custom/filler": {
     "format": "<span size=\"16pt\"></span>"
   },
@@ -77,15 +34,18 @@
   "custom/pacman": {
       "format": " {} <big></big>",
       "interval": 3600,
-      "exec": "checkupdates | wc -l", // pacman-contrib package
+      "exec": "checkupdates | wc -l   # pacman-contrib package",
       "exec-if": "exit 0",
       "signal": 8
   },
 
-  "niri/workspaces": {
+  "hyprland/workspaces": {
     "all-outputs": true,
-    "current-only": false,
-    "format": "{icon}[{index}]",
+    "active-only": false,
+    "on-click": "activate",
+    "format": "{icon}[{name}]",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
     "format-icons": {
       "1": "",
       "2": "",
@@ -149,7 +109,7 @@
     "format-disconnected": ""
   },
 
-  "niri/language": {
+  "hyprland/language": {
     "format": "{}",
     "on-click": "kb_switcher switch"
   },
