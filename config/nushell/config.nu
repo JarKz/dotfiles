@@ -22,8 +22,8 @@ $env.config.rm.always_trash = true
 $env.config.completions.algorithm = "fuzzy"
 $env.config.completions.sort = "smart"
 
-def v [ path: path ] { nvim $path }
-def nv [ path: path ] { neovide $path }
+def v [ path?: path ] { if ($path != null) { nvim $path } else { nvim } }
+def nv [ path?: path ] { if ($path != null) { neovide $path } else { neovide } }
 
 
 alias l = ls -la
