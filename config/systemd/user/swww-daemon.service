@@ -6,7 +6,7 @@ Requisite=graphical-session.target
 
 [Service]
 ExecStart=/usr/bin/swww-daemon
-ExecStartPost=/usr/bin/sh -c $XDG_CONFIG_HOME/niri/background-imgs.sh
+ExecStartPost=/usr/bin/sh -c "${XDG_CONFIG_HOME}/niri/background-imgs.sh"
 Restart=on-failure
 
 [Install]
