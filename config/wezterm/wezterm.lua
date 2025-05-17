@@ -12,6 +12,9 @@ local config = {
   hide_tab_bar_if_only_one_tab = false,
   show_new_tab_button_in_tab_bar = false,
   xcursor_theme = "Bibata-Modern-Classic",
+
+  front_end = "WebGpu",
+  webgpu_power_preference = "HighPerformance",
 }
 
 for k, v in pairs(wezterm.config_builder()) do
