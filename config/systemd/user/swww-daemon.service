@@ -1,0 +1,13 @@
+[Unit]
+Description=Background image renderer
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/swww-daemon
+ExecStartPost=/usr/bin/sh -c $XDG_CONFIG_HOME/niri/background-imgs.sh
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

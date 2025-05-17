@@ -1,0 +1,12 @@
+[Unit]
+Description=The battery notifier
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/sh -c $XDG_DATA_HOME/bash-scripts/check-battery.sh
+
+[Install]
+WantedBy=default.target
