@@ -39,13 +39,9 @@
       "signal": 8
   },
 
-  "hyprland/workspaces": {
-    "all-outputs": true,
-    "active-only": false,
-    "on-click": "activate",
-    "format": "{icon}[{name}]",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1",
+  "niri/workspaces": {
+    "current-only": false,
+    "format": "{icon}[{index}]",
     "format-icons": {
       "1": "",
       "2": "",
@@ -109,7 +105,7 @@
     "format-disconnected": ""
   },
 
-  "hyprland/language": {
+  "niri/language": {
     "format": "{}",
     "on-click": "kb_switcher switch"
   },
