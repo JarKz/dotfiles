@@ -313,19 +313,16 @@ window-rule {
     default-column-width {}
 }
 
-window-rule {
-    match app-id=r#"^jetbrains-idea-ce$"# title="^Confirm Exit$"
-    match app-id=r#"^jetbrains-idea-ce$"# title="^win"
-    match app-id=r#"^jetbrains-studio$"# title="^Confirm Exit$"
-    match app-id=r#"^jetbrains-studio$"# title="^win"
-    open-floating true
-}
-
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"^jetbrains-idea-ce$"# title="^Confirm Exit$"
+    match app-id=r#"^jetbrains-idea-ce$"# title="^win"
+    match app-id=r#"^jetbrains-studio$"# title="^Confirm Exit$"
+    match app-id=r#"^jetbrains-studio$"# title="^win"
+    match app-id=r#"^Pinentry"#
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
