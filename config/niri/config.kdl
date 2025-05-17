@@ -319,6 +319,12 @@ window-rule {
     open-focused false
 }
 
+window-rule {
+   match app-id="steam"
+   exclude title="Steam"
+   open-floating true
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
