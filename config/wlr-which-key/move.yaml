@@ -10,7 +10,7 @@ padding: 15
 column_padding: 25
 
 # One of center, left, right, top, bottom, bottom-left, top-left, etc.
-anchor: bottom 
+anchor: bottom
 # Only relevant when anchor is not center
 margin_right: 0
 margin_bottom: 30
@@ -46,6 +46,19 @@ menu:
     keep_open: true
     desc: Consume or expel the window left
     cmd: niri msg action consume-or-expel-window-left
+
+  - key: [Ctrl+Left, Ctrl+h]
+    desc: Move the focused column to the monitor to the left
+    cmd: niri msg action move-column-to-monitor-left
+  - key: [Ctrl+Right, Ctrl+l]
+    desc: Move the focused column to the monitor to the right
+    cmd: niri msg action move-column-to-monitor-right
+  - key: [Ctrl+Down, Ctrl+j]
+    desc: Move the focused column to the monitor below
+    cmd: niri msg action move-column-to-monitor-down
+  - key: [Ctrl+Up, Ctrl+k]
+    desc: Move the focused column to the monitor above
+    cmd: niri msg action move-window-to-monitor-up
 
   - key: ["1"]
     keep_open: true

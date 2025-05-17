@@ -38,6 +38,19 @@ menu:
     desc: Focus the window above
     cmd: niri msg action focus-window-up
 
+  - key: [Alt+Left, Alt+h]
+    desc: Focus the monitor to the left
+    cmd: niri msg action focus-monitor-left
+  - key: [Alt+Right, Alt+l]
+    desc: Focus the monitor to the right
+    cmd: niri msg action focus-monitor-right
+  - key: [Alt+Down, Alt+j]
+    desc: Focus the monitor below
+    cmd: niri msg action focus-monitor-down
+  - key: [Alt+Up, Alt+k]
+    desc: Focus the monitor above
+    cmd: niri msg action focus-monitor-up
+
   - key: ["1"]
     keep_open: true
     desc: Focus the workspace 1
