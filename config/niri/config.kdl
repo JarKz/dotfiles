@@ -32,7 +32,7 @@ input {
     keyboard {
         xkb {
             layout "us,ru,by"
-            options "compose:ralt"
+            options "compose:rctrl"
         }
     }
 
