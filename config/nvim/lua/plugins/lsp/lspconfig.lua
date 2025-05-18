@@ -1,3 +1,5 @@
+local border = require("config.window_config").border
+
 local function update_diagnostic_ui()
   --- @param source table of source highlight params
   --- @param destination table of destination highlight params
@@ -42,8 +44,6 @@ local function update_diagnostic_ui()
     [vim.diagnostic.severity.INFO] = " "
   }
 
-  local border = require("config.window_config").border
-
   vim.diagnostic.config({
     virtual_text = {
       prefix = function(diagnostic, _, _)
@@ -66,8 +66,6 @@ local function update_diagnostic_ui()
     },
     severity_sort = true,
   })
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
 end
 
 return {
@@ -76,14 +74,6 @@ return {
     "sainnhe/sonokai",
     "folke/which-key.nvim",
     "saghen/blink.cmp",
-  },
-
-  keys = {
-    remap = false,
-    nowait = false,
-    {"<space>e", vim.diagnostic.open_float, desc = "Open diagnostic window"},
-    {"]d", vim.diagnostic.goto_next, desc = "Next diagnostic entry"},
-    {"[d", vim.diagnostic.goto_prev, desc = "Previous diagonostic entry"},
   },
 
   opts = {
@@ -147,8 +137,6 @@ return {
   },
 
   config = function(_, opts)
-    local lspconfig = require("lspconfig")
-
     for server, config in pairs(opts.servers) do
       config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
       config.capabilities.textDocument.foldingRange = {
@@ -156,10 +144,14 @@ return {
         lineFoldingOnly = true,
       }
 
-      lspconfig[server].setup(config)
+      vim.lsp.enable(server)
+      if #config > 0 then
+        vim.lsp.config(server, config)
+      end
     end
 
-    lspconfig.efm.setup(opts.efm)
+    vim.lsp.enable("efm")
+    vim.lsp.config("efm", opts.efm)
 
     -- Use LspAttach autocommand to only map the following keys
     -- after the language server attaches to the current buffer
@@ -176,18 +168,22 @@ return {
           buffer = ev.buf,
           remap = false,
           nowait = false,
-          { "<space>D", vim.lsp.buf.type_definition, desc = "Type definition" },
-          { "<space>rn", vim.lsp.buf.rename, desc = "Rename" },
-          { "<space>ca", vim.lsp.buf.code_action, desc = "Code action" },
-          { "<space>f", function() vim.lsp.buf.format{async = true} end, desc = "Format buffer" },
+          { "<space>e",  vim.diagnostic.open_float,                                        desc = "Open diagnostic window" },
+          { "K",         function() vim.lsp.buf.hover({ border = border }) end,            desc = "Hover element" },
+          { "]d",        function() vim.diagnostic.jump({ count = 1, float = true }) end,  desc = "Next diagnostic entry" },
+          { "[d",        function() vim.diagnostic.jump({ count = -1, float = true }) end, desc = "Previous diagonostic entry" },
+          { "<space>D",  vim.lsp.buf.type_definition,                                      desc = "Type definition" },
+          { "<space>rn", vim.lsp.buf.rename,                                               desc = "Rename" },
+          { "<space>ca", vim.lsp.buf.code_action,                                          desc = "Code action" },
+          { "<space>f",  function() vim.lsp.buf.format { async = true } end,               desc = "Format buffer" },
           {
             "<space>K",
-              function()
-                local winid = require("ufo").peekFoldedLinesUnderCursor()
-                if not winid then
-                  vim.lsp.buf.hover()
-                end
-              end,
+            function()
+              local winid = require("ufo").peekFoldedLinesUnderCursor()
+              if not winid then
+                vim.lsp.buf.hover({ border = border })
+              end
+            end,
             desc = "Hower (show documentation or show fold preview)"
           },
           {
@@ -197,11 +193,11 @@ return {
             end,
             desc = "Toggle inlay hints"
           },
-          { "gD", vim.lsp.buf.declaration, desc = "Go to Declaration" },
-          { "gd", vim.lsp.buf.definition, desc = "Go to Definition" },
-          { "<C-k>", vim.lsp.buf.signature_help, desc = "Signature help" },
-          { "<leader>R", fzf.lsp_references, desc = "Show references" },
-          { "<leader>I", fzf.lsp_implementations, desc = "Show implementations" }
+          { "gD",        vim.lsp.buf.declaration,                                        desc = "Go to Declaration" },
+          { "gd",        vim.lsp.buf.definition,                                         desc = "Go to Definition" },
+          { "<C-k>",     function() vim.lsp.buf.signature_help({ border = border }) end, desc = "Signature help" },
+          { "<leader>R", fzf.lsp_references,                                             desc = "Show references" },
+          { "<leader>I", fzf.lsp_implementations,                                        desc = "Show implementations" }
         }
       end,
     })
