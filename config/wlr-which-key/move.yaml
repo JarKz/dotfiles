@@ -47,6 +47,11 @@ menu:
     desc: Consume or expel the window left
     cmd: niri msg action consume-or-expel-window-left
 
+  - key: ["c"]
+    keep_open: true
+    desc: Center the focused column
+    cmd: niri msg action center-column
+
   - key: [Ctrl+Left, Ctrl+h]
     desc: Move the focused column to the monitor to the left
     cmd: niri msg action move-column-to-monitor-left
