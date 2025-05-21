@@ -154,7 +154,7 @@ binds {
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
 
-    Mod+Space hotkey-overlay-title="Switch layout" { spawn "lc-niri" "switch"; }
+    Mod+Space hotkey-overlay-title="Switch layout" allow-when-locked=true { spawn "lc-niri" "switch"; }
 
     Print { screenshot; }
     Ctrl+Print { spawn "sh" "-c" "niri msg action screenshot-screen; sleep 0.2; wl-paste | satty --filename -"; }
