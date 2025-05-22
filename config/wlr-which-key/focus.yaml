@@ -9,7 +9,7 @@ padding: 15
 column_padding: 25
 
 # One of center, left, right, top, bottom, bottom-left, top-left, etc.
-anchor: bottom 
+anchor: bottom
 # Only relevant when anchor is not center
 margin_right: 0
 margin_bottom: 30
@@ -40,16 +40,18 @@ menu:
 
   - key: [Ctrl+Left, Ctrl+h]
     desc: Focus the monitor to the left
-    cmd: niri msg action focus-monitor-left
+    cmd: niri msg action focus-monitor-left && wlr-which-key focus
   - key: [Ctrl+Right, Ctrl+l]
     desc: Focus the monitor to the right
-    cmd: niri msg action focus-monitor-right
+    cmd: niri msg action focus-monitor-right && wlr-which-key focus
+
   - key: [Ctrl+Down, Ctrl+j]
     desc: Focus the monitor below
-    cmd: niri msg action focus-monitor-down
+    cmd: niri msg action focus-monitor-down && wlr-which-key focus
+
   - key: [Ctrl+Up, Ctrl+k]
     desc: Focus the monitor above
-    cmd: niri msg action focus-monitor-up
+    cmd: niri msg action focus-monitor-up && wlr-which-key focus
 
   - key: ["1"]
     keep_open: true
