@@ -24,19 +24,19 @@ menu:
   - key: [Left, "h"]
     keep_open: true
     desc: Decrease width of the focused column
-    cmd: niri msg action set-column-width "-10%"
+    cmd: niri msg action set-column-width "-5%"
   - key: [Right, "l"]
     keep_open: true
     desc: Increase width of the focused column
-    cmd: niri msg action set-column-width "+10%"
+    cmd: niri msg action set-column-width "+5%"
   - key: [Up, "k"]
     keep_open: true
     desc: Increase heigth of the focused window
-    cmd: niri msg action set-window-height "+10%"
+    cmd: niri msg action set-window-height "-5%"
   - key: [Down, "j"]
     keep_open: true
     desc: Decrease heigth of the focused window
-    cmd: niri msg action set-window-height "-10%"
+    cmd: niri msg action set-window-height "+5%"
   - key: "r"
     keep_open: true
     desc: Use next preset of width for the focused column
