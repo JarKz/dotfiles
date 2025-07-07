@@ -67,41 +67,44 @@ menu:
 
   - key: ["1"]
     keep_open: true
-    desc: Move the focused column toworkspace 1
+    desc: Move the focused column to workspace 1
     cmd: niri msg action move-column-to-workspace 1
   - key: ["2"]
     keep_open: true
-    desc: Move the focused column toworkspace 2
+    desc: Move the focused column to workspace 2
     cmd: niri msg action move-column-to-workspace 2
   - key: ["3"]
     keep_open: true
-    desc: Move the focused column toworkspace 3
+    desc: Move the focused column to workspace 3
     cmd: niri msg action move-column-to-workspace 3
   - key: ["4"]
     keep_open: true
-    desc: Move the focused column toworkspace 4
+    desc: Move the focused column to workspace 4
     cmd: niri msg action move-column-to-workspace 4
   - key: ["5"]
     keep_open: true
-    desc: Move the focused column toworkspace 5
+    desc: Move the focused column to workspace 5
     cmd: niri msg action move-column-to-workspace 5
   - key: ["6"]
     keep_open: true
-    desc: Move the focused column toworkspace 6
+    desc: Move the focused column to workspace 6
     cmd: niri msg action move-column-to-workspace 6
   - key: ["7"]
     keep_open: true
-    desc: Move the focused column toworkspace 7
+    desc: Move the focused column to workspace 7
     cmd: niri msg action move-column-to-workspace 7
   - key: ["8"]
     keep_open: true
-    desc: Move the focused column toworkspace 8
+    desc: Move the focused column to workspace 8
     cmd: niri msg action move-column-to-workspace 8
   - key: ["9"]
     keep_open: true
-    desc: Move the focused column toworkspace 9
+    desc: Move the focused column to workspace 9
     cmd: niri msg action move-column-to-workspace 9
 
+  - key: ["w"]
+    desc: Use workspace movements
+    cmd: wlr-which-key move-workspace
   - key: "f"
     desc: Use focus mode
     cmd: wlr-which-key focus
