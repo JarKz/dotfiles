@@ -137,6 +137,12 @@ return {
   },
 
   config = function(_, opts)
+    local function tbl_len(tbl)
+      local count = 0
+      for _ in pairs(tbl) do count = count + 1 end
+      return count
+    end
+
     for server, config in pairs(opts.servers) do
       config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
       config.capabilities.textDocument.foldingRange = {
@@ -145,7 +151,7 @@ return {
       }
 
       vim.lsp.enable(server)
-      if #config > 0 then
+      if tbl_len(config) > 0 then
         vim.lsp.config(server, config)
       end
     end
