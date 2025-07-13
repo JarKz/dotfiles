@@ -13,8 +13,17 @@ return {
     keymap = {
       preset = 'enter',
 
-      ["<C-d>"] = {"scroll_documentation_down"},
-      ["<C-u>"] = {"scroll_documentation_up"},
+      ["<C-d>"] = { "scroll_documentation_down" },
+      ["<C-u>"] = { "scroll_documentation_up" },
+    },
+
+    cmdline = {
+      keymap = {
+        preset = "inherit",
+      },
+      completion = {
+        menu = { auto_show = true },
+      },
     },
 
     appearance = {
@@ -41,6 +50,12 @@ return {
       },
     },
 
+    signature = {
+      enabled = true,
+      window = {
+        border = require('config.window_config').border,
+      }
+    },
 
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
