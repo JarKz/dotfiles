@@ -16,10 +16,10 @@ return {
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = "gnn",
-        node_incremental = "gin",
-        scope_incremental = "gis",
-        node_decremental = "gim",
+        init_selection = "gis",
+        node_incremental = "gan",
+        scope_incremental = "gas",
+        node_decremental = "gin",
       },
     },
     autotag = {
